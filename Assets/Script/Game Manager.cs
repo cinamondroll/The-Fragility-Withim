@@ -2,15 +2,29 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Pengaturan Halaman Menu")]
+    public string Halaman_Menu;
+    public string[] Halaman_Permainan;
+    public string Halaman_Hasil;
+    
+    // public void PindahHalaman(string halamanTujuan)
+    // {
+    //     SceneManager.LoadScene(halamanTujuan);
+    // }
+
+    public void Open_Popup(GameObject gameObject)
     {
-        
+        gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Close_Popup(GameObject gameObject)
     {
-        
+        gameObject.SetActive(false);
+    }
+
+    public void Keluar_Aplikasi()
+    {
+        Application.Quit();
     }
 }
+
