@@ -4,14 +4,15 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject popUpPanel;
-    public Button closeButton;
+    public GameObject popUpExit;
+    public Button closePopUpExit;
+    public Button openPopUpExit;
 
     void Start()
     {
-        popUpPanel.SetActive(false);
-
-        closeButton.onClick.AddListener(ClosePopUp);
+        popUpExit.SetActive(false);
+        openPopUpExit.onClick.AddListener(ShowPopUp);
+        closePopUpExit.onClick.AddListener(ClosePopUp);
     }
 
     public void LoadNextScene()
@@ -39,11 +40,12 @@ public class GameManager : MonoBehaviour
 
     public void ShowPopUp()
     {
-        popUpPanel.SetActive(true);
+        popUpExit.SetActive(true);
     }
 
     public void ClosePopUp()
     {
-        popUpPanel.SetActive(false);
+        Debug.Log("Pop-up sedang ditutup");
+        popUpExit.SetActive(false);
     }
 }
