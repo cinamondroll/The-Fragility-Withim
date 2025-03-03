@@ -1,37 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 using UnityEngine.UI;
-
-
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Pengaturan Halaman Menu")]
-    public string Halaman_Menu;
-    public string[] Halaman_Permainan;
-    public string Halaman_Hasil;
+    public GameObject popUpPanel;
+    public Button closeButton;
 
-    public void PindahHalaman(string halamanTujuan)
+    void Start()
     {
-        SceneManager.LoadScene(halamanTujuan);
+        popUpPanel.SetActive(false);
+
+        closeButton.onClick.AddListener(ClosePopUp);
     }
 
-    public void Open_Popup(GameObject gameObject)
+    public void LoadNextScene()
     {
-        gameObject.SetActive(true);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        // Mengecek apakah scene berikutnya ada
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("Tidak ada scene berikutnya, kembali ke menu utama.");
+            LoadMainMenu();
+        }
     }
 
-    public void Close_Popup(GameObject gameObject)
+    // Fungsi untuk pindah ke MainMenu (misalnya setelah game selesai)
+    public void LoadMainMenu()
     {
-        gameObject.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void Keluar_Aplikasi()
+    public void ShowPopUp()
     {
-        Application.Quit();
+        popUpPanel.SetActive(true);
+    }
+
+    public void ClosePopUp()
+    {
+        popUpPanel.SetActive(false);
     }
 }
-
