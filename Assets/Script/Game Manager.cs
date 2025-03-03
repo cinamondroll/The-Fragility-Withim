@@ -8,44 +8,59 @@ public class GameManager : MonoBehaviour
     public Button closePopUpExit;
     public Button openPopUpExit;
 
-    void Start()
+    // void Start()
+    // {
+    //     popUpExit.SetActive(false);
+    //     openPopUpExit.onClick.AddListener(ShowPopUp);
+    //     closePopUpExit.onClick.AddListener(ClosePopUp);
+    // }
+
+    // public void LoadNextScene()
+    // {
+    //     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    //     int nextSceneIndex = currentSceneIndex + 1;
+
+    //     // Mengecek apakah scene berikutnya ada
+    //     if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+    //     {
+    //         SceneManager.LoadScene(nextSceneIndex);
+    //     }
+    //     else
+    //     {
+    //         Debug.Log("Tidak ada scene berikutnya, kembali ke menu utama.");
+    //         LoadMainMenu();
+    //     }
+    // }
+
+    // // Fungsi untuk pindah ke MainMenu (misalnya setelah game selesai)
+    // public void LoadMainMenu()
+    // {
+    //     SceneManager.LoadScene("MainMenu");
+    // }
+
+    // public void ShowPopUp()
+    // {
+    //     popUpExit.SetActive(true);
+    // }
+
+    // public void ClosePopUp()
+    // {
+    //     Debug.Log("Pop-up sedang ditutup");
+    //     popUpExit.SetActive(false);
+    // }
+
+    public void Open_Popup(GameObject gameObject)
     {
-        popUpExit.SetActive(false);
-        openPopUpExit.onClick.AddListener(ShowPopUp);
-        closePopUpExit.onClick.AddListener(ClosePopUp);
+        gameObject.SetActive(true);
     }
 
-    public void LoadNextScene()
+    public void Close_Popup(GameObject gameObject)
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentSceneIndex + 1;
-
-        // Mengecek apakah scene berikutnya ada
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            Debug.Log("Tidak ada scene berikutnya, kembali ke menu utama.");
-            LoadMainMenu();
-        }
+        gameObject.SetActive(false);
     }
 
-    // Fungsi untuk pindah ke MainMenu (misalnya setelah game selesai)
-    public void LoadMainMenu()
+    public void Keluar_Aplikasi()
     {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public void ShowPopUp()
-    {
-        popUpExit.SetActive(true);
-    }
-
-    public void ClosePopUp()
-    {
-        Debug.Log("Pop-up sedang ditutup");
-        popUpExit.SetActive(false);
+        Application.Quit();
     }
 }
