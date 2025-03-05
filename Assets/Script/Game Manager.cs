@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     {
         gameObject.SetActive(true);
     }
+    
 
     public void Close_Popup(GameObject gameObject)
     {
