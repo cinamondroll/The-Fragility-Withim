@@ -19,9 +19,24 @@ public class NPC : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D other)
     {          
-        SceneManager.LoadScene("Dialog C1 part 1");
-        
+        Chat.SetActive(true);
+          
         
         }
+    
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (Input.GetKey(KeyCode.Return))
+        {
+            Debug.Log("11111");
+            SceneManager.LoadScene("chat");
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        Chat.SetActive(false);  
+      
+    }
     }
 
