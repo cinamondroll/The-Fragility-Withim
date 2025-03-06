@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
-    GameManager Operator;
     public GameObject Chat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,8 +27,8 @@ public class NPC : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Return))
         {
-            Debug.Log("11111");
-            SceneManager.LoadScene("chat");
+            GameManager.Instance.LoadScene("chat");
+            gameObject.SetActive(false);    
         }
     }
 
@@ -37,6 +36,6 @@ public class NPC : MonoBehaviour
     {
         Chat.SetActive(false);  
       
-    }
+        }
     }
 

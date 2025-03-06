@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public Button closePopUpExit;
     public Button openPopUpExit;
 
+    public static GameManager Instance;
+
     // void Start()
     // {
     //     popUpExit.SetActive(false);
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour
     //     Debug.Log("Pop-up sedang ditutup");
     //     popUpExit.SetActive(false);
     // }
-
+    
     public void Open_Popup(GameObject gameObject)
     {
         gameObject.SetActive(true);
@@ -63,5 +65,20 @@ public class GameManager : MonoBehaviour
     public void Keluar_Aplikasi()
     {
         Application.Quit();
+    }
+
+    void Awake()
+    {
+        if (Instance==null)
+        {
+            Instance=this;
+            DontDestroyOnLoad(gameObject);
+        }else{
+            Destroy(gameObject);
+        }
+    }
+    public void LoadScene(string scene){
+        Debug.Log("Tes");
+        SceneManager.LoadScene(scene);
     }
 }
