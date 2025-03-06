@@ -23,12 +23,17 @@ public class NPC : MonoBehaviour
         
         }
     
+    public void LoadScene(string scene){
+        //Debug.Log("Tes");
+        SceneManager.LoadScene(scene);
+    }
+
     void OnCollisionStay2D(Collision2D other)
     {
         if (Input.GetKey(KeyCode.Return))
         {
-            GameManager.Instance.LoadScene("chat");
-            gameObject.SetActive(false);    
+            LoadScene("chat");
+            //gameObject.SetActive(false);    
         }
     }
 

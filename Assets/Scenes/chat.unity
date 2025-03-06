@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 2094478726}
   - component: {fileID: 2094478725}
   m_Layer: 0
-  m_Name: Bot
+  m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -67,18 +67,19 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    void Awake()
-    {
-        if (Instance==null)
-        {
-            Instance=this;
-            DontDestroyOnLoad(gameObject);
-        }else{
-            Destroy(gameObject);
-        }
-    }
+    // void Awake()
+    // {
+    //     if (Instance==null)
+    //     {
+    //         Instance=this;
+    //         DontDestroyOnLoad(gameObject);
+    //     }else{
+    //         Destroy(gameObject);
+    //     }
+    // }
+
     public void LoadScene(string scene){
-        Debug.Log("Tes");
+        //Debug.Log("Tes");
         SceneManager.LoadScene(scene);
     }
 }
