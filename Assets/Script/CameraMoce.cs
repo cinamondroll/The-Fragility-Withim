@@ -37,12 +37,12 @@ public class CameraMoce : MonoBehaviour
 
     void FixedUpdate()
     {   
-        //JANGAN DIOTAK ATIK!!
-        // float scroll = Input.GetAxis("Mouse ScrollWheel");
-        // zoom -= scroll * zoomMultiplier;
-        // zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
-        // cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoom, ref velocity, smoothTime);
-        // transform.position = new Vector3(transform.position.x, cam.orthographicSize*0.08f, transform.position.z);    
+        
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        zoom -= scroll * zoomMultiplier;
+        zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
+        cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoom, ref velocity, smoothTime);
+        transform.position = new Vector3(transform.position.x, cam.orthographicSize*0.18f, transform.position.z);    
     }
    
 
