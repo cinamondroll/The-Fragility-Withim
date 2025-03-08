@@ -407,7 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1420326220}
-  mainCamera: {fileID: 419496535}
+  cam: {fileID: 419496535}
 --- !u!61 &419496539
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1298,7 +1298,7 @@ Transform:
   m_GameObject: {fileID: 1420326218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.45, y: -1.23, z: -5}
+  m_LocalPosition: {x: -0.45, y: -1.23, z: -1.18}
   m_LocalScale: {x: 0.6, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1365,8 +1365,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 5.0058208
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
