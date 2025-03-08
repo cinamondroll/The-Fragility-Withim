@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 
 public class CameraMoce : MonoBehaviour
@@ -5,6 +6,7 @@ public class CameraMoce : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public Transform player;
+    public Camera mainCamera;
     void Start()
     {
         
@@ -22,10 +24,27 @@ public class CameraMoce : MonoBehaviour
         {
             transform.position = new Vector3(player.position.x, y, transform.position.z);
         }
-        {
-            
+        
+    }
+
+    void FixedUpdate()
+    {   
+        float y=0.1f;
+        if (Input.mouseScrollDelta.y <0  && mainCamera.orthographicSize <= 5f && mainCamera.orthographicSize >= 2.5f)
+        {   
+            mainCamera.orthographicSize += y;
+            Vector3 temp=transform.position;
+              float eq= mainCamera.orthographicSize;
+            mainCamera.transform.position = new Vector3(temp.x, 0.34f*eq, temp.z);
         }
-     
+        else if (Input.mouseScrollDelta.y > 0 && mainCamera.orthographicSize >= 2.5f  && mainCamera.orthographicSize <= 5f){
+            
+            mainCamera.orthographicSize -= y;
+            Vector3 temp=mainCamera.transform.position;
+            float eq= mainCamera.orthographicSize;
+            mainCamera.transform.position = new Vector3(temp.x, 0.34f*eq, temp.z);
+        }
+       
         
     }
    
