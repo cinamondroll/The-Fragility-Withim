@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SC Chapter 1.unity
     guid: fca115796c9f2417d806577bd60cf74e
   - enabled: 1
+    path: Assets/Scenes/Inventory.unity
+    guid: 5ace66a03441d4d9eac96b5a242b0b31
+  - enabled: 1
     path: Assets/Scenes/chat.unity
     guid: bf1c5b310622042039790488b8bc9a6b
   m_configObjects:

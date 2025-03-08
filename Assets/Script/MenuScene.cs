@@ -9,11 +9,14 @@ public class MenuScene : MonoBehaviour
 {
     [SerializeField] Button startButton;
     [SerializeField] Button muatButton;
+    [SerializeField] Button lemariButton;
     [SerializeField] Button exitButton;
     [SerializeField] Button yaButton;
     [SerializeField] Button tidakButton;
     [SerializeField] String Chapter1 = "SC Chapter 1";
+    [SerializeField] String Inventory = "Inventory";
     public GameObject PopUpExit;
+    public GameObject PopUpTentang;
 
     void Start()
     {
@@ -29,6 +32,10 @@ public class MenuScene : MonoBehaviour
         {
             exitButton.onClick.AddListener(exitGame);
         }
+        if(lemariButton != null)
+        {
+            lemariButton.onClick.AddListener(inventory);
+        }
 
     }
 
@@ -39,6 +46,10 @@ public class MenuScene : MonoBehaviour
     public void muatGame()
     {
 
+    }
+    public void inventory()
+    {
+        SceneManager.LoadScene(Inventory);
     }
     public void exitGame()
     {
@@ -53,4 +64,5 @@ public class MenuScene : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
 }
