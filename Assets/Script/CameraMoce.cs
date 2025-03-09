@@ -44,6 +44,4 @@ public class CameraMoce : MonoBehaviour
         cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoom, ref velocity, smoothTime);
         transform.position = new Vector3(transform.position.x, cam.orthographicSize*0.18f, transform.position.z);    
     }
-   
-
 }

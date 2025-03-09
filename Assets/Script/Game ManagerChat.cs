@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManagerChat : MonoBehaviour
 {   
     public GameObject card;
     public GameObject panel;
@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
          card.SetActive(true);
         panel.SetActive(true);
      }   
+    }
+
+    void chooseCard(){
+        GameObject ChosedCard = GameObject.Find("ChosedCard");
     }
 
    
