@@ -13,7 +13,7 @@ public class MenuScene : MonoBehaviour
     [SerializeField] Button exitButton;
     [SerializeField] Button yaButton;
     [SerializeField] Button tidakButton;
-    [SerializeField] String Chapter1 = "SC Chapter 1";
+    [SerializeField] String ChapterChoice = "Chapter Choice";
     [SerializeField] String Inventory = "Inventory";
     public GameObject PopUpExit;
     public GameObject PopUpTentang;
@@ -41,7 +41,7 @@ public class MenuScene : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene(Chapter1);
+        SceneManager.LoadScene(ChapterChoice);
     }
     public void muatGame()
     {
