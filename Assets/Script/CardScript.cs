@@ -32,11 +32,14 @@ public class CardScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // GameObject.Find("Card").SetActive(false);
-        Onclick=true;
-        gameManager = GameObject.Find("GameManager");
-        gameManager.GetComponent<GameManagerChat>().HideUnless(this.gameObject.name);
-        StartCoroutine(MoveCenter());
-;        }
+            if(Onclick == false)
+            {
+                gameManager = GameObject.Find("GameManager");
+                gameManager.GetComponent<GameManagerChat>().HideUnless(this.gameObject.name);
+                StartCoroutine(MoveCenter());
+                Onclick=true;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -48,25 +51,25 @@ public class CardScript : MonoBehaviour
     {   
         if (!Onclick)
         {
-        Renderer renderer = GetComponent<Renderer>();
-        color = renderer.material.color;
-        renderer.material.color = Color.black;
-        Vector3 startPos = transform.position;
-        Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
-        StartCoroutine(MoveUp(startPos, TargetPosition));
-        collid.size = new Vector2(1f, 1.5f);      
+            Renderer renderer = GetComponent<Renderer>();
+            color = renderer.material.color;
+            renderer.material.color = Color.black;
+            Vector3 startPos = transform.position;
+            Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
+            StartCoroutine(MoveUp(startPos, TargetPosition));
+            collid.size = new Vector2(1f, 1.5f);      
         }
     }
     void OnMouseExit()
     {   
         if (!Onclick)
         {
-        Renderer renderer = GetComponent<Renderer>();
-        renderer.material.color = color;
-        Vector3 startPos = transform.position;
-        Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
-        StartCoroutine(MoveDown(startPos, TargetPosition)); 
-        collid.size = new Vector2(1f, 1f);
+            Renderer renderer = GetComponent<Renderer>();
+            renderer.material.color = color;
+            Vector3 startPos = transform.position;
+            Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
+            StartCoroutine(MoveDown(startPos, TargetPosition)); 
+            collid.size = new Vector2(1f, 1f);
         }
         
     }
