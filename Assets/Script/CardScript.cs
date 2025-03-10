@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class CardScript : MonoBehaviour
 {
-    Color color;
+    Color color=new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
     public GameObject ChosedCard;
     public Transform ChosedCardPosition;
     private BoxCollider2D collid;
     private bool Onclick=false;
     private GameObject gameManager;
-    SpriteRenderer materialRenderer;
-    Material material;
+
     
 
 
@@ -21,14 +20,14 @@ public class CardScript : MonoBehaviour
     
     void Awake()
     {
-         Vector3 startPos = transform.position;
+        Vector3 startPos = transform.position;
         transform.position=new Vector3(startPos.x, 0.15f, startPos.z);
+        collid=GetComponent<BoxCollider2D>();
+      
     }
     void Start()
     {
-        collid=GetComponent<BoxCollider2D>();
-        materialRenderer = GetComponent<SpriteRenderer>();
-        material = materialRenderer.material;
+       
     }
 
     // Update is called once per frame
@@ -45,9 +44,10 @@ public class CardScript : MonoBehaviour
     {   
         if (!Onclick)
         {   
-            color=material.color;
-            material.color = Color.white;
-            Debug.Log(material.color);
+
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.color = Color.white;
+            Debug.Log(gameObject.GetComponent<Renderer>().material.color);
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
             StartCoroutine(MoveUp(startPos, TargetPosition));
@@ -58,7 +58,8 @@ public class CardScript : MonoBehaviour
     {   
         if (!Onclick)
         {
-            gameObject.GetComponent<SpriteRenderer>().material.color = color;
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.color = color;
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
             StartCoroutine(MoveDown(startPos, TargetPosition)); 
@@ -70,8 +71,8 @@ public class CardScript : MonoBehaviour
     {
           if(Onclick == false)
             {
-                Renderer renderer = GetComponent<Renderer>();
-                GetComponent<Renderer>().material.color = Color.white;
+                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+                spriteRenderer.color = Color.white;
                 Onclick=true;
                 gameManager = GameObject.Find("GameManager");
                 StartCoroutine(gameManager.GetComponent<GameManagerChat>().HideCard(this.gameObject.name));
@@ -121,15 +122,8 @@ public class CardScript : MonoBehaviour
         renderer.material.color = Color.white;
     }
 
-    public IEnumerator Fade(){
-        float t=0;
-        while(t<0.3f){
-                t+=Time.deltaTime;
-                Color renderer = GetComponent<Renderer>().material.color;
-                renderer.a=Mathf.Lerp(1, 0, t/0.3f);
-                GetComponent<Renderer>().material.color=renderer;
-                yield return null;
-            }
+    // public IEnumerator Fade(){
         
-    }
+        
+    // }
 }
