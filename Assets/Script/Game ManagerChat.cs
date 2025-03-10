@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,13 @@ public class GameManagerChat : MonoBehaviour
     public GameObject[] Deck;
     
     public GameObject panel;
+    public Sprite[] AssetCard;
+    HashSet<int> setUnik = new HashSet<int>();
+
+    void Awake()
+    {
+        StartCoroutine(ShuffleCard());
+    }
     void Start()
     {
         
@@ -23,25 +31,38 @@ public class GameManagerChat : MonoBehaviour
      }   
     }
     public void HideUnless(String name){
-         for (int i = 0; i < Deck.Length; i++)
-        {   
-            if (Deck[i].name==name){
-                continue;
-            }
-            GameObject.Find(Deck[i].name).SetActive(false);
-        }
+          GameObject.Find(name).SetActive(false);
     }
 
-    IEnumerator HideCard(String name)
+    public IEnumerator HideCard(String name)
     {
+        Debug.Log(name+" Target");
         for (int i = 0; i < Deck.Length; i++)
         {   
             if (Deck[i].name==name){
+                Debug.Log(Deck[i].name+" Unless");
                 continue;
             }
-            GameObject.Find(Deck[i].name).SetActive(false);
+            HideUnless(Deck[i].name);
+            Debug.Log(Deck[i].name);
             yield return null;
         }
+    }
+    public IEnumerator ShuffleCard(){
+        int counter=0;
+        int a=0;
+        while (setUnik.Count<Deck.Length)
+        {   
+            a=UnityEngine.Random.Range(0, Deck.Length);
+            setUnik.Add(a);
+        }
+        Debug.Log(setUnik.Count);
+       foreach (int i in setUnik)
+       {
+           Deck[counter].GetComponent<SpriteRenderer>().sprite=AssetCard[i];
+           counter++;
+       }
+        yield return null;
     }
 
    

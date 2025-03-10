@@ -1,5 +1,6 @@
 
 using System.Collections;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,17 +30,6 @@ public class CardScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            // GameObject.Find("Card").SetActive(false);
-            if(Onclick == false)
-            {
-                gameManager = GameObject.Find("GameManager");
-                gameManager.GetComponent<GameManagerChat>().HideUnless(this.gameObject.name);
-                StartCoroutine(MoveCenter());
-                Onclick=true;
-            }
-        }
     }
 
     void FixedUpdate()
@@ -52,12 +42,12 @@ public class CardScript : MonoBehaviour
         if (!Onclick)
         {
             Renderer renderer = GetComponent<Renderer>();
-            color = renderer.material.color;
-            renderer.material.color = Color.black;
+            color = Color.white;
+            renderer.material.color = Color.white;
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
             StartCoroutine(MoveUp(startPos, TargetPosition));
-            collid.size = new Vector2(1f, 1.5f);      
+            collid.size = new Vector2(2.5f, 5f);      
         }
     }
     void OnMouseExit()
@@ -69,15 +59,29 @@ public class CardScript : MonoBehaviour
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
             StartCoroutine(MoveDown(startPos, TargetPosition)); 
-            collid.size = new Vector2(1f, 1f);
-        }
-        
+            collid.size = new Vector2(2.5f, 4f);
+        }    
+    }
+
+    async void OnMouseDown()
+    {
+          if(Onclick == false)
+            {
+                Renderer renderer = GetComponent<Renderer>();
+                renderer.material.color = Color.white;
+                Onclick=true;
+                gameManager = GameObject.Find("GameManager");
+                StartCoroutine(gameManager.GetComponent<GameManagerChat>().HideCard(this.gameObject.name));
+                StartCoroutine(MoveCenter(ChosedCardPosition.position));
+                await Task.Delay(500);
+            }
     }
 
 
 
+
     IEnumerator MoveUp(Vector3 Start, Vector3 Target){
-        Vector3 startPos = transform.position;
+        Vector3 startPos = Start;
         Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
         float t=0;
         while (t<0.1f)
@@ -89,7 +93,7 @@ public class CardScript : MonoBehaviour
         transform.position = TargetPosition;
     }
      IEnumerator MoveDown(Vector3 Start, Vector3 Target){
-        Vector3 startPos = transform.position;
+        Vector3 startPos = Start;
         Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
         float t=0;
         while (t<0.1f)
@@ -101,16 +105,16 @@ public class CardScript : MonoBehaviour
         transform.position = TargetPosition;
     }
 
-    IEnumerator MoveCenter(){
+    IEnumerator MoveCenter(Vector3 Target){
         Vector3 startPos = transform.position;
         float t=0;
-        while (t<0.1f)
+        while (t<0.3f)
         {
             t+=Time.deltaTime;
-            transform.position = Vector3.Lerp(startPos, new Vector3(0, 2, 0), t/0.1f);
+            transform.position = Vector3.Lerp(startPos, Target, t/0.3f);
             yield return null;
         }
         Renderer renderer = GetComponent<Renderer>();
-        renderer.material.color = color;
+        renderer.material.color = Color.white;
     }
 }
