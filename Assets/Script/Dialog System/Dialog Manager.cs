@@ -7,6 +7,7 @@ public class DialogManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] TMP_Text speakerName;
     [SerializeField] TMP_Text dialogText;
+    [SerializeField] GameObject dialogPanel;
     [SerializeField] GameObject choicePanel;
     [SerializeField] Button choiceButtonPrefab;
     [SerializeField] Button progresButton;
