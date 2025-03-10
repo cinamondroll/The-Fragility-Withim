@@ -21,7 +21,7 @@ public class CardScript : MonoBehaviour
     void Awake()
     {
         Vector3 startPos = transform.position;
-        transform.position=new Vector3(startPos.x, 0.15f, startPos.z);
+        transform.position=new Vector3(startPos.x, 1.5f, startPos.z);
         collid=GetComponent<BoxCollider2D>();
       
     }
@@ -35,10 +35,6 @@ public class CardScript : MonoBehaviour
     {
     }
 
-    void FixedUpdate()
-    {
-       
-    }
 
     void OnMouseEnter()
     {   
@@ -49,7 +45,7 @@ public class CardScript : MonoBehaviour
             spriteRenderer.color = Color.white;
             Debug.Log(gameObject.GetComponent<Renderer>().material.color);
             Vector3 startPos = transform.position;
-            Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
+            Vector3 TargetPosition = new Vector3(startPos.x, 2f, startPos.z);
             StartCoroutine(MoveUp(startPos, TargetPosition));
             collid.size = new Vector2(2.5f, 5f);      
         }
@@ -61,7 +57,7 @@ public class CardScript : MonoBehaviour
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.color = color;
             Vector3 startPos = transform.position;
-            Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
+            Vector3 TargetPosition = new Vector3(startPos.x, 1.5f, startPos.z);
             StartCoroutine(MoveDown(startPos, TargetPosition)); 
             collid.size = new Vector2(2.5f, 4f);
         }    
@@ -86,7 +82,7 @@ public class CardScript : MonoBehaviour
 
     IEnumerator MoveUp(Vector3 Start, Vector3 Target){
         Vector3 startPos = Start;
-        Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
+        Vector3 TargetPosition = new Vector3(startPos.x, 2f, startPos.z);
         float t=0;
         while (t<0.1f)
         {
@@ -98,7 +94,7 @@ public class CardScript : MonoBehaviour
     }
      IEnumerator MoveDown(Vector3 Start, Vector3 Target){
         Vector3 startPos = Start;
-        Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
+        Vector3 TargetPosition = new Vector3(startPos.x, 1.5f, startPos.z);
         float t=0;
         while (t<0.1f)
         {

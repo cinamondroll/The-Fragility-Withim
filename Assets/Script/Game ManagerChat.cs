@@ -68,6 +68,10 @@ public class GameManagerChat : MonoBehaviour
 
 
     public IEnumerator ShuffleCard(){
+        if (setUnik.Count>=Deck.Length)
+        {
+            setUnik.Clear();
+        }
         int counter=0;
         int a=0;
         while (setUnik.Count<Deck.Length)
@@ -102,8 +106,12 @@ public class GameManagerChat : MonoBehaviour
         spriteRenderer.color = fadeColor;
         yield return null;
     }
-   
 }
+
+    public void Reshuffle(){
+        StartCoroutine(ShuffleCard());
+        StartCoroutine(GetIn());
     }
 
     
+}
