@@ -12,6 +12,8 @@ public class CardScript : MonoBehaviour
     private BoxCollider2D collid;
     private bool Onclick=false;
     private GameObject gameManager;
+    SpriteRenderer materialRenderer;
+    Material material;
     
 
 
@@ -25,6 +27,8 @@ public class CardScript : MonoBehaviour
     void Start()
     {
         collid=GetComponent<BoxCollider2D>();
+        materialRenderer = GetComponent<SpriteRenderer>();
+        material = materialRenderer.material;
     }
 
     // Update is called once per frame
@@ -40,10 +44,10 @@ public class CardScript : MonoBehaviour
     void OnMouseEnter()
     {   
         if (!Onclick)
-        {
-            Renderer renderer = GetComponent<Renderer>();
-            color = Color.white;
-            renderer.material.color = Color.white;
+        {   
+            color=material.color;
+            material.color = Color.white;
+            Debug.Log(material.color);
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 0.65f, startPos.z);
             StartCoroutine(MoveUp(startPos, TargetPosition));
@@ -54,8 +58,7 @@ public class CardScript : MonoBehaviour
     {   
         if (!Onclick)
         {
-            Renderer renderer = GetComponent<Renderer>();
-            renderer.material.color = color;
+            gameObject.GetComponent<SpriteRenderer>().material.color = color;
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 0.15f, startPos.z);
             StartCoroutine(MoveDown(startPos, TargetPosition)); 
@@ -68,7 +71,7 @@ public class CardScript : MonoBehaviour
           if(Onclick == false)
             {
                 Renderer renderer = GetComponent<Renderer>();
-                renderer.material.color = Color.white;
+                GetComponent<Renderer>().material.color = Color.white;
                 Onclick=true;
                 gameManager = GameObject.Find("GameManager");
                 StartCoroutine(gameManager.GetComponent<GameManagerChat>().HideCard(this.gameObject.name));
@@ -116,5 +119,17 @@ public class CardScript : MonoBehaviour
         }
         Renderer renderer = GetComponent<Renderer>();
         renderer.material.color = Color.white;
+    }
+
+    public IEnumerator Fade(){
+        float t=0;
+        while(t<0.3f){
+                t+=Time.deltaTime;
+                Color renderer = GetComponent<Renderer>().material.color;
+                renderer.a=Mathf.Lerp(1, 0, t/0.3f);
+                GetComponent<Renderer>().material.color=renderer;
+                yield return null;
+            }
+        
     }
 }

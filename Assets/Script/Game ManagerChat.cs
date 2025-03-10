@@ -43,8 +43,8 @@ public class GameManagerChat : MonoBehaviour
                 Debug.Log(Deck[i].name+" Unless");
                 continue;
             }
+            StartCoroutine(GameObject.Find(Deck[i].name).GetComponent<CardScript>().Fade());
             HideUnless(Deck[i].name);
-            Debug.Log(Deck[i].name);
             yield return null;
         }
     }
