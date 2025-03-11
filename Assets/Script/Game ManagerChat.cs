@@ -15,6 +15,8 @@ public class GameManagerChat : MonoBehaviour
     public Sprite[] AssetCard;
     HashSet<int> setUnik = new HashSet<int>();
     bool isClick=false;
+    bool isChosed=false;
+    private string cardName;
 
     void Awake()
     {
@@ -34,12 +36,24 @@ public class GameManagerChat : MonoBehaviour
         Uicard.SetActive(true);
         panel.SetActive(true);
         StartCoroutine(GetIn());
-     }   
+     }  
+     if (isChosed)
+     {
+        isChosed=false;
+        await Task.Delay(2000);
+        StartCoroutine(Fade(cardName));
+        await Task.Delay(500);
+        panel.SetActive(false);
+        Uicard.SetActive(false);
+     }
     }
    
 
     public IEnumerator HideCard(String name)
-    {
+    {   
+        cardName=name;
+        GameObject.Find("Shuffle").SetActive(false);
+        isChosed=true;
         for (int i = 0; i < Deck.Length; i++)
         {   
             if (Deck[i].name==name){
@@ -90,6 +104,9 @@ public class GameManagerChat : MonoBehaviour
 
     IEnumerator GetIn(){
         foreach (var card in Deck){
+            card.SetActive(true);
+               SpriteRenderer spriteRenderer = GameObject.Find(card.name).GetComponent<SpriteRenderer>();
+                spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 0);
                 StartCoroutine(FadeIn(card.name));
                 yield return null;
             }

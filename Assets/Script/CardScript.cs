@@ -43,7 +43,6 @@ public class CardScript : MonoBehaviour
 
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.color = Color.white;
-            Debug.Log(gameObject.GetComponent<Renderer>().material.color);
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 2f, startPos.z);
             StartCoroutine(MoveUp(startPos, TargetPosition));

@@ -185,7 +185,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bar Anxiety_0: 8896464577012248693
+      Bar Anxiety_1: 5261944486483220219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
