@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class DialogManager : MonoBehaviour
 {
@@ -32,8 +33,25 @@ public class DialogManager : MonoBehaviour
     
     void Start()
     {
-        
+        dialogPanel.SetActive(false);
+        choicePanel.SetActive(false);
+        //Logic progress button
+
+        //hide image
+        if(leftImage != null && deActiveLeftImage) leftImage.color = new Color32(255, 255, 255, 0);
+        if(rightImage != null && deActiveRightImage) rightImage.color = new Color32(255, 255, 255, 0);
+        if(centerImage != null && deActiveCenterImage) centerImage.color = new Color32(255, 255, 255, 0);
     }
 
-    
+    public void StartDialog(DialogNode startNode) 
+    {
+        currentNode = startNode;
+        currentLineIndex = 0;
+        DisplayCurrentLine();
+    }
+
+    void DisplayCurrentLine()
+    {
+
+    }
 }
