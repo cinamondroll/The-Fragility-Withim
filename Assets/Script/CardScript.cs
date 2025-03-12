@@ -12,6 +12,9 @@ public class CardScript : MonoBehaviour
     private BoxCollider2D collid;
     private bool Onclick=false;
     private GameObject gameManager;
+    private float stat;
+    private float condition;
+    private float anxStat;
 
     
 
@@ -38,7 +41,7 @@ public class CardScript : MonoBehaviour
 
     void OnMouseEnter()
     {   
-        if (!Onclick)
+        if (!Onclick && condition>=anxStat)
         {   
 
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -62,6 +65,11 @@ public class CardScript : MonoBehaviour
         }    
     }
 
+
+    public void setAnx(float anxStat){
+        this.anxStat=anxStat;
+    }
+
     async void OnMouseDown()
     {
           if(Onclick == false)
@@ -70,12 +78,19 @@ public class CardScript : MonoBehaviour
                 spriteRenderer.color = Color.white;
                 Onclick=true;
                 gameManager = GameObject.Find("GameManager");
-                StartCoroutine(gameManager.GetComponent<GameManagerChat>().HideCard(this.gameObject.name));
+                StartCoroutine(gameManager.GetComponent<GameManagerChat>().HideCard(this.gameObject.name, stat));
                 StartCoroutine(MoveCenter(ChosedCardPosition.position));
                 await Task.Delay(500);
             }
     }
 
+    public void setCond(float condition){
+        this.condition=condition;
+    }
+
+    public void setStat(float stat){
+        this.stat=stat;
+    }
 
 
 

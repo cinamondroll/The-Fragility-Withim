@@ -1574,11 +1574,20 @@ MonoBehaviour:
   - {fileID: 522326745}
   - {fileID: 1083540450}
   - {fileID: 413743635}
+  condition:
+  - 80
+  - 100
+  - 120
+  stat:
+  - 10
+  - 50
+  - 5
   panel: {fileID: 2032100785}
   AssetCard:
   - {fileID: 7918522965169776436, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
   - {fileID: -7383382961532566217, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
   - {fileID: 5799697062963633374, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
+  anxStat: 100
 --- !u!4 &1999358265
 Transform:
   m_ObjectHideFlags: 0

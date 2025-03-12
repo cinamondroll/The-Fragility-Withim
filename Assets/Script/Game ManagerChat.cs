@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,8 @@ public class GameManagerChat : MonoBehaviour
 {   
     public GameObject Uicard;
     public GameObject[] Deck;
+    [SerializeField]private float[] condition;
+    [SerializeField]private float[] stat;
     
     public GameObject panel;
     public Sprite[] AssetCard;
@@ -17,6 +20,8 @@ public class GameManagerChat : MonoBehaviour
     bool isClick=false;
     bool isChosed=false;
     private string cardName;
+    [SerializeField]private float anxStat;
+
 
     void Awake()
     {
@@ -46,11 +51,11 @@ public class GameManagerChat : MonoBehaviour
         panel.SetActive(false);
         Uicard.SetActive(false);
      }
-    }
-   
+    }   
 
-    public IEnumerator HideCard(String name)
+    public IEnumerator HideCard(String name, float effect)
     {   
+       
         cardName=name;
         GameObject.Find("Shuffle").SetActive(false);
         isChosed=true;
@@ -61,6 +66,8 @@ public class GameManagerChat : MonoBehaviour
             }
             StartCoroutine(Fade(Deck[i].name));
         yield return null;
+         this.anxStat-=effect;
+        shapeVolume();
         }
     }
 
@@ -79,8 +86,6 @@ public class GameManagerChat : MonoBehaviour
         
     }
 
-
-
     public IEnumerator ShuffleCard(){
         if (setUnik.Count>=Deck.Length)
         {
@@ -97,6 +102,9 @@ public class GameManagerChat : MonoBehaviour
        foreach (int i in setUnik)
        {
            Deck[counter].GetComponent<SpriteRenderer>().sprite=AssetCard[i];
+           Deck[counter].GetComponent<CardScript>().setAnx(anxStat);
+           Deck[counter].GetComponent<CardScript>().setCond(condition[counter]);
+           Deck[counter].GetComponent<CardScript>().setStat(stat[counter]);
            counter++;
        }
         yield return null;
@@ -104,8 +112,9 @@ public class GameManagerChat : MonoBehaviour
 
     IEnumerator GetIn(){
         foreach (var card in Deck){
+            card.GetComponent<CardScript>().setAnx(anxStat);
             card.SetActive(true);
-               SpriteRenderer spriteRenderer = GameObject.Find(card.name).GetComponent<SpriteRenderer>();
+                SpriteRenderer spriteRenderer = GameObject.Find(card.name).GetComponent<SpriteRenderer>();
                 spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 0);
                 StartCoroutine(FadeIn(card.name));
                 yield return null;
@@ -128,6 +137,13 @@ public class GameManagerChat : MonoBehaviour
     public void Reshuffle(){
         StartCoroutine(ShuffleCard());
         StartCoroutine(GetIn());
+    }
+
+    public void shapeVolume(){
+        GameObject volume=GameObject.Find("Volume");
+        float presentase=volume.GetComponent<Image>().fillAmount;
+        if (anxStat<=100) presentase=anxStat/100;
+        volume.GetComponent<Image>().fillAmount=presentase;
     }
 
     
