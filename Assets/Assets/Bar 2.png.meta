@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 0b0271fb124054e669717d3e00a8ddb6
+guid: 7ee2664e753b7488ca16cc8a3398bc8d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8896464577012248693
-    second: Bar Anxiety_0
+      213: 5670761085760201887
+    second: Bar 2_0
   - first:
-      213: 5261944486483220219
-    second: Bar Anxiety_1
+      213: 8098485272432944862
+    second: Bar 2_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bar Anxiety_0
+      name: Bar 2_0
       rect:
         serializedVersion: 2
-        x: 212
-        y: 565
-        width: 377
-        height: 155
+        x: 165
+        y: 561
+        width: 1164
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 57039a5b567967b70800000000000000
-      internalID: 8896464577012248693
+      spriteID: f9468da992792be40800000000000000
+      internalID: 5670761085760201887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bar Anxiety_1
+      name: Bar 2_1
       rect:
         serializedVersion: 2
-        x: 211
-        y: 361
-        width: 918
-        height: 122
+        x: 165
+        y: 368
+        width: 1164
+        height: 151
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf658a8a1ae260940800000000000000
-      internalID: 5261944486483220219
+      spriteID: ed6291a9279936070800000000000000
+      internalID: 8098485272432944862
       vertices: []
       indices: 
       edges: []
@@ -185,9 +185,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bar Anxiety_0: 8896464577012248693
-      Bar Anxiety_1: 5261944486483220219
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
