@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using System;
 using System.Runtime.InteropServices;
+using System.Collections;
 
 public class DialogManager : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(DialogNode startNode) 
     {
+        dialogPanel.SetActive(true);
         currentNode = startNode;
         currentLineIndex = 0;
         DisplayCurrentLine();
@@ -55,7 +57,7 @@ public class DialogManager : MonoBehaviour
     void DisplayCurrentLine()
     {
         if (currentNode == null || currentNode.lines.Length == 0)
-        {
+        { 
             //END DIALOG
 
             return;
@@ -65,7 +67,7 @@ public class DialogManager : MonoBehaviour
             DialogLine line = currentNode.lines[currentLineIndex];
             speakerNametext.text = line.speakerName;
             Image targetImage = GetTargetImage(line.targetImage);
-            if(targetImage != null)
+            if(targetImage != null && line.charSprite != null)
             {
                 targetImage.sprite = line.charSprite;
                 targetImage.color = Color.white;
@@ -73,10 +75,12 @@ public class DialogManager : MonoBehaviour
             //PLay Audio
 
             //Start Corroutin
+            StartCoroutine(AnimateAndType(line, targetImage));
+            
         }
         else
         {
-            
+
         }
     }
 
@@ -89,5 +93,40 @@ public class DialogManager : MonoBehaviour
             case DialogTarget.CenterImage: return centerImage;
             default: return null;
         }
+    }
+
+    IEnumerator AnimateAndType (DialogLine line, Image targetImage)
+    {
+        if(line.animationType != Animation.None)
+        {
+            yield return new WaitForSeconds(line.durasi);
+        }
+        yield return StartCoroutine(TypeText(line.text));
+    }
+
+    IEnumerator TypeText(string text)
+    {
+        isTyping = true;
+        dialogText.text = "";
+        int visibleCharCount = 0;
+        for (int i = 0; i < text.Length; i++)
+        {
+            if(text[i] == '<')
+            {
+                int closingTagIndex = text.IndexOf('>', i);
+                if (closingTagIndex != -1)
+                {
+                    dialogText.text += text.Substring(i, closingTagIndex - i + 1);
+                    i = closingTagIndex;
+                }
+            }
+            dialogText.text += text[i];
+            visibleCharCount++;
+
+            dialogText.maxVisibleCharacters = visibleCharCount;
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        isTyping = false;
     }
 }

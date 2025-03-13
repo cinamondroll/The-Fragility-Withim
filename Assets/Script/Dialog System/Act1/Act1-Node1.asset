@@ -13,14 +13,7 @@ MonoBehaviour:
   m_Name: Act1-Node1
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  choices:
-  - choiceText: 
-    nextNode: {fileID: 0}
-  - choiceText: 
-    nextNode: {fileID: 0}
-  - choiceText: 
-    nextNode: {fileID: 0}
+  - {fileID: 11400000, guid: 7308bd38f405b41afa1491ea3fd735e5, type: 2}
+  - {fileID: 11400000, guid: ce208045c087b42fe9b3f46c77fbf617, type: 2}
+  choices: []
   nextScene: chat
