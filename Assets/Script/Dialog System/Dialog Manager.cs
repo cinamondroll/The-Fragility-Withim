@@ -2,11 +2,13 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using System;
+using System.Runtime.InteropServices;
 
 public class DialogManager : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] TMP_Text speakerName;
+    [SerializeField] TMP_Text speakerNametext;
     [SerializeField] TMP_Text dialogText;
     [SerializeField] GameObject dialogPanel;
     [SerializeField] GameObject choicePanel;
@@ -61,8 +63,31 @@ public class DialogManager : MonoBehaviour
         if (currentLineIndex < currentNode.lines.Length)
         {
             DialogLine line = currentNode.lines[currentLineIndex];
-            //Pembicara.text = line.speakerName;
+            speakerNametext.text = line.speakerName;
+            Image targetImage = GetTargetImage(line.targetImage);
+            if(targetImage != null)
+            {
+                targetImage.sprite = line.charSprite;
+                targetImage.color = Color.white;
+            }
+            //PLay Audio
+
+            //Start Corroutin
+        }
+        else
+        {
+            
         }
     }
 
+    private Image GetTargetImage(DialogTarget targetImage)
+    {
+        switch(targetImage)
+        {
+            case DialogTarget.RightImage: return rightImage;
+            case DialogTarget.LeftImage: return leftImage;
+            case DialogTarget.CenterImage: return centerImage;
+            default: return null;
+        }
+    }
 }

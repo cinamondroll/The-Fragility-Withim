@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewDialogLine", menuName = "Dialog/Line")]
 public class DialogLine : ScriptableObject 
 {
-    public string Pembicara;
+    public string speakerName;
     [TextArea(3,5)] public string text;
     public Sprite charSprite;
 
