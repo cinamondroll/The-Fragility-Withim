@@ -32,6 +32,10 @@ public class CCManager : MonoBehaviour
     public void loadCH(string gameObject)
     {
         SceneManager.LoadScene(gameObject);
+        PlayerPrefs.SetFloat("x", 0f);
+        PlayerPrefs.SetFloat("y", -1.3f);
+        PlayerPrefs.SetFloat("anxStat", 80);
+
     }
 
 }

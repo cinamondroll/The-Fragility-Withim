@@ -25,7 +25,9 @@ public class GameManagerChat : MonoBehaviour
 
     void Awake()
     {
-        
+        anxStat=PlayerPrefs.GetFloat("anxStat");
+       
+        shapeVolume();
     }
     void Start()
     {
@@ -131,6 +133,20 @@ public class GameManagerChat : MonoBehaviour
         yield return null;
     }
 }
+
+    void FixedUpdate()
+    {
+         if(Input.GetKey(KeyCode.Escape)){
+            PlayerPrefs.SetFloat("anxStat", anxStat);
+            if (anxStat<0){
+                anxStat=0;
+            }
+            if (anxStat>100){
+            anxStat=100;
+            }
+            SceneManager.LoadScene("SC Chapter 1");
+        }
+    }
 
     public void Reshuffle(){
         StartCoroutine(ShuffleCard());
