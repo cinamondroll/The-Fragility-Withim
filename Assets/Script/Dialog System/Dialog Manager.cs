@@ -52,6 +52,17 @@ public class DialogManager : MonoBehaviour
 
     void DisplayCurrentLine()
     {
+        if (currentNode == null || currentNode.lines.Length == 0)
+        {
+            //END DIALOG
 
+            return;
+        }
+        if (currentLineIndex < currentNode.lines.Length)
+        {
+            DialogLine line = currentNode.lines[currentLineIndex];
+            //Pembicara.text = line.speakerName;
+        }
     }
+
 }
