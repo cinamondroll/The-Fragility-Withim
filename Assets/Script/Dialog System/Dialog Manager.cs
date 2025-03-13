@@ -76,7 +76,7 @@ public class DialogManager : MonoBehaviour
 
             //Start Corroutin
             StartCoroutine(AnimateAndType(line, targetImage));
-            
+
         }
         else
         {
@@ -128,5 +128,25 @@ public class DialogManager : MonoBehaviour
         }
 
         isTyping = false;
+    }
+
+    void PlayAudio(DialogLine line)
+    {
+        if(voiceAudioSource.isPlaying)
+        {
+            voiceAudioSource.Stop();
+        }
+
+        if(line.spokenText != null)
+        {
+            voiceAudioSource.clip = line.spokenText;
+            voiceAudioSource.Play();
+        }
+
+        if (line.moorOrEffect != null)
+        {
+            effectAudioSource.clip = line.moorOrEffect;
+            voiceAudioSource.Play();
+        }
     }
 }
