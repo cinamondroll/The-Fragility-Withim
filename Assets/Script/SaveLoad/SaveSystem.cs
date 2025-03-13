@@ -30,7 +30,21 @@ public static class SaveSystem
     static void LoadProgrss(){
         if (File.Exists(path))
         {
-            
+            string json=File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+            Dictionary<String, bool> loadedChap=new Dictionary<String, bool>();
+            foreach (var item in data.chapter)
+            {
+                GameProgress.setChapter(item.key, item.value);
+            }
+            foreach (var item in data.anxStatus)
+            {
+                GameProgress.setAnxStatus(item.key, item.value);
+            }
+            foreach (var item in data.position)
+            {
+                GameProgress.setPositionX(item.key, item.value[0], item.value[1]);
+            }
         }
     }
 
@@ -46,24 +60,24 @@ public class SaveData{
 }
 
 public class Chapter{
-    String key;
-    bool value;
+    public String key;
+    public bool value;
     public Chapter(String key, bool value){
         this.key=key;
         this.value=value;
     }
 }
 public class AnxStatus{
-    String key;
-    float value;
+    public String key;
+    public float value;
     public AnxStatus(String key, float value){
         this.key=key;
         this.value=value;
     }
 }
 public class Position{
-    String key;
-    float[] value;
+    public String key;
+    public float[] value;
     public Position(String key, float[] value){
         this.key=key;
         this.value=value;

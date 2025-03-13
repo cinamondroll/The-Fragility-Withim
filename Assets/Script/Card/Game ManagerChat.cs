@@ -87,14 +87,12 @@ public class GameManagerChat : MonoBehaviour
     }
 
     public IEnumerator ShuffleCard(){
-        if (setUnik.Count>=Deck.Length)
-        {
+        if (setUnik.Count>=Deck.Length){
             setUnik.Clear();
         }
         int counter=0;
         int a=0;
-        while (setUnik.Count<Deck.Length)
-        {   
+        while (setUnik.Count<Deck.Length){   
             a=UnityEngine.Random.Range(0, Deck.Length);
             setUnik.Add(a);
         }
@@ -103,8 +101,8 @@ public class GameManagerChat : MonoBehaviour
        {
            Deck[counter].GetComponent<SpriteRenderer>().sprite=AssetCard[i];
            Deck[counter].GetComponent<CardScript>().setAnx(anxStat);
-           Deck[counter].GetComponent<CardScript>().setCond(condition[counter]);
-           Deck[counter].GetComponent<CardScript>().setStat(stat[counter]);
+           Deck[counter].GetComponent<CardScript>().setCond(condition[i]);
+           Deck[counter].GetComponent<CardScript>().setStat(stat[i]);
            counter++;
        }
         yield return null;
