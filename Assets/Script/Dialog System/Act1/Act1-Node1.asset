@@ -15,5 +15,6 @@ MonoBehaviour:
   lines:
   - {fileID: 11400000, guid: 7308bd38f405b41afa1491ea3fd735e5, type: 2}
   - {fileID: 11400000, guid: ce208045c087b42fe9b3f46c77fbf617, type: 2}
+  - {fileID: 11400000, guid: 27581031f90e542789c0d661461ba900, type: 2}
   choices: []
   nextScene: chat

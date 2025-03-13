@@ -39,7 +39,7 @@ public class DialogManager : MonoBehaviour
         dialogPanel.SetActive(false);
         choicePanel.SetActive(false);
         //Logic progress button
-
+        progresButton.onClick.AddListener(OnClickAdvance);
         //hide image
         if(leftImage != null && deActiveLeftImage) leftImage.color = new Color32(255, 255, 255, 0);
         if(rightImage != null && deActiveRightImage) rightImage.color = new Color32(255, 255, 255, 0);
@@ -147,6 +147,27 @@ public class DialogManager : MonoBehaviour
         {
             effectAudioSource.clip = line.moorOrEffect;
             voiceAudioSource.Play();
+        }
+    }
+
+    public void OnClickAdvance()
+    {
+        if(isTyping)
+        {
+            StopAllCoroutines();
+            DialogLine currentLine = currentNode.lines[currentLineIndex];
+            dialogText.text = currentLine.text;
+            dialogText.maxVisibleCharacters = currentLine.text.Length;
+            isTyping = false;
+            if (voiceAudioSource.isPlaying)
+            {
+                voiceAudioSource.Stop();
+            }
+        }
+        else
+        {
+            currentLineIndex++;
+            DisplayCurrentLine();
         }
     }
 }
