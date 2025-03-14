@@ -1,12 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.AI;
 using System;
-using System.Runtime.InteropServices;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +24,7 @@ public class DialogManager : MonoBehaviour
     private string cardName;
     [SerializeField]private float anxStat;
     Choice nextNode;
-
+    public TextMeshProUGUI timer;
     [Header("UI Elements")]
     [SerializeField] TMP_Text speakerNametext;
     [SerializeField] TMP_Text dialogText;
@@ -54,6 +51,7 @@ public class DialogManager : MonoBehaviour
     int currentLineIndex = 0;
     bool isTyping = false;
     public GameObject shuffleBtn;
+    float time=10;
     
     void Awake()
     {
@@ -63,6 +61,7 @@ public class DialogManager : MonoBehaviour
     }
     void Start()
     {
+        timer.SetText("");
         dialogPanel.SetActive(false);
         //choicePanel.SetActive(false);
 
@@ -204,7 +203,7 @@ public class DialogManager : MonoBehaviour
     }
     public IEnumerator HideCard(String name, float effect, int nextNodeIndex)
     {   
-        
+        timer.SetText("");
         int chosedCArdIndex=0;
         cardName=name;
         shuffleBtn.SetActive(false);
@@ -224,18 +223,24 @@ public class DialogManager : MonoBehaviour
         Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
     }
 
+
     IEnumerator Fade(String name){
+        if (name=="")
+        {
+            
+        }else{
         float t=0;
         while(t<0.2f){
-                t+=Time.deltaTime;
-                SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
-                spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
-                Color fadeColor=spriteRenderer.color;
-                fadeColor.a = Mathf.Lerp(1f, 0, t/0.2f);
-                spriteRenderer.color = fadeColor;
-                yield return null;
-            }
+            t+=Time.deltaTime;
+            SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
+            spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
+            Color fadeColor=spriteRenderer.color;
+            fadeColor.a = Mathf.Lerp(1f, 0, t/0.2f);
+            spriteRenderer.color = fadeColor;
+            yield return null;
+         }
         GameObject.Find(name).SetActive(false);
+        }
         
     }
 
@@ -274,6 +279,8 @@ public class DialogManager : MonoBehaviour
         }
 
     IEnumerator FadeIn(String name){
+    if (name!="")
+    {
     float t=0;
     while(t<0.5f){     
         t+=Time.deltaTime;
@@ -283,6 +290,7 @@ public class DialogManager : MonoBehaviour
         fadeColor.a = Mathf.Lerp(0f, 1, t/0.5f);
         spriteRenderer.color = fadeColor;
         yield return null;
+    }
     }
 }
 
@@ -300,7 +308,11 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+
     public void Reshuffle(){
+        anxStat+=3;
+        shapeVolume();
+        time-=2;
         StartCoroutine(ShuffleCard());
         StartCoroutine(GetIn());
     }
@@ -314,7 +326,8 @@ public class DialogManager : MonoBehaviour
 
     //Naya
     async void DisplayChoice()
-    {
+    {   
+        time=10;
         inChoice=true;
         choicePanel.SetActive(true);
         isClick=true;
@@ -330,6 +343,8 @@ public class DialogManager : MonoBehaviour
     {
          if (isChosed)
         {
+        timer.text="";
+        inChoice=false;
         isChosed=false;
         await Task.Delay(2000);
         StartCoroutine(Fade(cardName));
@@ -337,9 +352,30 @@ public class DialogManager : MonoBehaviour
         panel.SetActive(false);
         Uicard.SetActive(false);
         shuffleBtn.SetActive(true);
-        inChoice=false;
         StartDialog(nextNode.nextNode);
         }
+
+        if (inChoice)
+        {
+            if (time<0)
+            {
+                inChoice=false;
+                StartCoroutine(HideCard("", 0f, 0));//parameter terakhir digunakan untuk indext next node diam
+            }
+            time-=Time.deltaTime;
+            if (time<5)
+            {
+                timer.color=Color.red;
+            }
+            timer.text=time.ToString("F0");
+        }
     }
+
+    // IEnumerator Countdown(){
+    //     float time=10;
+    //     while (time>0){
+            
+    //     }
+    // }
 }
 
