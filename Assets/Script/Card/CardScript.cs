@@ -78,7 +78,7 @@ public class CardScript : MonoBehaviour
                 spriteRenderer.color = Color.white;
                 Onclick=true;
                 gameManager = GameObject.Find("GameManager");
-                StartCoroutine(gameManager.GetComponent<GameManagerChat>().HideCard(this.gameObject.name, stat));
+                StartCoroutine(gameManager.GetComponent<DialogManager>().HideCard(this.gameObject.name, stat));
                 StartCoroutine(MoveCenter(ChosedCardPosition.position));
                 await Task.Delay(500);
             }
