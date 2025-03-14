@@ -28,6 +28,6 @@ public class Shuffle : MonoBehaviour
     void OnMouseDown()
     {
         GameObject gameManager=GameObject.Find("GameManager");
-        gameManager.GetComponent<GameManagerChat>().Reshuffle();    
+        gameManager.GetComponent<DialogManager>().Reshuffle();    
     }
 }

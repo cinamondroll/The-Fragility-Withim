@@ -16,6 +16,9 @@ public class DialogManager : MonoBehaviour
     public GameObject[] Deck;
     [SerializeField]private float[] condition;
     [SerializeField]private float[] stat;
+
+    //Naya Add++
+    [SerializeField] DialogNode[] IndexNode;
     
     public GameObject panel;
     public Sprite[] AssetCard;
@@ -24,6 +27,7 @@ public class DialogManager : MonoBehaviour
     bool isChosed=false;
     private string cardName;
     [SerializeField]private float anxStat;
+
     [Header("UI Elements")]
     [SerializeField] TMP_Text speakerNametext;
     [SerializeField] TMP_Text dialogText;
@@ -60,8 +64,10 @@ public class DialogManager : MonoBehaviour
     {
         dialogPanel.SetActive(false);
         //choicePanel.SetActive(false);
+
         //Logic progress button
         progresButton.onClick.AddListener(OnClickAdvance);
+
         //hide image
         if(leftImage != null && deActiveLeftImage) leftImage.color = new Color32(255, 255, 255, 0);
         if(rightImage != null && deActiveRightImage) rightImage.color = new Color32(255, 255, 255, 0);

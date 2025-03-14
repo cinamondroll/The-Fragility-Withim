@@ -25,7 +25,7 @@ public enum DialogTarget
 {
     LeftImage,
     RightImage,
-    CenterImage
+    //CenterImage
 }
 
 public enum Animation
