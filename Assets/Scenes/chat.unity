@@ -822,7 +822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &413743636
 Transform:
   m_ObjectHideFlags: 0
@@ -971,7 +971,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &522326746
 Transform:
   m_ObjectHideFlags: 0
@@ -1585,7 +1585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1083540451
 Transform:
   m_ObjectHideFlags: 0
@@ -2025,7 +2025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2453,7 +2453,7 @@ MonoBehaviour:
   - 10
   - 50
   - 5
-  IndexNode: []
+  NodeIndex: 000000000100000000000000
   panel: {fileID: 2032100785}
   AssetCard:
   - {fileID: 7918522965169776436, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
@@ -2472,6 +2472,7 @@ MonoBehaviour:
   voiceAudioSource: {fileID: 0}
   effectAudioSource: {fileID: 0}
   textSpeed: 0.05
+  shuffleBtn: {fileID: 33945638}
 --- !u!1 &2032100785
 GameObject:
   m_ObjectHideFlags: 0

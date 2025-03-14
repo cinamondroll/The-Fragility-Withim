@@ -15,6 +15,8 @@ public class CardScript : MonoBehaviour
     private float stat;
     private float condition;
     private float anxStat;
+    int nextNodeIndex;
+    private Vector3 BeginPost;
 
     
 
@@ -24,6 +26,7 @@ public class CardScript : MonoBehaviour
     void Awake()
     {
         Vector3 startPos = transform.position;
+        BeginPost=startPos;
         transform.position=new Vector3(startPos.x, 1.5f, startPos.z);
         collid=GetComponent<BoxCollider2D>();
       
@@ -43,7 +46,7 @@ public class CardScript : MonoBehaviour
     {   
         if (!Onclick && condition>=anxStat)
         {   
-
+            BeginPost= transform.position;
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.color = Color.white;
             Vector3 startPos = transform.position;
@@ -55,7 +58,8 @@ public class CardScript : MonoBehaviour
     void OnMouseExit()
     {   
         if (!Onclick)
-        {
+        {   
+            
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.color = color;
             Vector3 startPos = transform.position;
@@ -70,6 +74,10 @@ public class CardScript : MonoBehaviour
         this.anxStat=anxStat;
     }
 
+    public void setNextNode(int i){
+        nextNodeIndex=i;
+    }
+
     async void OnMouseDown()
     {
           if(Onclick == false)
@@ -78,7 +86,7 @@ public class CardScript : MonoBehaviour
                 spriteRenderer.color = Color.white;
                 Onclick=true;
                 gameManager = GameObject.Find("GameManager");
-                StartCoroutine(gameManager.GetComponent<DialogManager>().HideCard(this.gameObject.name, stat));
+                StartCoroutine(gameManager.GetComponent<DialogManager>().HideCard(this.gameObject.name, stat, nextNodeIndex));
                 StartCoroutine(MoveCenter(ChosedCardPosition.position));
                 await Task.Delay(500);
             }
@@ -130,6 +138,14 @@ public class CardScript : MonoBehaviour
         }
         Renderer renderer = GetComponent<Renderer>();
         renderer.material.color = Color.white;
+    }
+
+    public async Task rePosition(){
+        await Task.Delay(2300);
+        Onclick=false;
+        transform.position=BeginPost;
+        
+
     }
 
     // public IEnumerator Fade(){

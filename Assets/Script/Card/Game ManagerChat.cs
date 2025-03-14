@@ -57,18 +57,19 @@ public class GameManagerChat : MonoBehaviour
 
     public IEnumerator HideCard(String name, float effect)
     {   
-       
+        Vector3 beginPos;
         cardName=name;
         GameObject.Find("Shuffle").SetActive(false);
         isChosed=true;
         for (int i = 0; i < Deck.Length; i++)
         {   
             if (Deck[i].name==name){
+                beginPos=Deck[i].transform.position;
                 continue;
             }
             StartCoroutine(Fade(Deck[i].name));
         yield return null;
-         this.anxStat-=effect;
+        this.anxStat-=effect;
         shapeVolume();
         }
     }

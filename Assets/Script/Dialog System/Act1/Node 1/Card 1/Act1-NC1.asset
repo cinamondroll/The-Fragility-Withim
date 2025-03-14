@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
+  m_Name: Act1-NC1
+  m_EditorClassIdentifier: 
+  lines:
+  - {fileID: 11400000, guid: 865778ccd1f10a24c8d7495874843492, type: 2}
+  - {fileID: 11400000, guid: 3369662af2030624e9f249e105004a99, type: 2}
+  - {fileID: 11400000, guid: 83461b3193498444f8be667830f63f2a, type: 2}
+  choices: []
+  nextScene: chat

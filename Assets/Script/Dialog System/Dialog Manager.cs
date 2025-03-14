@@ -16,17 +16,17 @@ public class DialogManager : MonoBehaviour
     public GameObject[] Deck;
     [SerializeField]private float[] condition;
     [SerializeField]private float[] stat;
-
-    //Naya Add++
-    [SerializeField] DialogNode[] IndexNode;
+    [SerializeField]private int[] NodeIndex;
     
     public GameObject panel;
     public Sprite[] AssetCard;
+    private bool inChoice=false;
     HashSet<int> setUnik = new HashSet<int>();
     bool isClick=false;
     bool isChosed=false;
     private string cardName;
     [SerializeField]private float anxStat;
+    Choice nextNode;
 
     [Header("UI Elements")]
     [SerializeField] TMP_Text speakerNametext;
@@ -53,6 +53,7 @@ public class DialogManager : MonoBehaviour
     DialogNode currentNode;
     int currentLineIndex = 0;
     bool isTyping = false;
+    public GameObject shuffleBtn;
     
     void Awake()
     {
@@ -108,7 +109,7 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
-
+            DisplayChoice();
         }
     }
 
@@ -191,6 +192,8 @@ public class DialogManager : MonoBehaviour
             {
                 voiceAudioSource.Stop();
             }
+        }else if(inChoice){
+
         }
         else
         {
@@ -199,22 +202,26 @@ public class DialogManager : MonoBehaviour
             
         }
     }
-    public IEnumerator HideCard(String name, float effect)
+    public IEnumerator HideCard(String name, float effect, int nextNodeIndex)
     {   
-       
+        
+        int chosedCArdIndex=0;
         cardName=name;
-        GameObject.Find("Shuffle").SetActive(false);
+        shuffleBtn.SetActive(false);
         isChosed=true;
         for (int i = 0; i < Deck.Length; i++)
         {   
             if (Deck[i].name==name){
+                chosedCArdIndex=i;
                 continue;
             }
             StartCoroutine(Fade(Deck[i].name));
         yield return null;
-         this.anxStat-=effect;
-        shapeVolume();
         }
+        nextNode=currentNode.nextNodeIndex(nextNodeIndex);
+        this.anxStat-=effect;
+        shapeVolume();
+        Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
     }
 
     IEnumerator Fade(String name){
@@ -249,6 +256,7 @@ public class DialogManager : MonoBehaviour
            Deck[counter].GetComponent<CardScript>().setAnx(anxStat);
            Deck[counter].GetComponent<CardScript>().setCond(condition[i]);
            Deck[counter].GetComponent<CardScript>().setStat(stat[i]);
+           Deck[counter].GetComponent<CardScript>().setNextNode(i);
            counter++;
        }
         yield return null;
@@ -307,10 +315,7 @@ public class DialogManager : MonoBehaviour
     //Naya
     async void DisplayChoice()
     {
-        foreach(Transform child in choicePanel.transform)
-        {
-            Destroy(child.transform);
-        }
+        inChoice=true;
         choicePanel.SetActive(true);
         isClick=true;
         StartCoroutine(ShuffleCard());
@@ -318,7 +323,12 @@ public class DialogManager : MonoBehaviour
         Uicard.SetActive(true);
         panel.SetActive(true);
         StartCoroutine(GetIn());
-        if (isChosed)
+
+    }
+
+    async void Update()
+    {
+         if (isChosed)
         {
         isChosed=false;
         await Task.Delay(2000);
@@ -326,13 +336,10 @@ public class DialogManager : MonoBehaviour
         await Task.Delay(500);
         panel.SetActive(false);
         Uicard.SetActive(false);
+        shuffleBtn.SetActive(true);
+        inChoice=false;
+        StartDialog(nextNode.nextNode);
         }
-
-        foreach (Choice choice in currentNode.choices)
-        {
-            //KOSONG
-        }
-        
     }
 }
 
