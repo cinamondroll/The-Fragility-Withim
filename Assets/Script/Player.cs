@@ -1,14 +1,11 @@
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.InputSystem.DualShock.LowLevel;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
 
     public float movespeed;
-    Rigidbody rb;
+    Rigidbody2D rb;
     [SerializeField]private float anxStat;
     public Animator animation;
  
@@ -16,13 +13,13 @@ public class Player : MonoBehaviour
     
     void Awake()
     {
-        
+        rb=GetComponent<Rigidbody2D>();
     }
     void Start()
     {
         float x=PlayerPrefs.GetFloat("x");
         float y=PlayerPrefs.GetFloat("y");
-        transform.position=new Vector3(x,y,-5);
+        transform.position=new Vector3(x,-0.29f,-5);
         anxStat=PlayerPrefs.GetFloat("anxStat");
         shapeVolume();
     }
@@ -33,6 +30,7 @@ public class Player : MonoBehaviour
         
     }
 
+    [System.Obsolete]
     void FixedUpdate()
     {
         if (Input.GetAxis("Horizontal") !=0)
@@ -47,7 +45,7 @@ public class Player : MonoBehaviour
            {
                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
            }
-           transform.Translate(hInput*movespeed, 0, 0);
+           rb.velocity = new Vector2(hInput * movespeed, rb.velocity.y);
         }else{
             animation.SetBool("isWalk", false);
         }
