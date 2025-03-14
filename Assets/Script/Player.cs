@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float movespeed;
     Rigidbody rb;
     [SerializeField]private float anxStat;
+    public Animator animation;
  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
@@ -34,7 +35,10 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Input.GetAxis("Horizontal") !=0)
+        {
            float hInput=Input.GetAxis("Horizontal");
+           animation.SetBool("isWalk", true);
            if (hInput<0 && transform.localScale.x>0)
            {
                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -44,6 +48,9 @@ public class Player : MonoBehaviour
                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
            }
            transform.Translate(hInput*movespeed, 0, 0);
+        }else{
+            animation.SetBool("isWalk", false);
+        }
     }
     public float getAnxSta()
     {
