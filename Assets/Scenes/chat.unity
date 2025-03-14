@@ -2453,6 +2453,7 @@ MonoBehaviour:
   - 10
   - 50
   - 5
+  IndexNode: []
   panel: {fileID: 2032100785}
   AssetCard:
   - {fileID: 7918522965169776436, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
@@ -2462,6 +2463,7 @@ MonoBehaviour:
   speakerNametext: {fileID: 411177255}
   dialogText: {fileID: 763009663}
   dialogPanel: {fileID: 290885462}
+  choicePanel: {fileID: 52309143}
   progresButton: {fileID: 1624276185}
   leftImage: {fileID: 1177306634}
   rightImage: {fileID: 1320119747}

@@ -32,7 +32,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] TMP_Text speakerNametext;
     [SerializeField] TMP_Text dialogText;
     [SerializeField] GameObject dialogPanel;
-    //[SerializeField] GameObject choicePanel;
+    [SerializeField] GameObject choicePanel;
     //[SerializeField] Button choiceButtonPrefab;
     [SerializeField] public Button progresButton;
 
@@ -196,21 +196,7 @@ public class DialogManager : MonoBehaviour
         {
             currentLineIndex++;
             DisplayCurrentLine();
-            isClick=true;
-            StartCoroutine(ShuffleCard());
-            //await Task.Delay(100);
-            Uicard.SetActive(true);
-            panel.SetActive(true);
-            StartCoroutine(GetIn());
-            if (isChosed)
-            {
-            isChosed=false;
-            //await Task.Delay(2000);
-            StartCoroutine(Fade(cardName));
-            //await Task.Delay(500);
-            panel.SetActive(false);
-            Uicard.SetActive(false);
-            }
+            
         }
     }
     public IEnumerator HideCard(String name, float effect)
@@ -317,4 +303,36 @@ public class DialogManager : MonoBehaviour
         if (anxStat<=100) presentase=anxStat/100;
         volume.GetComponent<Image>().fillAmount=presentase;
     }
+
+    //Naya
+    async void DisplayChoice()
+    {
+        foreach(Transform child in choicePanel.transform)
+        {
+            Destroy(child.transform);
+        }
+        choicePanel.SetActive(true);
+        isClick=true;
+        StartCoroutine(ShuffleCard());
+        await Task.Delay(100);
+        Uicard.SetActive(true);
+        panel.SetActive(true);
+        StartCoroutine(GetIn());
+        if (isChosed)
+        {
+        isChosed=false;
+        await Task.Delay(2000);
+        StartCoroutine(Fade(cardName));
+        await Task.Delay(500);
+        panel.SetActive(false);
+        Uicard.SetActive(false);
+        }
+
+        foreach (Choice choice in currentNode.choices)
+        {
+            //KOSONG
+        }
+        
+    }
 }
+
