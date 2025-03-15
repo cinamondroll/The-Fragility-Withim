@@ -2582,21 +2582,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dea38939c1514af6ad576f3d93937df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Uicard: {fileID: 0}
+  Deck: []
+  condition: []
+  stat: []
+  NodeIndex: 
+  panel: {fileID: 0}
+  AssetCard: []
+  anxStat: 0
+  timer: {fileID: 0}
   speakerNametext: {fileID: 1421233638}
   dialogText: {fileID: 248058698}
   dialogPanel: {fileID: 1295723736}
   choicePanel: {fileID: 52309143}
-  choiceButtonPrefab: {fileID: 0}
   progresButton: {fileID: 0}
   leftImage: {fileID: 1732661341}
   rightImage: {fileID: 1638073566}
-  centerImage: {fileID: 0}
   deActiveLeftImage: 1
   deActiveRightImage: 1
-  deActiveCenterImage: 0
-  voiceAudioSource: {fileID: 0}
-  effectAudioSource: {fileID: 0}
   textSpeed: 0.05
+  shuffleBtn: {fileID: 0}
 --- !u!1 &2032100785
 GameObject:
   m_ObjectHideFlags: 0

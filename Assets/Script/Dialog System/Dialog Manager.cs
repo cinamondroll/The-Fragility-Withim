@@ -90,7 +90,7 @@ public class DialogManager : MonoBehaviour
 
             return;
         }
-        if (currentLineIndex < currentNode.lines.Length)
+        if (currentLineIndex < currentNode.lines.Length || currentNode.isChoiceNull())
         {
             DialogLine line = currentNode.lines[currentLineIndex];
             speakerNametext.text = line.speakerName;
@@ -106,10 +106,6 @@ public class DialogManager : MonoBehaviour
             StartCoroutine(AnimateAndType(line, targetImage));
 
         }
-        // else if( nextNode== null)
-        // {
-        //    EndDIalog();
-        // }
         else
         {
             DisplayChoice();

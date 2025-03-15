@@ -2471,8 +2471,6 @@ MonoBehaviour:
   rightImage: {fileID: 1320119747}
   deActiveLeftImage: 1
   deActiveRightImage: 1
-  voiceAudioSource: {fileID: 0}
-  effectAudioSource: {fileID: 0}
   textSpeed: 0.05
   shuffleBtn: {fileID: 33945638}
 --- !u!1 &2032100785

@@ -7,14 +7,18 @@ public class DialogNode : ScriptableObject
     public Choice[] choices;
     public string nextScene;
 
+
     public Choice nextNodeIndex(int i){
-        if (i>choices.Length)
+        if (i>=choices.Length)
         {
             return choices[0];
         }
         return choices[i];
     }
     
+    public bool isChoiceNull(){
+        return choices.Length==0;
+    }
 
 }
 

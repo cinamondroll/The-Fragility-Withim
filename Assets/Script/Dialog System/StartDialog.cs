@@ -11,6 +11,7 @@ public class StartDialog : MonoBehaviour
     void StartThis()
     {
         manager.StartDialog(startNode);
+        
     }
 
 }
