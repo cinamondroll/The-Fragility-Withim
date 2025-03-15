@@ -80,7 +80,7 @@ public class CardScript : MonoBehaviour
 
     async void OnMouseDown()
     {
-          if(Onclick == false)
+          if(!Onclick&&condition>=anxStat)
             {
                 SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
                 spriteRenderer.color = Color.white;

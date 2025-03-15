@@ -2448,8 +2448,8 @@ MonoBehaviour:
   - {fileID: 413743635}
   condition:
   - 80
-  - 100
-  - 120
+  - 75
+  - 90
   stat:
   - 5
   - 10
@@ -2460,7 +2460,7 @@ MonoBehaviour:
   - {fileID: 7918522965169776436, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
   - {fileID: -7383382961532566217, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
   - {fileID: 5799697062963633374, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
-  anxStat: 70
+  anxStat: 90
   timer: {fileID: 2051070265}
   speakerNametext: {fileID: 411177255}
   dialogText: {fileID: 763009663}
