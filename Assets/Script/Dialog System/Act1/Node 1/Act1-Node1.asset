@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - {fileID: 11400000, guid: 7308bd38f405b41afa1491ea3fd735e5, type: 2}
+  - {fileID: 11400000, guid: 6e764aac7be554731b7b24ef85b6a795, type: 2}
   choices:
   - choiceText: 
     nextNode: {fileID: 11400000, guid: 554cbd3bf5031b746aea3ea9bfa8e0c9, type: 2}
   - choiceText: 
     nextNode: {fileID: 11400000, guid: 881df53d12fed79478e1019340774d5f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 26089f9c7e4884a79a1610dd7736bdcb, type: 2}
   nextScene: chat

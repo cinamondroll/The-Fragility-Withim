@@ -41,9 +41,9 @@ public class DialogManager : MonoBehaviour
     [SerializeField] bool deActiveRightImage;
     //[SerializeField] bool deActiveCenterImage;
 
-    [Header("Audio")]
-    public AudioSource voiceAudioSource;
-    public AudioSource effectAudioSource;
+    // [Header("Audio")]
+    // public AudioSource voiceAudioSource;
+    // public AudioSource effectAudioSource;
 
     [Header("Setting")]
     [SerializeField] float textSpeed = 0.05f;
@@ -86,7 +86,7 @@ public class DialogManager : MonoBehaviour
     {
         if (currentNode == null || currentNode.lines.Length == 0)
         { 
-            //END DIALOG
+            //EndDIalog();
 
             return;
         }
@@ -106,6 +106,10 @@ public class DialogManager : MonoBehaviour
             StartCoroutine(AnimateAndType(line, targetImage));
 
         }
+        // else if( nextNode== null)
+        // {
+        //    EndDIalog();
+        // }
         else
         {
             DisplayChoice();
@@ -158,25 +162,25 @@ public class DialogManager : MonoBehaviour
         isTyping = false;
     }
 
-    void PlayAudio(DialogLine line)
-    {
-        if(voiceAudioSource.isPlaying)
-        {
-            voiceAudioSource.Stop();
-        }
+    // void PlayAudio(DialogLine line)
+    // {
+    //     if(voiceAudioSource.isPlaying)
+    //     {
+    //         voiceAudioSource.Stop();
+    //     }
 
-        if(line.spokenText != null)
-        {
-            voiceAudioSource.clip = line.spokenText;
-            voiceAudioSource.Play();
-        }
+    //     if(line.spokenText != null)
+    //     {
+    //         voiceAudioSource.clip = line.spokenText;
+    //         voiceAudioSource.Play();
+    //     }
 
-        if (line.moorOrEffect != null)
-        {
-            effectAudioSource.clip = line.moorOrEffect;
-            voiceAudioSource.Play();
-        }
-    }
+    //     if (line.moorOrEffect != null)
+    //     {
+    //         effectAudioSource.clip = line.moorOrEffect;
+    //         voiceAudioSource.Play();
+    //     }
+    // }
 
     public void OnClickAdvance()
     {
@@ -187,10 +191,10 @@ public class DialogManager : MonoBehaviour
             dialogText.text = currentLine.text;
             dialogText.maxVisibleCharacters = currentLine.text.Length;
             isTyping = false;
-            if (voiceAudioSource.isPlaying)
-            {
-                voiceAudioSource.Stop();
-            }
+            // if (voiceAudioSource.isPlaying)
+            // {
+            //     voiceAudioSource.Stop();
+            // }
         }else if(inChoice){
 
         }
@@ -360,7 +364,7 @@ public class DialogManager : MonoBehaviour
             if (time<0)
             {
                 inChoice=false;
-                StartCoroutine(HideCard("", 0f, 0));//parameter terakhir digunakan untuk indext next node diam
+                StartCoroutine(HideCard("", 0f, 2));//parameter terakhir digunakan untuk indext next node diam
             }
             time-=Time.deltaTime;
             if (time<5)
@@ -377,5 +381,14 @@ public class DialogManager : MonoBehaviour
             
     //     }
     // }
+
+    //END DIALOG
+    void EndDIalog()
+    {
+        dialogText.text = "";
+        speakerNametext.text = "";
+        choicePanel.SetActive(false);
+        panel.SetActive(false); 
+    }
 }
 

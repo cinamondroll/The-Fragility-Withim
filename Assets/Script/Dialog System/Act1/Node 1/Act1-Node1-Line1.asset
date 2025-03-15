@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
   m_Name: Act1-Node1-Line1
   m_EditorClassIdentifier: 
-  speakerName: Cantika
-  text: Halo kamu manusia ya?
-  charSprite: {fileID: 1026151793864018484, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
+  speakerName: Andre
+  text: Ehh kamu kan...
+  charSprite: {fileID: -1285027933970299755, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
   m_Name: Act1-NC0-Line3
   m_EditorClassIdentifier: 
-  speakerName: Andre
-  text: Nyari Takjil
+  speakerName: Zaldy
+  text: Beneran? Pas kelas berapa?
   charSprite: {fileID: 1750363475519744411, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}

@@ -8,7 +8,7 @@ public class DialogNode : ScriptableObject
     public string nextScene;
 
     public Choice nextNodeIndex(int i){
-        if (i>=choices.Length)
+        if (i>choices.Length)
         {
             return choices[0];
         }

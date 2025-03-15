@@ -665,7 +665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 888.26996, y: 554.878}
+  m_AnchoredPosition: {x: 888.2699, y: 554.878}
   m_SizeDelta: {x: 800, y: 499.7382}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &411177253
@@ -2451,16 +2451,16 @@ MonoBehaviour:
   - 100
   - 120
   stat:
-  - 10
-  - 50
   - 5
+  - 10
+  - 15
   NodeIndex: 000000000100000000000000
   panel: {fileID: 2032100785}
   AssetCard:
   - {fileID: 7918522965169776436, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
   - {fileID: -7383382961532566217, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
   - {fileID: 5799697062963633374, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
-  anxStat: 80
+  anxStat: 70
   timer: {fileID: 2051070265}
   speakerNametext: {fileID: 411177255}
   dialogText: {fileID: 763009663}

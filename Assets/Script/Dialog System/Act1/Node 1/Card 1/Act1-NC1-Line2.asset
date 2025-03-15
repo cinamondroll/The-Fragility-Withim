@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
   m_Name: Act1-NC1-Line2
   m_EditorClassIdentifier: 
-  speakerName: Cantika
-  text: Oalah kirain Monyet, Mau Makan?
+  speakerName: Andre
+  text: Kamu ga inget aku? Kita pernah sekelas waktu SMP loh, masa udah lupa?
   charSprite: {fileID: 1026151793864018484, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}
