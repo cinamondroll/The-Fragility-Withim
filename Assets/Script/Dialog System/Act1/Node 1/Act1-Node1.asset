@@ -22,4 +22,4 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: 881df53d12fed79478e1019340774d5f, type: 2}
   - choiceText: 
     nextNode: {fileID: 11400000, guid: 26089f9c7e4884a79a1610dd7736bdcb, type: 2}
-  nextScene: chat
+  nextScene: 

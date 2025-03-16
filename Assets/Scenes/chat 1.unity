@@ -2428,7 +2428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1999358267}
-  startNode: {fileID: 11400000, guid: 72628a78cf3ae445d9d6bbcad3c7038d, type: 2}
+  startNode: {fileID: 11400000, guid: 79a6f10b184b4481483575c4156a116c, type: 2}
 --- !u!114 &1999358267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2472,7 +2472,7 @@ MonoBehaviour:
   deActiveLeftImage: 1
   deActiveRightImage: 1
   textSpeed: 0.05
-  NextSceneDialog: chat 1
+  NextSceneDialog: 
   shuffleBtn: {fileID: 33945638}
 --- !u!1 &2032100785
 GameObject:

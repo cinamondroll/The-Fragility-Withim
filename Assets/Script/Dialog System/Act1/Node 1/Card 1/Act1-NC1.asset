@@ -18,4 +18,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 83461b3193498444f8be667830f63f2a, type: 2}
   - {fileID: 11400000, guid: 8f13e7368882a4d3c89f826275530ea7, type: 2}
   choices: []
-  nextScene: chat
+  nextScene: chat 1

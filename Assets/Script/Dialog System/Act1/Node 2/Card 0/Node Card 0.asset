@@ -19,4 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7dc12254f41d46f4bcf2659968d5746, type: 2}
   - {fileID: 11400000, guid: 1dc2b5d5cb07d45afa90e07772a5de3e, type: 2}
   choices: []
-  nextScene: 
+  nextScene: SC Chapter 1

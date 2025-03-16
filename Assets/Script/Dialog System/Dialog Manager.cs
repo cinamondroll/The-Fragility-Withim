@@ -47,6 +47,7 @@ public class DialogManager : MonoBehaviour
 
     [Header("Setting")]
     [SerializeField] float textSpeed = 0.05f;
+    //[SerializeField] string NextSceneDialog;
     DialogNode currentNode;
     int currentLineIndex = 0;
     bool isTyping = false;
@@ -84,14 +85,17 @@ public class DialogManager : MonoBehaviour
 
     void DisplayCurrentLine()
     {
-        if (currentNode == null || currentNode.lines.Length == 0)
+        if (currentNode == null || currentNode.lines.Length == 0 )
         { 
-            //EndDIalog();
+            EndDialog();
+            //SceneManager.LoadScene(NextSceneDialog);
 
             return;
         }
+
         if (currentLineIndex < currentNode.lines.Length || currentNode.isChoiceNull())
         {
+            Debug.Log(currentLineIndex);
             DialogLine line = currentNode.lines[currentLineIndex];
             speakerNametext.text = line.speakerName;
             Image targetImage = GetTargetImage(line.targetImage);
@@ -379,12 +383,14 @@ public class DialogManager : MonoBehaviour
     // }
 
     //END DIALOG
-    void EndDIalog()
+    void EndDialog()
     {
         dialogText.text = "";
         speakerNametext.text = "";
         choicePanel.SetActive(false);
         panel.SetActive(false); 
+
+        Debug.Log("End Dialog");
     }
 }
 
