@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class DialogManager : MonoBehaviour
 {
@@ -85,10 +86,10 @@ public class DialogManager : MonoBehaviour
 
     void DisplayCurrentLine()
     {
-        if (currentNode == null || currentNode.lines.Length == 0 )
+        if (currentNode==null || currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
         { 
             EndDialog();
-            //SceneManager.LoadScene(NextSceneDialog);
+            SceneManager.LoadScene(currentNode.nextScene);
 
             return;
         }
