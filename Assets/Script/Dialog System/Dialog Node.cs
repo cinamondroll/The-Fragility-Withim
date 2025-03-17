@@ -8,6 +8,10 @@ public class DialogNode : ScriptableObject
     public Choice[] choices;
     public string nextScene;
 
+    [SerializeField]public float[] condition;
+    [SerializeField]public float[] stat;
+    [SerializeField]public Sprite[] AssetCard;
+
 
     public Choice nextNodeIndex(int i){
         if (i>=choices.Length)

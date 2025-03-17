@@ -12,12 +12,7 @@ public class DialogManager : MonoBehaviour
 {
     public GameObject Uicard;
     public GameObject[] Deck;
-    [SerializeField]private float[] condition;
-    [SerializeField]private float[] stat;
-    [SerializeField]private int[] NodeIndex;
-    
     public GameObject panel;
-    public Sprite[] AssetCard;
     private bool inChoice=false;
     HashSet<int> setUnik = new HashSet<int>();
     bool isClick=false;
@@ -196,8 +191,6 @@ public class DialogManager : MonoBehaviour
             // {
             //     voiceAudioSource.Stop();
             // }
-        }else if(inChoice){
-
         }
         else
         {
@@ -205,14 +198,17 @@ public class DialogManager : MonoBehaviour
             DisplayCurrentLine();
             
         }
+        if(inChoice){
+            progresButton.interactable=false;
+        }
     }
     public IEnumerator HideCard(String name, float effect, int nextNodeIndex)
     {   
+        isChosed=true;
         timer.SetText("");
         int chosedCArdIndex=0;
         cardName=name;
         shuffleBtn.SetActive(false);
-        isChosed=true;
         for (int i = 0; i < Deck.Length; i++)
         {   
             if (Deck[i].name==name){
@@ -262,10 +258,10 @@ public class DialogManager : MonoBehaviour
       
        foreach (int i in setUnik)
        {
-           Deck[counter].GetComponent<SpriteRenderer>().sprite=AssetCard[i];
+           Deck[counter].GetComponent<SpriteRenderer>().sprite=currentNode.AssetCard[i];
            Deck[counter].GetComponent<CardScript>().setAnx(anxStat);
-           Deck[counter].GetComponent<CardScript>().setCond(condition[i]);
-           Deck[counter].GetComponent<CardScript>().setStat(stat[i]);
+           Deck[counter].GetComponent<CardScript>().setCond(currentNode.condition[i]);
+           Deck[counter].GetComponent<CardScript>().setStat(currentNode.stat[i]);
            Deck[counter].GetComponent<CardScript>().setNextNode(i);
            counter++;
        }
@@ -358,6 +354,7 @@ public class DialogManager : MonoBehaviour
         Uicard.SetActive(false);
         shuffleBtn.SetActive(true);
         StartDialog(nextNode.nextNode);
+        progresButton.interactable=true;
         }
 
         if (inChoice)
