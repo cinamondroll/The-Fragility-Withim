@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: Keep Quiet Node
+  m_Name: Prolog Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: e82045721c83b44cda0c931e68df854d, type: 2}
-  - {fileID: 11400000, guid: 7bb1c2fad299344f4b6dd57e2a532f17, type: 2}
+  - {fileID: 11400000, guid: d7a313cde933042db99749a6a6dee739, type: 2}
+  - {fileID: 11400000, guid: b8e6ba1ffe746448b8739863050f2d78, type: 2}
   choices: []
-  nextScene: chat 1
+  nextScene: Start Screen
