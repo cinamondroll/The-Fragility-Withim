@@ -213,12 +213,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 997470678}
   - {fileID: 498360685}
   - {fileID: 771846946}
   - {fileID: 2120850190}
   - {fileID: 88581532}
   - {fileID: 606274057}
-  - {fileID: 997470678}
   - {fileID: 614813335}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1577,8 +1577,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 332, y: 296}
-  m_SizeDelta: {x: 857.6543, y: 426.0606}
+  m_AnchoredPosition: {x: 370.95, y: 277}
+  m_SizeDelta: {x: 1178.1002, y: 590.87}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &997470679
 MonoBehaviour:
@@ -1600,9 +1600,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4173212566300634525, guid: 6255c133e7fef4579883d262140c3d8b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4b718d1aa1051406384819b36170b75e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2777,7 +2777,7 @@ MonoBehaviour:
   exitButton: {fileID: 606274058}
   yaButton: {fileID: 1782605249}
   tidakButton: {fileID: 382527275}
-  Chapter1: SC Chapter 1
+  ChapterChoice: Chapter Choice
   Inventory: Inventory
   PopUpExit: {fileID: 111431236}
   PopUpTentang: {fileID: 89113429}
