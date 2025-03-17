@@ -23,14 +23,15 @@ MonoBehaviour:
   - choiceText: 
     nextNode: {fileID: 11400000, guid: 26089f9c7e4884a79a1610dd7736bdcb, type: 2}
   nextScene: 
+  nextNode: {fileID: 0}
   condition:
-  - 80
+  - 90
   - 100
-  - 60
+  - 90
   stat:
-  - 10
-  - 50
-  - -20
+  - -10
+  - 5
+  - 15
   AssetCard:
   - {fileID: 7918522965169776436, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}
   - {fileID: -7383382961532566217, guid: b73a6b75bffd449dd871f9c15b4f481f, type: 3}

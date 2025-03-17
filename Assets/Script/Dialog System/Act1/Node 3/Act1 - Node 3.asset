@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: Act1 - Node 2
+  m_Name: Act1 - Node 3
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: 9baf37d846f204a648fe87741a380730, type: 2}
+  - {fileID: 11400000, guid: 6dbfc091c627f4f00b3fbc54cc00cdd8, type: 2}
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 3e79ef8e49fc849e1a011e8309d7408e, type: 2}
+    nextNode: {fileID: 11400000, guid: 981c11800541d4cc482913e9c21898f8, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: b410ca78c766743d2ba7eb3bc7d96c25, type: 2}
+    nextNode: {fileID: 11400000, guid: 981c11800541d4cc482913e9c21898f8, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
-  nextScene: 
-  nextNode: {fileID: 11400000, guid: e84669f4338a24a428b9f54d0e3d6bdc, type: 2}
+    nextNode: {fileID: 11400000, guid: 981c11800541d4cc482913e9c21898f8, type: 2}
+  nextScene: SC Chapter 1
+  nextNode: {fileID: 0}
   condition:
   - 90
   - 90

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
+    [SerializeField] string nextDialogScene;
     public GameObject Chat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,7 +40,7 @@ public class NPC : MonoBehaviour
             PlayerPrefs.SetFloat("x", x);
             PlayerPrefs.SetFloat("y", y);
             PlayerPrefs.SetFloat("anxStat", anxStat);
-            LoadScene("chat");
+            LoadScene(nextDialogScene);
             //gameObject.SetActive(false);    
         }
     }

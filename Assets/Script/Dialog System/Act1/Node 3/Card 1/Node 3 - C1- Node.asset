@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: Keep Quiet Node
+  m_Name: Node 3 - C1- Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: a62b3092b314b44fdb4d6004ad708e81, type: 2}
+  - {fileID: 11400000, guid: 0f74bda6fcb8b40d4a94c890fc6d20bc, type: 2}
+  - {fileID: 11400000, guid: 09ce718b60c564821992a4cae99f5181, type: 2}
+  - {fileID: 11400000, guid: ee6229410be4148ec925140dda1efddb, type: 2}
+  - {fileID: 11400000, guid: bf5f10f9b55924f018755ba08f73fa55, type: 2}
   choices: []
-  nextScene: 
-  nextNode: {fileID: 11400000, guid: e84669f4338a24a428b9f54d0e3d6bdc, type: 2}
+  nextScene: SC Chapter 1
+  nextNode: {fileID: 0}
   condition: []
   stat: []
   AssetCard: []
