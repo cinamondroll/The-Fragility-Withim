@@ -7,6 +7,7 @@ public class DialogNode : ScriptableObject
     public DialogLine[] lines;
     public Choice[] choices;
     public string nextScene;
+    public DialogNode nextNode;
 
     [SerializeField]public float[] condition;
     [SerializeField]public float[] stat;

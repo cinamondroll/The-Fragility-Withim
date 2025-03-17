@@ -63,7 +63,7 @@ public class DialogManager : MonoBehaviour
         //choicePanel.SetActive(false);
 
         //Logic progress button
-        progresButton.onClick.AddListener(OnClickAdvance);
+        progresButton.onClick.AddListener(clicking);
 
         //hide image
         if(leftImage != null && deActiveLeftImage) leftImage.color = new Color32(255, 255, 255, 0);
@@ -83,11 +83,20 @@ public class DialogManager : MonoBehaviour
     {
         if (currentNode==null || currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
         { 
-            EndDialog();
-            SceneManager.LoadScene(currentNode.nextScene);
-
+            if (currentNode.nextNode == null)
+            {
+                EndDialog();
+                SceneManager.LoadScene(currentNode.nextScene);            
+            } else 
+            {
+                currentNode = currentNode.nextNode;
+                currentLineIndex = 0;
+                DisplayCurrentLine();
+            }
             return;
         }
+
+
 
         if (currentLineIndex < currentNode.lines.Length || currentNode.isChoiceNull())
         {
@@ -178,7 +187,7 @@ public class DialogManager : MonoBehaviour
     //     }
     // }
 
-    public void OnClickAdvance()
+    public void clicking()
     {
         if(isTyping)
         {

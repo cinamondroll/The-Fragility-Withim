@@ -16,4 +16,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e82045721c83b44cda0c931e68df854d, type: 2}
   - {fileID: 11400000, guid: 7bb1c2fad299344f4b6dd57e2a532f17, type: 2}
   choices: []
-  nextScene: chat 1
+  nextScene: 
+  nextNode: {fileID: 11400000, guid: 79a6f10b184b4481483575c4156a116c, type: 2}
+  condition: []
+  stat: []
+  AssetCard: []
