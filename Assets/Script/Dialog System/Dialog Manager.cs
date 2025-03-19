@@ -48,6 +48,7 @@ public class DialogManager : MonoBehaviour
     bool isTyping = false;
     public GameObject shuffleBtn;
     float time=10;
+    bool isTimeOver=false;
     
     void Awake()
     {
@@ -229,7 +230,7 @@ public class DialogManager : MonoBehaviour
         nextNode=currentNode.nextNodeIndex(nextNodeIndex);
         this.anxStat-=effect;
         StartCoroutine(shapeVolume());
-        Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
+        if(name!="")Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
     }
 
 
@@ -343,6 +344,7 @@ public class DialogManager : MonoBehaviour
     //Naya
     async void DisplayChoice()
     {   
+        timer.color=Color.black;
         time=10;
         inChoice=true;
         choicePanel.SetActive(true);
@@ -361,7 +363,9 @@ public class DialogManager : MonoBehaviour
         timer.text="";
         inChoice=false;
         isChosed=false;
-        await Task.Delay(2000);
+        int a=2000;
+        if (isTimeOver)a=0;
+        await Task.Delay(a);
         StartCoroutine(Fade(cardName));
         await Task.Delay(500);
         panel.SetActive(false);
@@ -369,6 +373,7 @@ public class DialogManager : MonoBehaviour
         shuffleBtn.SetActive(true);
         StartDialog(nextNode.nextNode);
         progresButton.interactable=true;
+        isTimeOver=false;
         }
 
         if (inChoice)
@@ -376,7 +381,8 @@ public class DialogManager : MonoBehaviour
             if (time<0)
             {
                 inChoice=false;
-                StartCoroutine(HideCard("", 0f, 12));//parameter terakhir digunakan untuk indext next node diam
+                StartCoroutine(HideCard("", 0f, 12));
+                isTimeOver=true;//parameter terakhir digunakan untuk indext next node diam
             }
             time-=Time.deltaTime;
             if (time<5)
