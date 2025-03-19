@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Zaldy
   text: Karena sekolahnya nyaman dan deket rumah juga. Kalo kamu kenapa?
-  charSprite: {fileID: 1750363475519744411, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
+  charSprite: {fileID: 8986602462079563463, guid: cdb494cca56624360b4c97959def9463, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

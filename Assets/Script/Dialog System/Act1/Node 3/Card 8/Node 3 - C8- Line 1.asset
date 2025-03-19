@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Zaldy
   text: Salah satu dari dua pilihan itu.
-  charSprite: {fileID: 1750363475519744411, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
+  charSprite: {fileID: 8136455830139807345, guid: d97da834661b54af1801f236b9ac221a, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

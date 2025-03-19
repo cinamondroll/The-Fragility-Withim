@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Andre
   text: ...
-  charSprite: {fileID: -1285027933970299755, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
+  charSprite: {fileID: -8346429918525254967, guid: 41c99f1b8e2344bafb8c1a5699bb1bd5, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
