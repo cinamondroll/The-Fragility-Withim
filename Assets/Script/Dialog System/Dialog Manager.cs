@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using UnityEngine.Video;
 
 public class DialogManager : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class DialogManager : MonoBehaviour
     public GameObject shuffleBtn;
     float time=10;
     bool isTimeOver=false;
+    [SerializeField]GameObject PopUpGameOver;
     
     void Awake()
     {
@@ -344,6 +346,7 @@ public class DialogManager : MonoBehaviour
     //Naya
     async void DisplayChoice()
     {   
+        shuffleBtn.GetComponent<Shuffle>().isAvail=true;
         timer.color=Color.black;
         time=10;
         inChoice=true;
@@ -389,7 +392,17 @@ public class DialogManager : MonoBehaviour
             {
                 timer.color=Color.red;
             }
+            if (time<=2)
+            {
+                shuffleBtn.GetComponent<Shuffle>().isAvail=false;
+            }
             timer.text=time.ToString("F0");
+        }
+        if (anxStat>=100)
+        {
+            anxStat=1;
+            GameOver(); 
+            timer.SetText("");
         }
     }
 
@@ -409,6 +422,23 @@ public class DialogManager : MonoBehaviour
         panel.SetActive(false); 
 
         Debug.Log("End Dialog");
+    }
+
+    void GameOver(){
+        GameObject.Find("chatCore").SetActive(false);
+        dialogText.text = "";
+        speakerNametext.text = "";
+        choicePanel.SetActive(false);
+        panel.SetActive(false); 
+        PopUpGameOver.SetActive(true);
+    }
+    public void Restart(){
+        SceneManager.LoadScene("SC Chapter 1");
+        PlayerPrefs.SetFloat("anxStat", 80);
+        PlayerPrefs.SetFloat("x", 0f);
+    }
+    public void Menu(){
+        SceneManager.LoadScene("Start Screen");
     }
 }
 
