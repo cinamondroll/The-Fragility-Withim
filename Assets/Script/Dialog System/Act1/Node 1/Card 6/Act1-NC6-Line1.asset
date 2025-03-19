@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Zaldy
   text: Betul, tapi kok kamu bisa tahu?
-  charSprite: {fileID: 1750363475519744411, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
+  charSprite: {fileID: 8009163328989036174, guid: af5e33fe809cb473caa10906a5b6731e, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

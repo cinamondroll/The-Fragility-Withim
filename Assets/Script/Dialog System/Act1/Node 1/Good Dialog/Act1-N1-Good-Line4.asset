@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Andre
   text: Pas kelas sembilan sih, pas pandemi itu.
-  charSprite: {fileID: 1026151793864018484, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
+  charSprite: {fileID: -4313957695351146240, guid: 37cb8d31797784da2a23c6b1a35adf51, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

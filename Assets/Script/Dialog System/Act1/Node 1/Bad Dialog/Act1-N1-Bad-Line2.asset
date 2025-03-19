@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerName: Andre
   text: Kamu ga inget aku? Kita pernah sekelas waktu SMP loh, masa udah lupa?
-  charSprite: {fileID: 1026151793864018484, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
+  charSprite: {fileID: -3918315708070997289, guid: 29ec81ad5b94d4d659651d71ef9486e6, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
