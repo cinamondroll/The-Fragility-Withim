@@ -21,6 +21,26 @@ MonoBehaviour:
     nextNode: {fileID: 11400000, guid: b410ca78c766743d2ba7eb3bc7d96c25, type: 2}
   - choiceText: 
     nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a40f86479c4084629a60f3432856c32f, type: 2}
   nextScene: 
   nextNode: {fileID: 11400000, guid: e84669f4338a24a428b9f54d0e3d6bdc, type: 2}
   condition:

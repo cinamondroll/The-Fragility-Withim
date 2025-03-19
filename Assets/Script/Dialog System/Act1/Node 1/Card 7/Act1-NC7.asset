@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: Act1-NC0
+  m_Name: Act1-NC7
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: a2bf14a2d2a95e44997122b2b014cd68, type: 2}
-  - {fileID: 11400000, guid: 18ad19db957e34b3e97a5548ff2e67ee, type: 2}
-  - {fileID: 11400000, guid: 2dd1408e391af4843b065603435443f6, type: 2}
-  - {fileID: 11400000, guid: 3ef7199ee1b1d4b678bfe21591e417f4, type: 2}
-  - {fileID: 11400000, guid: 62d5c5fdb399e40f190180726c203c0b, type: 2}
+  - {fileID: 11400000, guid: babdcdb12ae4547b098d48b531dc7e1e, type: 2}
+  - {fileID: 11400000, guid: 3369662af2030624e9f249e105004a99, type: 2}
+  - {fileID: 11400000, guid: 83461b3193498444f8be667830f63f2a, type: 2}
+  - {fileID: 11400000, guid: 8f13e7368882a4d3c89f826275530ea7, type: 2}
   choices: []
   nextScene: 
   nextNode: {fileID: 11400000, guid: 79a6f10b184b4481483575c4156a116c, type: 2}

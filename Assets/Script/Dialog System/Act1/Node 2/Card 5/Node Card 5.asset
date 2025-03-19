@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
+  m_Name: Node Card 5
+  m_EditorClassIdentifier: 
+  lines:
+  - {fileID: 11400000, guid: 4e598e7388d31453ca86597995e1997e, type: 2}
+  - {fileID: 11400000, guid: f7abcecede1704e4b91fc1760980d961, type: 2}
+  - {fileID: 11400000, guid: ee1f42e48150449d9be08301334f9176, type: 2}
+  - {fileID: 11400000, guid: a7dc12254f41d46f4bcf2659968d5746, type: 2}
+  - {fileID: 11400000, guid: 1dc2b5d5cb07d45afa90e07772a5de3e, type: 2}
+  choices: []
+  nextScene: 
+  nextNode: {fileID: 11400000, guid: e84669f4338a24a428b9f54d0e3d6bdc, type: 2}
+  condition: []
+  stat: []
+  AssetCard: []

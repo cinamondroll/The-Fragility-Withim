@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: Act1-NC0
+  m_Name: Act1-NC6
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: a2bf14a2d2a95e44997122b2b014cd68, type: 2}
+  - {fileID: 11400000, guid: db6624a27420c4f6198784eff7766dc7, type: 2}
   - {fileID: 11400000, guid: 18ad19db957e34b3e97a5548ff2e67ee, type: 2}
   - {fileID: 11400000, guid: 2dd1408e391af4843b065603435443f6, type: 2}
   - {fileID: 11400000, guid: 3ef7199ee1b1d4b678bfe21591e417f4, type: 2}

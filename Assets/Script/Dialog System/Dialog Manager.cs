@@ -371,7 +371,7 @@ public class DialogManager : MonoBehaviour
             if (time<0)
             {
                 inChoice=false;
-                StartCoroutine(HideCard("", 0f, 2));//parameter terakhir digunakan untuk indext next node diam
+                StartCoroutine(HideCard("", 0f, 12));//parameter terakhir digunakan untuk indext next node diam
             }
             time-=Time.deltaTime;
             if (time<5)
