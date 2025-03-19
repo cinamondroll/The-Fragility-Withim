@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card 11 - Line 1
   m_EditorClassIdentifier: 
   speakerName: Zaldy
-  text: Gak tahu
+  text: Bener-bener kebetulan aja masuk sini.
   charSprite: {fileID: 1750363475519744411, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}

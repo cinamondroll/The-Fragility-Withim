@@ -15,7 +15,6 @@ public class DialogManager : MonoBehaviour
     public GameObject panel;
     private bool inChoice=false;
     HashSet<int> setUnik = new HashSet<int>();
-    bool isClick=false;
     bool isChosed=false;
     private string cardName;
     [SerializeField]private float anxStat;
@@ -54,7 +53,7 @@ public class DialogManager : MonoBehaviour
     {
         anxStat=PlayerPrefs.GetFloat("anxStat");
        
-        shapeVolume();
+        StartCoroutine(shapeVolume());
     }
     void Start()
     {
@@ -229,7 +228,7 @@ public class DialogManager : MonoBehaviour
         }
         nextNode=currentNode.nextNodeIndex(nextNodeIndex);
         this.anxStat-=effect;
-        shapeVolume();
+        StartCoroutine(shapeVolume());
         Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
     }
 
@@ -261,7 +260,7 @@ public class DialogManager : MonoBehaviour
         int counter=0;
         int a=0;
         while (setUnik.Count<Deck.Length){   
-            a=UnityEngine.Random.Range(0, Deck.Length);
+            a=UnityEngine.Random.Range(0, 12);
             setUnik.Add(a);
         }
       
@@ -321,17 +320,24 @@ public class DialogManager : MonoBehaviour
 
     public void Reshuffle(){
         anxStat+=3;
-        shapeVolume();
+        StartCoroutine(shapeVolume());
         time-=2;
         StartCoroutine(ShuffleCard());
         StartCoroutine(GetIn());
     }
 
-    public void shapeVolume(){
-        GameObject volume=GameObject.Find("Volume");
-        float presentase=volume.GetComponent<Image>().fillAmount;
-        if (anxStat<=100) presentase=anxStat/100;
-        volume.GetComponent<Image>().fillAmount=presentase;
+    public IEnumerator shapeVolume(){
+        float time=0;
+        while(time<1f){
+            GameObject volume=GameObject.Find("Volume");
+            float presentase=volume.GetComponent<Image>().fillAmount;
+            float target=anxStat/100;
+            volume.GetComponent<Image>().fillAmount=presentase;
+            float temp=Mathf.Lerp(presentase, target, time/1f);
+            volume.GetComponent<Image>().fillAmount=temp;
+            time+=Time.deltaTime;
+            yield return null;
+        }
     }
 
     //Naya
@@ -340,7 +346,6 @@ public class DialogManager : MonoBehaviour
         time=10;
         inChoice=true;
         choicePanel.SetActive(true);
-        isClick=true;
         StartCoroutine(ShuffleCard());
         await Task.Delay(100);
         Uicard.SetActive(true);

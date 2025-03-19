@@ -18,8 +18,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 815bc869b9aa74d5fb090f6191cb5792, type: 2}
   - {fileID: 11400000, guid: eb23c6e2bc84643318f144928153b44d, type: 2}
   choices: []
-  nextScene: SC Chapter 1
-  nextNode: {fileID: 0}
+  nextScene: 
+  nextNode: {fileID: 11400000, guid: dfee0f78d4840491fbb1799c88a748a3, type: 2}
   condition: []
   stat: []
   AssetCard: []

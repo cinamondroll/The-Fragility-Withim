@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Andre
   text: Ohh, kalo aku juga sama sih. Soalnya lumayan deket dari rumah.
   charSprite: {fileID: -1285027933970299755, guid: 82cd9c477c6d24d62b96d570b18549ea, type: 3}
-  targetImage: 0
+  targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1
