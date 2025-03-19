@@ -51,6 +51,9 @@ public class DialogManager : MonoBehaviour
     float time=10;
     bool isTimeOver=false;
     [SerializeField]GameObject PopUpGameOver;
+    [SerializeField] AudioClip audioClick;
+    [SerializeField] AudioClip shuffleAudio;
+    private AudioSource audioSource;
     
     void Awake()
     {
@@ -60,6 +63,7 @@ public class DialogManager : MonoBehaviour
     }
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         timer.SetText("");
         dialogPanel.SetActive(false);
         //choicePanel.SetActive(false);
@@ -191,6 +195,8 @@ public class DialogManager : MonoBehaviour
 
     public void clicking()
     {
+        audioSource.clip=audioClick;
+        audioSource.Play();
         if(isTyping)
         {
             StopAllCoroutines();
@@ -257,6 +263,8 @@ public class DialogManager : MonoBehaviour
     }
 
     public IEnumerator ShuffleCard(){
+        audioSource.clip=shuffleAudio;
+        audioSource.Play();
         if (setUnik.Count>=Deck.Length){
             setUnik.Clear();
         }

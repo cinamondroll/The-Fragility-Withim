@@ -17,9 +17,10 @@ public class CardScript : MonoBehaviour
     private float anxStat;
     int nextNodeIndex;
     private Vector3 BeginPost;
-
-    
-
+    [SerializeField] private AudioClip audioHover;
+    [SerializeField] private AudioClip audioClick;
+    [SerializeField] private AudioClip audioChosed;
+    private AudioSource audioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
@@ -33,7 +34,7 @@ public class CardScript : MonoBehaviour
     }
     void Start()
     {
-       
+       audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +52,8 @@ public class CardScript : MonoBehaviour
             spriteRenderer.color = Color.white;
             Vector3 startPos = transform.position;
             Vector3 TargetPosition = new Vector3(startPos.x, 2f, startPos.z);
+            audioSource.clip=audioHover;
+            audioSource.Play();
             StartCoroutine(MoveUp(startPos, TargetPosition));
             collid.size = new Vector2(2.5f, 5f);      
         }
@@ -86,8 +89,12 @@ public class CardScript : MonoBehaviour
                 spriteRenderer.color = Color.white;
                 Onclick=true;
                 gameManager = GameObject.Find("GameManager");
+                audioSource.clip=audioClick;
+                audioSource.Play();
                 StartCoroutine(gameManager.GetComponent<DialogManager>().HideCard(this.gameObject.name, stat, nextNodeIndex));
                 StartCoroutine(MoveCenter(ChosedCardPosition.position));
+                audioSource.clip=audioChosed;
+                audioSource.PlayDelayed(1.2f);
                 await Task.Delay(500);
             }
     }
@@ -138,6 +145,7 @@ public class CardScript : MonoBehaviour
         }
         Renderer renderer = GetComponent<Renderer>();
         renderer.material.color = Color.white;
+       
     }
 
     public async Task rePosition(){
