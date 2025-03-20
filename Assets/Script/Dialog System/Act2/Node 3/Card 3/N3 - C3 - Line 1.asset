@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
-  m_Name: N2 - C11- Line 1
+  m_Name: N3 - C3 - Line 1
   m_EditorClassIdentifier: 
-  speakerName: 
-  text: Aku Adit, emm...
-  charSprite: {fileID: 8136455830139807345, guid: d97da834661b54af1801f236b9ac221a, type: 3}
+  speakerName: Adit
+  text: 10-B. Kalo kamu sendiri?
+  charSprite: {fileID: 8986602462079563463, guid: cdb494cca56624360b4c97959def9463, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

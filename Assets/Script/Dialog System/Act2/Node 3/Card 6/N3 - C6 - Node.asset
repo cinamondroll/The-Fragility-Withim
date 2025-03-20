@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: N2 - C5 - Node
+  m_Name: N3 - C6 - Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: 8c5a50a6c162e4a7abfe17f399dd6ea6, type: 2}
-  - {fileID: 11400000, guid: 92d201eced17d426b904734a8828e9ad, type: 2}
-  - {fileID: 11400000, guid: 607f9c3f9075843a08a02d79502b77ca, type: 2}
-  - {fileID: 11400000, guid: 402797c8aab4b4cb79262100ad35474e, type: 2}
-  - {fileID: 11400000, guid: a3907e653a0c343cab60a775e64f15ad, type: 2}
+  - {fileID: 11400000, guid: b056d0fdb713147548462d7135a3c0f4, type: 2}
+  - {fileID: 11400000, guid: c050729422473426daf14b5f524b05cf, type: 2}
   choices: []
   nextScene: 
   nextNode: {fileID: 0}
