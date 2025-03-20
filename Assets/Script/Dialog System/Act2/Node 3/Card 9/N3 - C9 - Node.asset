@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: N3 - C9 - Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: 156eb5c30bf814cb19da71f416b221ac, type: 2}
-  - {fileID: 11400000, guid: 875b267171029446b8dd6c48f3a212b8, type: 2}
-  - {fileID: 11400000, guid: ce6444f5a140d447c8014e4acc0ece3e, type: 2}
+  - {fileID: 11400000, guid: 3a4886b67a39c4972bac7a03854f9723, type: 2}
+  - {fileID: 11400000, guid: 95e6a389228cc4b1cb3cb407eafbff3e, type: 2}
   choices: []
   nextScene: 
   nextNode: {fileID: 0}

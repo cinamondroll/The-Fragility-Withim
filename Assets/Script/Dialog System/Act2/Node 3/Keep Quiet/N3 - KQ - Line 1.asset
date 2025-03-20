@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
-  m_Name: KQ - Line 3
+  m_Name: N3 - KQ - Line 1
   m_EditorClassIdentifier: 
   speakerName: Farhan
-  text: Oke, salken.
-  charSprite: {fileID: -1618151086533655679, guid: 2b591c45d9a6d4afea44568e4f7c8c8b, type: 3}
+  text: Broo?
+  charSprite: {fileID: 8962287715930157072, guid: 8685073c40b024c06beb999485bbe95d, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

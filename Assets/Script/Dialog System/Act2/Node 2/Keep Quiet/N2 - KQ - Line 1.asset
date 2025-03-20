@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
-  m_Name: KQ - Line 1
+  m_Name: N2 - KQ - Line 1
   m_EditorClassIdentifier: 
   speakerName: Farhan
   text: Oiii, kok diem aja bro?, nama kamu siapa?

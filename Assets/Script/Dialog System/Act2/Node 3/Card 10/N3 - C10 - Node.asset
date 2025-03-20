@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: N3 - C10 - Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: 480a7ff9030cb4e379baea28d668bfd0, type: 2}
-  - {fileID: 11400000, guid: a8a7511d7d586425ab992aaec4689ab7, type: 2}
-  - {fileID: 11400000, guid: 875b267171029446b8dd6c48f3a212b8, type: 2}
-  - {fileID: 11400000, guid: ce6444f5a140d447c8014e4acc0ece3e, type: 2}
+  - {fileID: 11400000, guid: c95770d1a109d44ed8b666d51a12b1d3, type: 2}
+  - {fileID: 11400000, guid: 95e6a389228cc4b1cb3cb407eafbff3e, type: 2}
   choices: []
   nextScene: 
   nextNode: {fileID: 0}
