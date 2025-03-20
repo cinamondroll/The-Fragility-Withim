@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,11 +12,16 @@ public class Player : MonoBehaviour
     public Animator animation;
     private bool isAnimate = true;
     float t;
+    private bool isSound = false;
+    public AudioClip[] audioStep;
+    AudioSource audioSource;
+    Coroutine walkss;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
     }
     async Task Start()
@@ -48,6 +54,11 @@ public class Player : MonoBehaviour
         {
             float hInput = Input.GetAxis("Horizontal");
             animation.SetBool("isWalk", true);
+            if (!isSound)
+            {
+                isSound = true;
+                walkss = StartCoroutine(playStep());
+            }
             if (hInput < 0 && transform.localScale.x > 0)
             {
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
@@ -61,7 +72,29 @@ public class Player : MonoBehaviour
         else
         {
             animation.SetBool("isWalk", false);
+            if (isSound)
+            {
+                isSound = false;
+                StopCoroutine(walkss);
+                audioSource.Stop();
+            }
         }
+    }
+
+    IEnumerator playStep()
+    {
+        if (isSound == false)
+        {
+            yield return null;
+        }
+        else
+        {
+            audioSource.clip = audioStep[Random.Range(0, audioStep.Length)];
+            audioSource.Play();
+            yield return new WaitForSeconds(audioSource.clip.length);
+            isSound = false;
+        }
+
     }
     public float getAnxSta()
     {
