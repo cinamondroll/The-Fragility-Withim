@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: N3 - C0 - Line 1
   m_EditorClassIdentifier: 
   speakerName: Adit
-  text: Halo semua, nama aku Adit. Senang bisa kenalan sama kalian!
+  text: Kelas 10-B. Kalo kamu?
   charSprite: {fileID: 8986602462079563463, guid: cdb494cca56624360b4c97959def9463, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}

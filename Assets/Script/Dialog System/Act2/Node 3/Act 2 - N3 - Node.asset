@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act 2 - N3 - Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: c7238129a139f48819d2e2bb2f1a2482, type: 2}
+  - {fileID: 11400000, guid: ecd8144ba6e4448eeb8f4a0438b055b4, type: 2}
   choices:
   - choiceText: 
     nextNode: {fileID: 11400000, guid: 4aaaa82981027464ba97c606a89d03a7, type: 2}

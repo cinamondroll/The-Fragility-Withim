@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Act2- N3- Bad - Line 2
   m_EditorClassIdentifier: 
   speakerName: Farhan
-  text: Eh udah ya?
-  charSprite: {fileID: 8962287715930157072, guid: 8685073c40b024c06beb999485bbe95d, type: 3}
+  text: "Ya itu mah aku juga tahu! \U0001F5FF"
+  charSprite: {fileID: -1618151086533655679, guid: 2b591c45d9a6d4afea44568e4f7c8c8b, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}

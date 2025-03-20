@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act 2 - N3- Line 1
   m_EditorClassIdentifier: 
   speakerName: Farhan
-  text: Okee, tinggal kamu doang nih. Ayo perkenalkan dirimu.
+  text: Oiya btw kamu masuk kelas apa?
   charSprite: {fileID: -1270073006212057085, guid: 2a88a2ac81ab9458a9c45231f328c700, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}
