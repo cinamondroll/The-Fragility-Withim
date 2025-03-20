@@ -37,9 +37,9 @@ public class DialogManager : MonoBehaviour
     [SerializeField] bool deActiveRightImage;
     //[SerializeField] bool deActiveCenterImage;
 
-    // [Header("Audio")]
-    // public AudioSource voiceAudioSource;
-    // public AudioSource effectAudioSource;
+    [Header("Audio")]
+    public AudioClip voiceAudioSource;
+    public AudioClip effectAudioSource;
 
     [Header("Setting")]
     [SerializeField] float textSpeed = 0.05f;
@@ -52,8 +52,10 @@ public class DialogManager : MonoBehaviour
     bool isTimeOver = false;
     [SerializeField] GameObject PopUpGameOver;
     [SerializeField] AudioClip audioClick;
+    [SerializeField] AudioClip audioTimer;
     [SerializeField] AudioClip shuffleAudio;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioType;
 
     void Awake()
     {
@@ -118,7 +120,6 @@ public class DialogManager : MonoBehaviour
                 targetImage.color = Color.white;
             }
             //PLay Audio
-
             //Start Corroutin
             StartCoroutine(AnimateAndType(line, targetImage));
 
@@ -144,6 +145,7 @@ public class DialogManager : MonoBehaviour
     {
         if (line.animationType != Animation.None)
         {
+
             yield return new WaitForSeconds(line.durasi);
         }
         yield return StartCoroutine(TypeText(line.text));
@@ -156,6 +158,8 @@ public class DialogManager : MonoBehaviour
         int visibleCharCount = 0;
         for (int i = 0; i < text.Length; i++)
         {
+            if(i%3==0)PlayAudio();
+
             if (text[i] == '<')
             {
                 int closingTagIndex = text.IndexOf('>', i);
@@ -175,25 +179,17 @@ public class DialogManager : MonoBehaviour
         isTyping = false;
     }
 
-    // void PlayAudio(DialogLine line)
-    // {
-    //     if(voiceAudioSource.isPlaying)
-    //     {
-    //         voiceAudioSource.Stop();
-    //     }
+    void PlayAudio()
+    {
+        if (audioType.isPlaying)
+        {
+            audioType.Stop();
+        }
 
-    //     if(line.spokenText != null)
-    //     {
-    //         voiceAudioSource.clip = line.spokenText;
-    //         voiceAudioSource.Play();
-    //     }
+        audioType.clip = effectAudioSource;
+        audioType.Play();
 
-    //     if (line.moorOrEffect != null)
-    //     {
-    //         effectAudioSource.clip = line.moorOrEffect;
-    //         voiceAudioSource.Play();
-    //     }
-    // }
+    }
 
     public void clicking()
     {
@@ -206,10 +202,10 @@ public class DialogManager : MonoBehaviour
             dialogText.text = currentLine.text;
             dialogText.maxVisibleCharacters = currentLine.text.Length;
             isTyping = false;
-            // if (voiceAudioSource.isPlaying)
-            // {
-            //     voiceAudioSource.Stop();
-            // }
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
         }
         else
         {
@@ -326,9 +322,9 @@ public class DialogManager : MonoBehaviour
                 t += Time.deltaTime;
                 SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
                 spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
-                            Color fadeColor = spriteRenderer.color;
+                Color fadeColor = spriteRenderer.color;
                 fadeColor.a = Mathf.Lerp(0f, 1, t / 0.5f);
-                      spriteRenderer.color = fadeColor;
+                spriteRenderer.color = fadeColor;
                 yield return null;
             }
         }
@@ -355,9 +351,9 @@ public class DialogManager : MonoBehaviour
     public void Reshuffle()
     {
         anxStat += 3;
-                  StartCoroutine(shapeVolume());
+        StartCoroutine(shapeVolume());
         time -= 2;
-          StartCoroutine(ShuffleCard());
+        StartCoroutine(ShuffleCard());
         StartCoroutine(GetIn());
     }
 

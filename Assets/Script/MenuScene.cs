@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 
 public class MenuScene : MonoBehaviour
 {
@@ -17,30 +18,37 @@ public class MenuScene : MonoBehaviour
     [SerializeField] String Inventory = "Inventory";
     public GameObject PopUpExit;
     public GameObject PopUpTentang;
+    private AudioSource clickaudio;
 
+    void Awake()
+    {
+        clickaudio = GetComponent<AudioSource>();
+    }
     void Start()
     {
-        if(startButton != null)
+        if (startButton != null)
         {
             startButton.onClick.AddListener(startGame);
         }
-        if(muatButton != null)
+        if (muatButton != null)
         {
             muatButton.onClick.AddListener(muatGame);
         }
-        if(exitButton != null)
+        if (exitButton != null)
         {
             exitButton.onClick.AddListener(exitGame);
         }
-        if(lemariButton != null)
+        if (lemariButton != null)
         {
             lemariButton.onClick.AddListener(inventory);
         }
 
     }
 
-    public void startGame()
+    public async void startGame()
     {
+        clickaudio.Play();
+        await Task.Delay(200);
         SceneManager.LoadScene(ChapterChoice);
     }
     public void muatGame()
@@ -64,5 +72,6 @@ public class MenuScene : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
 
 }
