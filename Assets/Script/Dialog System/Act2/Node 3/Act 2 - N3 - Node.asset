@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
+  m_Name: Act 2 - N3 - Node
+  m_EditorClassIdentifier: 
+  lines:
+  - {fileID: 11400000, guid: c7238129a139f48819d2e2bb2f1a2482, type: 2}
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 4aaaa82981027464ba97c606a89d03a7, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: bbfcc3ea97bf84c3490ef5ba0642a5cb, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: e5699830977724fd5a9d77db37af3300, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: ce15eb900be1f44bc9bc3b155157f1e8, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 1dc9d903b0cd94de6b055cff4fe46592, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 9a63fa2dddfee4172b420598d48b07a3, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 17779c27d0410401c8f45ba83dae1d71, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 9ad7495e4655243fe9e94af2d124dc0b, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 87706eef934b343369b154bdfb5e812d, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 1952a9668e46146c485f06dd557b7424, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 7b6be9817cdde43c2bcf4c800a9726d5, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 09536bf3cdc0847298737ddfe076a599, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: b61169f0ade7c4bebb9b326c0a3f6935, type: 2}
+  nextScene: 
+  nextNode: {fileID: 0}
+  condition:
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  - 100
+  stat:
+  - 5
+  - -5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - -5
+  - -5
+  - -5
+  - -5
+  - -5
+  AssetCard:
+  - {fileID: 2955480028591009419, guid: 481542732a9184238aa666a29c684485, type: 3}
+  - {fileID: -2364888156558832470, guid: 2d1001f948bf0458bbbc217198ad16d1, type: 3}
+  - {fileID: 6873709926976877470, guid: 2bf5e2e68aa154f9f9a107c0bd4efb3c, type: 3}
+  - {fileID: 6267877490403100682, guid: 9b4a649d3e9e64c538b97cb717b4da29, type: 3}
+  - {fileID: -7778795951880550537, guid: 70f5a63bbbb9947adabc18e8f9b65238, type: 3}
+  - {fileID: 2092637495489872628, guid: 2c154d764a38f4d55965498a45873420, type: 3}
+  - {fileID: -5939931195976395598, guid: fd6c9d0d7abed4d8595c436c91ec3e7f, type: 3}
+  - {fileID: -21404136045787802, guid: eb6be36e6ad93438f8efd4ba6e8f11cc, type: 3}
+  - {fileID: -6708657765670819010, guid: f2a0b2c3187424c58a6310e6658bc243, type: 3}
+  - {fileID: 553811029284757191, guid: bc21a8d3d7e324f01838c2089dca65b4, type: 3}
+  - {fileID: 3841740175217350503, guid: bfed0e3e8ebe141e3b4a08d29cbe42db, type: 3}
+  - {fileID: -2025284254873421996, guid: 32318d184a69a4b92bb205c72710aca0, type: 3}
