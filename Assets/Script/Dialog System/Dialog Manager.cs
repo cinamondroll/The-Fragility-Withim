@@ -158,7 +158,7 @@ public class DialogManager : MonoBehaviour
         int visibleCharCount = 0;
         for (int i = 0; i < text.Length; i++)
         {
-            if(i%3==0)PlayAudio();
+            if (i % 3 == 0) PlayAudio();
 
             if (text[i] == '<')
             {
@@ -411,6 +411,7 @@ public class DialogManager : MonoBehaviour
 
         if (inChoice)
         {
+
             if (time < 0)
             {
                 inChoice = false;
@@ -427,6 +428,11 @@ public class DialogManager : MonoBehaviour
                 shuffleBtn.GetComponent<Shuffle>().isAvail = false;
             }
             timer.text = time.ToString("F0");
+            if (Mathf.Abs(time - Mathf.Round(time)) < 0.01f)
+            {
+                audioSource.clip = audioTimer;
+                audioSource.Play();
+            }
         }
         if (anxStat >= 100)
         {
