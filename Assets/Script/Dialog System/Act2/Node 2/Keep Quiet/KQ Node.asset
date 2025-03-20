@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: Node Card 4
+  m_Name: KQ Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: f1dd14e43b14849f3ad861a4de5a8948, type: 2}
-  - {fileID: 11400000, guid: dfd5e46e105af469caab77b2b9b1e375, type: 2}
+  - {fileID: 11400000, guid: 2feb1fd9bb6ba4f30be18d87efebf705, type: 2}
+  - {fileID: 11400000, guid: 697118fa313064709bdca38e99a22319, type: 2}
+  - {fileID: 11400000, guid: ee49d97bab2fc46c2bd1cd2340289b83, type: 2}
   choices: []
   nextScene: 
   nextNode: {fileID: 11400000, guid: 2360a863ffcea4bd39a128b5b052e41c, type: 2}

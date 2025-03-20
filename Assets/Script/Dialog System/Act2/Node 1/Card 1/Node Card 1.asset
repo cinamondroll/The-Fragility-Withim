@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 969e5cc44cdd847c9ad586790c8580bd, type: 2}
   choices: []
   nextScene: 
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: 2360a863ffcea4bd39a128b5b052e41c, type: 2}
   condition: []
   stat: []
   AssetCard: []
