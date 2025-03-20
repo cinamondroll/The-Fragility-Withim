@@ -14,11 +14,11 @@ public class DialogManager : MonoBehaviour
     public GameObject Uicard;
     public GameObject[] Deck;
     public GameObject panel;
-    private bool inChoice=false;
+    private bool inChoice = false;
     HashSet<int> setUnik = new HashSet<int>();
-    bool isChosed=false;
+    bool isChosed = false;
     private string cardName;
-    [SerializeField]private float anxStat;
+    [SerializeField] private float anxStat;
     Choice nextNode;
     public TextMeshProUGUI timer;
     [Header("UI Elements")]
@@ -48,17 +48,17 @@ public class DialogManager : MonoBehaviour
     int currentLineIndex = 0;
     bool isTyping = false;
     public GameObject shuffleBtn;
-    float time=10;
-    bool isTimeOver=false;
-    [SerializeField]GameObject PopUpGameOver;
+    float time = 10;
+    bool isTimeOver = false;
+    [SerializeField] GameObject PopUpGameOver;
     [SerializeField] AudioClip audioClick;
     [SerializeField] AudioClip shuffleAudio;
     private AudioSource audioSource;
-    
+
     void Awake()
     {
-        anxStat=PlayerPrefs.GetFloat("anxStat");
-       
+        anxStat = PlayerPrefs.GetFloat("anxStat");
+
         StartCoroutine(shapeVolume());
     }
     void Start()
@@ -72,12 +72,12 @@ public class DialogManager : MonoBehaviour
         progresButton.onClick.AddListener(clicking);
 
         //hide image
-        if(leftImage != null && deActiveLeftImage) leftImage.color = new Color32(255, 255, 255, 0);
-        if(rightImage != null && deActiveRightImage) rightImage.color = new Color32(255, 255, 255, 0);
+        if (leftImage != null && deActiveLeftImage) leftImage.color = new Color32(255, 255, 255, 0);
+        if (rightImage != null && deActiveRightImage) rightImage.color = new Color32(255, 255, 255, 0);
         //if(centerImage != null && deActiveCenterImage) centerImage.color = new Color32(255, 255, 255, 0);
     }
 
-    public void StartDialog(DialogNode startNode) 
+    public void StartDialog(DialogNode startNode)
     {
         dialogPanel.SetActive(true);
         currentNode = startNode;
@@ -87,13 +87,15 @@ public class DialogManager : MonoBehaviour
 
     void DisplayCurrentLine()
     {
-        if (currentNode==null || currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
-        { 
+        if (currentNode == null || currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
+        {
             if (currentNode.nextNode == null)
             {
                 EndDialog();
-                SceneManager.LoadScene(currentNode.nextScene);            
-            } else 
+                PlayerPrefs.SetFloat("anxStat", anxStat);
+                SceneManager.LoadScene(currentNode.nextScene);
+            }
+            else
             {
                 currentNode = currentNode.nextNode;
                 currentLineIndex = 0;
@@ -110,7 +112,7 @@ public class DialogManager : MonoBehaviour
             DialogLine line = currentNode.lines[currentLineIndex];
             speakerNametext.text = line.speakerName;
             Image targetImage = GetTargetImage(line.targetImage);
-            if(targetImage != null && line.charSprite != null)
+            if (targetImage != null && line.charSprite != null)
             {
                 targetImage.sprite = line.charSprite;
                 targetImage.color = Color.white;
@@ -129,7 +131,7 @@ public class DialogManager : MonoBehaviour
 
     private Image GetTargetImage(DialogTarget targetImage)
     {
-        switch(targetImage)
+        switch (targetImage)
         {
             case DialogTarget.RightImage: return rightImage;
             case DialogTarget.LeftImage: return leftImage;
@@ -138,9 +140,9 @@ public class DialogManager : MonoBehaviour
         }
     }
 
-    IEnumerator AnimateAndType (DialogLine line, Image targetImage)
+    IEnumerator AnimateAndType(DialogLine line, Image targetImage)
     {
-        if(line.animationType != Animation.None)
+        if (line.animationType != Animation.None)
         {
             yield return new WaitForSeconds(line.durasi);
         }
@@ -154,7 +156,7 @@ public class DialogManager : MonoBehaviour
         int visibleCharCount = 0;
         for (int i = 0; i < text.Length; i++)
         {
-            if(text[i] == '<')
+            if (text[i] == '<')
             {
                 int closingTagIndex = text.IndexOf('>', i);
                 if (closingTagIndex != -1)
@@ -195,9 +197,9 @@ public class DialogManager : MonoBehaviour
 
     public void clicking()
     {
-        audioSource.clip=audioClick;
+        audioSource.clip = audioClick;
         audioSource.Play();
-        if(isTyping)
+        if (isTyping)
         {
             StopAllCoroutines();
             DialogLine currentLine = currentNode.lines[currentLineIndex];
@@ -213,151 +215,170 @@ public class DialogManager : MonoBehaviour
         {
             currentLineIndex++;
             DisplayCurrentLine();
-            
+
         }
-        if(inChoice){
-            progresButton.interactable=false;
+        if (inChoice)
+        {
+            progresButton.interactable = false;
         }
     }
     public IEnumerator HideCard(String name, float effect, int nextNodeIndex)
-    {   
-        isChosed=true;
+    {
+        isChosed = true;
         timer.SetText("");
-        int chosedCArdIndex=0;
-        cardName=name;
+        int chosedCArdIndex = 0;
+        cardName = name;
         shuffleBtn.SetActive(false);
         for (int i = 0; i < Deck.Length; i++)
-        {   
-            if (Deck[i].name==name){
-                chosedCArdIndex=i;
+        {
+            if (Deck[i].name == name)
+            {
+                chosedCArdIndex = i;
                 continue;
             }
             StartCoroutine(Fade(Deck[i].name));
-        yield return null;
-        }
-        nextNode=currentNode.nextNodeIndex(nextNodeIndex);
-        this.anxStat-=effect;
-        StartCoroutine(shapeVolume());
-        if(name!="")Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
-    }
-
-
-    IEnumerator Fade(String name){
-        if (name=="")
-        {
-            
-        }else{
-        float t=0;
-        while(t<0.2f){
-            t+=Time.deltaTime;
-            SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
-            spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
-            Color fadeColor=spriteRenderer.color;
-            fadeColor.a = Mathf.Lerp(1f, 0, t/0.2f);
-            spriteRenderer.color = fadeColor;
             yield return null;
-         }
-        GameObject.Find(name).SetActive(false);
         }
-        
+        nextNode = currentNode.nextNodeIndex(nextNodeIndex);
+        this.anxStat -= effect;
+        StartCoroutine(shapeVolume());
+        if (name != "") Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
     }
 
-    public IEnumerator ShuffleCard(){
-        audioSource.clip=shuffleAudio;
+
+    IEnumerator Fade(String name)
+    {
+        if (name == "")
+        {
+
+        }
+        else
+        {
+            float t = 0;
+            while (t < 0.2f)
+            {
+                t += Time.deltaTime;
+                SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
+                spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
+                Color fadeColor = spriteRenderer.color;
+                fadeColor.a = Mathf.Lerp(1f, 0, t / 0.2f);
+                spriteRenderer.color = fadeColor;
+                yield return null;
+            }
+            GameObject.Find(name).SetActive(false);
+        }
+
+    }
+
+    public IEnumerator ShuffleCard()
+    {
+        audioSource.clip = shuffleAudio;
         audioSource.Play();
-        if (setUnik.Count>=Deck.Length){
+        if (setUnik.Count >= Deck.Length)
+        {
             setUnik.Clear();
         }
-        int counter=0;
-        int a=0;
-        while (setUnik.Count<Deck.Length){   
-            a=UnityEngine.Random.Range(0, 12);
+        int counter = 0;
+        int a = 0;
+        while (setUnik.Count < Deck.Length)
+        {
+            a = UnityEngine.Random.Range(0, 12);
             setUnik.Add(a);
         }
-      
-       foreach (int i in setUnik)
-       {
-           Deck[counter].GetComponent<SpriteRenderer>().sprite=currentNode.AssetCard[i];
-           Deck[counter].GetComponent<CardScript>().setAnx(anxStat);
-           Deck[counter].GetComponent<CardScript>().setCond(currentNode.condition[i]);
-           Deck[counter].GetComponent<CardScript>().setStat(currentNode.stat[i]);
-           Deck[counter].GetComponent<CardScript>().setNextNode(i);
-           counter++;
-       }
+
+        foreach (int i in setUnik)
+        {
+            Deck[counter].GetComponent<SpriteRenderer>().sprite = currentNode.AssetCard[i];
+            Deck[counter].GetComponent<CardScript>().setAnx(anxStat);
+            Deck[counter].GetComponent<CardScript>().setCond(currentNode.condition[i]);
+            Deck[counter].GetComponent<CardScript>().setStat(currentNode.stat[i]);
+            Deck[counter].GetComponent<CardScript>().setNextNode(i);
+            counter++;
+        }
         yield return null;
     }
 
-    IEnumerator GetIn(){
-        foreach (var card in Deck){
+    IEnumerator GetIn()
+    {
+        foreach (var card in Deck)
+        {
             card.GetComponent<CardScript>().setAnx(anxStat);
             card.SetActive(true);
-                SpriteRenderer spriteRenderer = GameObject.Find(card.name).GetComponent<SpriteRenderer>();
-                spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 0);
-                StartCoroutine(FadeIn(card.name));
+            SpriteRenderer spriteRenderer = GameObject.Find(card.name).GetComponent<SpriteRenderer>();
+            spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 0);
+            StartCoroutine(FadeIn(card.name));
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeIn(String name)
+    {
+        if (name != "")
+        {
+            float t = 0;
+            while (t < 0.5f)
+            {
+                t += Time.deltaTime;
+                SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
+                spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
+                Color fadeColor = spriteRenderer.color;
+                fadeColor.a = Mathf.Lerp(0f, 1, t / 0.5f);
+                spriteRenderer.color = fadeColor;
                 yield return null;
             }
         }
-
-    IEnumerator FadeIn(String name){
-    if (name!="")
-    {
-    float t=0;
-    while(t<0.5f){     
-        t+=Time.deltaTime;
-        SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
-        spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
-        Color fadeColor=spriteRenderer.color;
-        fadeColor.a = Mathf.Lerp(0f, 1, t/0.5f);
-        spriteRenderer.color = fadeColor;
-        yield return null;
     }
-    }
-}
 
     void FixedUpdate()
     {
-         if(Input.GetKey(KeyCode.Escape)){
+        if (Input.GetKey(KeyCode.Escape))
+        {
             PlayerPrefs.SetFloat("anxStat", anxStat);
-            if (anxStat<0){
-                anxStat=0;
+            if (anxStat < 0)
+            {
+                anxStat = 0;
             }
-            if (anxStat>100){
-            anxStat=100;
+            if (anxStat > 100)
+            {
+                anxStat = 100;
             }
             SceneManager.LoadScene("SC Chapter 1");
         }
     }
 
 
-    public void Reshuffle(){
-        anxStat+=3;
+    public void Reshuffle()
+    {
+        anxStat += 3;
         StartCoroutine(shapeVolume());
-        time-=2;
+        time -= 2;
         StartCoroutine(ShuffleCard());
         StartCoroutine(GetIn());
     }
 
-    public IEnumerator shapeVolume(){
-        float time=0;
-        while(time<1f){
-            GameObject volume=GameObject.Find("Volume");
-            float presentase=volume.GetComponent<Image>().fillAmount;
-            float target=anxStat/100;
-            volume.GetComponent<Image>().fillAmount=presentase;
-            float temp=Mathf.Lerp(presentase, target, time/1f);
-            volume.GetComponent<Image>().fillAmount=temp;
-            time+=Time.deltaTime;
+    public IEnumerator shapeVolume()
+    {
+        float time = 0;
+        while (time < 1f)
+        {
+            GameObject volume = GameObject.Find("Volume");
+            float presentase = volume.GetComponent<Image>().fillAmount;
+            float target = anxStat / 100;
+            volume.GetComponent<Image>().fillAmount = presentase;
+            float temp = Mathf.Lerp(presentase, target, time / 1f);
+            volume.GetComponent<Image>().fillAmount = temp;
+            time += Time.deltaTime;
             yield return null;
         }
     }
 
     //Naya
     async void DisplayChoice()
-    {   
-        shuffleBtn.GetComponent<Shuffle>().isAvail=true;
-        timer.color=Color.black;
-        time=10;
-        inChoice=true;
+    {
+        shuffleBtn.GetComponent<Shuffle>().isAvail = true;
+        timer.color = Color.black;
+        time = 10;
+        inChoice = true;
         choicePanel.SetActive(true);
         StartCoroutine(ShuffleCard());
         await Task.Delay(100);
@@ -369,47 +390,47 @@ public class DialogManager : MonoBehaviour
 
     async void Update()
     {
-         if (isChosed)
+        if (isChosed)
         {
-        timer.text="";
-        inChoice=false;
-        isChosed=false;
-        int a=2000;
-        if (isTimeOver)a=0;
-        await Task.Delay(a);
-        StartCoroutine(Fade(cardName));
-        await Task.Delay(500);
-        panel.SetActive(false);
-        Uicard.SetActive(false);
-        shuffleBtn.SetActive(true);
-        StartDialog(nextNode.nextNode);
-        progresButton.interactable=true;
-        isTimeOver=false;
+            timer.text = "";
+            inChoice = false;
+            isChosed = false;
+            int a = 2000;
+            if (isTimeOver) a = 0;
+            await Task.Delay(a);
+            StartCoroutine(Fade(cardName));
+            await Task.Delay(500);
+            panel.SetActive(false);
+            Uicard.SetActive(false);
+            shuffleBtn.SetActive(true);
+            StartDialog(nextNode.nextNode);
+            progresButton.interactable = true;
+            isTimeOver = false;
         }
 
         if (inChoice)
         {
-            if (time<0)
+            if (time < 0)
             {
-                inChoice=false;
+                inChoice = false;
                 StartCoroutine(HideCard("", 0f, 12));
-                isTimeOver=true;//parameter terakhir digunakan untuk indext next node diam
+                isTimeOver = true;//parameter terakhir digunakan untuk indext next node diam
             }
-            time-=Time.deltaTime;
-            if (time<5)
+            time -= Time.deltaTime;
+            if (time < 5)
             {
-                timer.color=Color.red;
+                timer.color = Color.red;
             }
-            if (time<=2)
+            if (time <= 2)
             {
-                shuffleBtn.GetComponent<Shuffle>().isAvail=false;
+                shuffleBtn.GetComponent<Shuffle>().isAvail = false;
             }
-            timer.text=time.ToString("F0");
+            timer.text = time.ToString("F0");
         }
-        if (anxStat>=100)
+        if (anxStat >= 100)
         {
-            anxStat=1;
-            GameOver(); 
+            anxStat = 1;
+            GameOver();
             timer.SetText("");
         }
     }
@@ -417,7 +438,7 @@ public class DialogManager : MonoBehaviour
     // IEnumerator Countdown(){
     //     float time=10;
     //     while (time>0){
-            
+
     //     }
     // }
 
@@ -427,25 +448,28 @@ public class DialogManager : MonoBehaviour
         dialogText.text = "";
         speakerNametext.text = "";
         choicePanel.SetActive(false);
-        panel.SetActive(false); 
+        panel.SetActive(false);
 
         Debug.Log("End Dialog");
     }
 
-    void GameOver(){
+    void GameOver()
+    {
         GameObject.Find("chatCore").SetActive(false);
         dialogText.text = "";
         speakerNametext.text = "";
         choicePanel.SetActive(false);
-        panel.SetActive(false); 
+        panel.SetActive(false);
         PopUpGameOver.SetActive(true);
     }
-    public void Restart(){
+    public void Restart()
+    {
         SceneManager.LoadScene("SC Chapter 1");
         PlayerPrefs.SetFloat("anxStat", 80);
         PlayerPrefs.SetFloat("x", 0f);
     }
-    public void Menu(){
+    public void Menu()
+    {
         SceneManager.LoadScene("Start Screen");
     }
 }
