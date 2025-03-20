@@ -42,7 +42,7 @@ MonoBehaviour:
   - choiceText: 
     nextNode: {fileID: 11400000, guid: b61169f0ade7c4bebb9b326c0a3f6935, type: 2}
   nextScene: 
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000, guid: 3746a93ab04d14f828682164f9389389, type: 2}
   condition:
   - 100
   - 100

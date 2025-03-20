@@ -16,33 +16,33 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ecd8144ba6e4448eeb8f4a0438b055b4, type: 2}
   choices:
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 4aaaa82981027464ba97c606a89d03a7, type: 2}
+    nextNode: {fileID: 11400000, guid: d7800a946bf1d470b8612a2b5255e473, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: bbfcc3ea97bf84c3490ef5ba0642a5cb, type: 2}
+    nextNode: {fileID: 11400000, guid: cfa84662956d1419589d8d889a304368, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: e5699830977724fd5a9d77db37af3300, type: 2}
+    nextNode: {fileID: 11400000, guid: eee55ac1fc58547b99554c07f7771d18, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: ce15eb900be1f44bc9bc3b155157f1e8, type: 2}
+    nextNode: {fileID: 11400000, guid: 3c401485d4d314306baa35360dabf780, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 1dc9d903b0cd94de6b055cff4fe46592, type: 2}
+    nextNode: {fileID: 11400000, guid: b6e5b968c8f464e3390ec026b7749b57, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 9a63fa2dddfee4172b420598d48b07a3, type: 2}
+    nextNode: {fileID: 11400000, guid: 24f0ae653d8c246ec9625620498d88bf, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 17779c27d0410401c8f45ba83dae1d71, type: 2}
+    nextNode: {fileID: 11400000, guid: 1baef6c3d276a45df9e9a5b36b2e3f44, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 9ad7495e4655243fe9e94af2d124dc0b, type: 2}
+    nextNode: {fileID: 11400000, guid: b6797db0d28224181bb984b8d7f74cc9, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 87706eef934b343369b154bdfb5e812d, type: 2}
+    nextNode: {fileID: 11400000, guid: 906d670aea5044b9b8c69cb5f181b258, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 1952a9668e46146c485f06dd557b7424, type: 2}
+    nextNode: {fileID: 11400000, guid: 404ca7cb39dbd466189d1b4ddf445f6e, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 7b6be9817cdde43c2bcf4c800a9726d5, type: 2}
+    nextNode: {fileID: 11400000, guid: e4f7641276699462aab34ba582b21477, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: 09536bf3cdc0847298737ddfe076a599, type: 2}
+    nextNode: {fileID: 11400000, guid: 9604f8b3b87ab4fb5ace37cad336e551, type: 2}
   - choiceText: 
-    nextNode: {fileID: 11400000, guid: b61169f0ade7c4bebb9b326c0a3f6935, type: 2}
+    nextNode: {fileID: 11400000, guid: a90af39b30e534886b61b907629ee2eb, type: 2}
   nextScene: 
-  nextNode: {fileID: 0}
+  nextNode: {fileID: 11400000}
   condition:
   - 100
   - 100
