@@ -242,7 +242,12 @@ public class DialogManager : MonoBehaviour
         nextNode = currentNode.nextNodeIndex(nextNodeIndex);
         this.anxStat -= effect;
         StartCoroutine(shapeVolume());
-        if (name != "") Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
+        if (name != "")
+        {
+            Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
+            anxStat -= 5;
+            StartCoroutine(shapeVolume());
+        }
     }
 
 
@@ -321,9 +326,9 @@ public class DialogManager : MonoBehaviour
                 t += Time.deltaTime;
                 SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
                 spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
-                Color fadeColor = spriteRenderer.color;
+                            Color fadeColor = spriteRenderer.color;
                 fadeColor.a = Mathf.Lerp(0f, 1, t / 0.5f);
-                spriteRenderer.color = fadeColor;
+                      spriteRenderer.color = fadeColor;
                 yield return null;
             }
         }
@@ -350,9 +355,9 @@ public class DialogManager : MonoBehaviour
     public void Reshuffle()
     {
         anxStat += 3;
-        StartCoroutine(shapeVolume());
+                  StartCoroutine(shapeVolume());
         time -= 2;
-        StartCoroutine(ShuffleCard());
+          StartCoroutine(ShuffleCard());
         StartCoroutine(GetIn());
     }
 
