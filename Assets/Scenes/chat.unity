@@ -3150,6 +3150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 2147261747}
   fadeDuration: 1
+  canvas: {fileID: 0}
 --- !u!4 &1675895533
 Transform:
   m_ObjectHideFlags: 0
@@ -3710,7 +3711,7 @@ MonoBehaviour:
   - {fileID: 1083540450}
   - {fileID: 413743635}
   panel: {fileID: 2032100785}
-  anxStat: 90
+  anxStat: 99
   timer: {fileID: 2051070265}
   speakerNametext: {fileID: 411177255}
   dialogText: {fileID: 763009663}
