@@ -10,11 +10,13 @@ public class SceneTransitionManager : MonoBehaviour
 
     [SerializeField] Image fadeImage;
     [SerializeField] float fadeDuration = 1.0f;
+    public GameObject canvas;
 
     void Awake()
     {
         instance = this;
         Debug.Log("Awake");
+        canvas.SetActive(true);
     }
     void Start()
     {

@@ -105,7 +105,7 @@ public class DialogManager : MonoBehaviour
             }
             return;
         }
-        if (currentLineIndex < currentNode.lines.Length || currentNode.isChoiceNull())
+        else if (currentLineIndex < currentNode.lines.Length || currentNode.isChoiceNull())
         {
             DialogLine line = currentNode.lines[currentLineIndex];
             speakerNametext.text = line.speakerName;
