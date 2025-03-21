@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act2 - N4 - C6 - Line
   m_EditorClassIdentifier: 
   speakerName: Adit
-  text: Hobiku main game
+  text: Hobiku ya main game sih, aku suka explore game baru.
   charSprite: {fileID: 8136455830139807345, guid: d97da834661b54af1801f236b9ac221a, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}

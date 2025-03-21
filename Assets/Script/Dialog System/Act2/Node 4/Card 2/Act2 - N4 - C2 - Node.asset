@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act2 - N4 - C2 - Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: c049eb039169342fc948a92a507bc016, type: 2}
+  - {fileID: 11400000, guid: 3ff68e077620f411c8508c062e1a8c6f, type: 2}
   - {fileID: 11400000, guid: bb200419446154ae68f8ce7c06ae9950, type: 2}
   - {fileID: 11400000, guid: c3dc8871349d44233b33690f9a8f78eb, type: 2}
   - {fileID: 11400000, guid: e593e50f3eb2c4da19225bff2e477804, type: 2}

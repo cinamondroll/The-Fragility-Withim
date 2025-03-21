@@ -17,9 +17,47 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2958c1533f66d417086671694875b72a, type: 2}
   - {fileID: 11400000, guid: 91e242474f3da4ece86e59044241583a, type: 2}
   - {fileID: 11400000, guid: 7b5f77f59e3d446cc9a852ff5d10ccb2, type: 2}
-  choices: []
+  choices:
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 93bc064381b9d4bfda9669356d201236, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 1ff31639774604e8db147ad3c4bb29dc, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: fc2bee22770544316bcabac82e5d7e8e, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 158af3e7f4adb47f880ec296065c19bb, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 516bb3fc29a5741b2886bf23394dd3a4, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 15101fa49184241908a216c235e52023, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: be46f5acebd294c299a2f9d703748950, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: ae72fc602a76f449581943945e076104, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: cc6928391eebe4a989e44edd069bcfdb, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: a085de719b43a44bbb2d6c34f68b05ea, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: ddfd55e0ece024428a9e622aa3bc9d13, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 6af79c67e7c5c480985a16b96b29b9f8, type: 2}
+  - choiceText: 
+    nextNode: {fileID: 11400000, guid: 226a5ff7784e148a3b12d3c07cd9dcef, type: 2}
   nextScene: SC Chapter 1
   nextNode: {fileID: 0}
-  condition: []
+  condition:
+  - 120
+  - 200
+  - 120
+  - 90
+  - 90
+  - 90
+  - 90
+  - 200
+  - 200
+  - 200
+  - 200
+  - 200
   stat: []
   AssetCard: []

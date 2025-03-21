@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
-  m_Name: Act2 - N4 - C3 - Node
+  m_Name: Act2 - N4 - C11 - Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: f6084b49122e5490fa3783f95960dd4c, type: 2}
-  - {fileID: 11400000, guid: bb200419446154ae68f8ce7c06ae9950, type: 2}
-  - {fileID: 11400000, guid: c3dc8871349d44233b33690f9a8f78eb, type: 2}
-  - {fileID: 11400000, guid: e593e50f3eb2c4da19225bff2e477804, type: 2}
+  - {fileID: 11400000, guid: c966cc3b6d2904d7c828e8e40189d830, type: 2}
+  - {fileID: 11400000, guid: d6c1d7a72321c400a8aeb537044728be, type: 2}
+  - {fileID: 11400000, guid: 609ac557a946f434d8f5ba9a3e32b4e4, type: 2}
   choices: []
   nextScene: SC Chapter 1
   nextNode: {fileID: 0}
