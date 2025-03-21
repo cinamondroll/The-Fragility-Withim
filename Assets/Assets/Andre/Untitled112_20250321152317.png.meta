@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: d3993de8fe594479cba16ad238334f2b
+guid: 6beceea0a5651a24a862678cfab6313c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5496904416417757059
-    second: textbox1_0
+      213: -4581465394235005629
+    second: Untitled112_20250321152317_0
+  - first:
+      213: 59380953026385036
+    second: Untitled112_20250321152317_1
+  - first:
+      213: -2337321867618443501
+    second: Untitled112_20250321152317_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,40 +115,49 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: textbox1_0
+      name: Untitled112_20250321152317_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 15
-        width: 1639
-        height: 273
+        x: 558
+        y: 75
+        width: 210
+        height: 698
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d78c42f9e8217b3b0800000000000000
-      internalID: -5496904416417757059
+      spriteID: 345a0e16f7d5b60c0800000000000000
+      internalID: -4581465394235005629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled112_20250321152317_2
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 53
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31f99d2252a209fd0800000000000000
+      internalID: -2337321867618443501
       vertices: []
       indices: 
       edges: []
@@ -151,7 +166,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a0e487d3cfce92e418147183a82df7ad
     internalID: 0
     vertices: []
     indices: 
@@ -161,7 +176,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      textbox1_0: -5496904416417757059
+      Untitled112_20250321152317_0: -4581465394235005629
+      Untitled112_20250321152317_2: -2337321867618443501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
