@@ -45,13 +45,13 @@ MonoBehaviour:
   nextScene: 
   nextNode: {fileID: 0}
   condition:
-  - 120
+  - 100
   - 200
-  - 120
+  - 100
+  - 70
+  - 75
   - 90
-  - 90
-  - 90
-  - 90
+  - 80
   - 200
   - 200
   - 200
