@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using UnityEngine.Video;
+using System.Diagnostics;
 
 public class DialogManager : MonoBehaviour
 {
@@ -298,6 +299,7 @@ public class DialogManager : MonoBehaviour
         while (setUnik.Count < Deck.Length)
         {
             a = UnityEngine.Random.Range(0, 12);
+            if(anxStat>currentNode.condition[a])continue;
             setUnik.Add(a);
         }
 
@@ -472,7 +474,7 @@ public class DialogManager : MonoBehaviour
         choicePanel.SetActive(false);
         panel.SetActive(false);
 
-        Debug.Log("End Dialog");
+        //Debug.Log("End Dialog");
     }
 
     void GameOver()
