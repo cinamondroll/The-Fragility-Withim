@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
-  m_Name: Line 1
+  m_Name: Line 9
   m_EditorClassIdentifier: 
   speakerName: 
-  text: Sudah dua tahun lamanya.....
+  text: dunia yang kini terasa lebih menyeramkan daripada sebelumnya...
   charSprite: {fileID: 0}
   targetImage: 0
   spokenText: {fileID: 0}

@@ -96,7 +96,8 @@ public class DialogManager : MonoBehaviour
             {
                 EndDialog();
                 PlayerPrefs.SetFloat("anxStat", anxStat);
-                SceneManager.LoadScene(currentNode.nextScene);
+                SceneTransitionManager.instance.LoadSceneWithFade(currentNode.nextScene);
+                //SceneManager.LoadScene(currentNode.nextScene);
             }
             else
             {
@@ -356,7 +357,8 @@ public class DialogManager : MonoBehaviour
             {
                 anxStat = 100;
             }
-            SceneManager.LoadScene("SC Chapter 1");
+            SceneTransitionManager.instance.LoadSceneWithFade("SC Chapter 1");
+            //SceneManager.LoadScene("SC Chapter 1");
         }
     }
 
@@ -484,13 +486,15 @@ public class DialogManager : MonoBehaviour
     }
     public void Restart()
     {
-        SceneManager.LoadScene("SC Chapter 1");
+        SceneTransitionManager.instance.LoadSceneWithFade("SC Chapter 1");
+        //SceneManager.LoadScene("SC Chapter 1");
         PlayerPrefs.SetFloat("anxStat", 80);
         PlayerPrefs.SetFloat("x", 0f);
     }
     public void Menu()
     {
-        SceneManager.LoadScene("Start Screen");
+        SceneTransitionManager.instance.LoadSceneWithFade("Start Screen");
+        //SceneManager.LoadScene("Start Screen");
     }
 }
 

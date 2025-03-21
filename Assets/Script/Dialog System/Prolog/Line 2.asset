@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Line 2
   m_EditorClassIdentifier: 
   speakerName: 
-  text: 'main character lupa cara berteman. '
+  text: pandemi memaksaku untuk mengurung diri dalam dunia yang sempit.....
   charSprite: {fileID: 0}
   targetImage: 0
   spokenText: {fileID: 0}
