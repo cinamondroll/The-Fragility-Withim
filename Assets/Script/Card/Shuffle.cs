@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Shuffle : MonoBehaviour
 {
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public bool isAvail=true;
+    public GameObject gameManager;
     void Start()
     {
         
@@ -34,10 +36,8 @@ public class Shuffle : MonoBehaviour
     async Task OnMouseDown()
     {
         if (isAvail)
-        {
-        GameObject gameManager=GameObject.Find("GameManager");
-        isAvail=false;
-        await gameManager.GetComponent<DialogManager>().Reshuffle();    
+        {isAvail=false;
+        await gameManager.GetComponent<DialogManager>().Reshuffle();
         isAvail=true;
         }
     }

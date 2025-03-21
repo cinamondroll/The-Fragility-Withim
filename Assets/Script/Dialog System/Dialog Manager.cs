@@ -257,6 +257,7 @@ public class DialogManager : MonoBehaviour
             anxStat -= 5;
             shapeVolume();
         }
+        Debug.Log("Hide Card Done");
     }
 
 
@@ -266,19 +267,29 @@ public class DialogManager : MonoBehaviour
         {
 
         }
-        else if(name != "")
+        else if (name != "")
         {
             float t = 0;
-            while (t < 0.2f)
+            try
             {
-                t += Time.deltaTime;
-                SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
-                spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
-                Color fadeColor = spriteRenderer.color;
-                fadeColor.a = Mathf.Lerp(1f, 0, t / 0.2f);
-                spriteRenderer.color = fadeColor;
-                await Task.Yield();
+                while (t < 0.2f)
+                {
+
+                    t += Time.deltaTime;
+                    SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
+                    spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
+                    Color fadeColor = spriteRenderer.color;
+                    fadeColor.a = Mathf.Lerp(1f, 0, t / 0.2f);
+                    spriteRenderer.color = fadeColor;
+                    await Task.Yield();
+                }
             }
+            catch (System.Exception)
+            {
+
+                throw new System.Exception();
+            }
+
             GameObject.Find(name).SetActive(false);
         }
 
@@ -288,10 +299,7 @@ public class DialogManager : MonoBehaviour
     {
         audioSource.clip = shuffleAudio;
         audioSource.Play();
-        if (setUnik.Count >= Deck.Length)
-        {
-            setUnik.Clear();
-        }
+        setUnik.Clear();
         int counter = 0;
         int a = 0;
         while (setUnik.Count < Deck.Length)
@@ -323,6 +331,7 @@ public class DialogManager : MonoBehaviour
             FadeIn(card.name);
             await Task.Yield();
         }
+        Debug.Log("Get In Done");
     }
 
     async void FadeIn(String name)
@@ -340,6 +349,7 @@ public class DialogManager : MonoBehaviour
                 spriteRenderer.color = fadeColor;
                 await Task.Yield();
             }
+            Debug.Log("Get In Done");
         }
     }
 
@@ -364,11 +374,11 @@ public class DialogManager : MonoBehaviour
 
     public async Task Reshuffle()
     {
+        time -= 2;
         anxStat += 3;
         await ShuffleCard();
-        shapeVolume();
-        time -= 2;
         await GetIn();
+        shapeVolume();
     }
 
     public async void shapeVolume()
@@ -383,6 +393,7 @@ public class DialogManager : MonoBehaviour
             float temp = Mathf.Lerp(presentase, target, time / 1f);
             volume.GetComponent<Image>().fillAmount = temp;
             time += Time.deltaTime;
+            await Task.Yield();
             if (anxStat < 60)
             {
                 volume.GetComponent<Image>().color = Color.green;
@@ -395,7 +406,6 @@ public class DialogManager : MonoBehaviour
             {
                 volume.GetComponent<Image>().color = Color.red;
             }
-            await Task.Yield();
         }
 
     }

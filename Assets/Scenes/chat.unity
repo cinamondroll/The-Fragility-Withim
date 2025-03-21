@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAvail: 1
+  gameManager: {fileID: 1999358263}
 --- !u!70 &33945643
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
