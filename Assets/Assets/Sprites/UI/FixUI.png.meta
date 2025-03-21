@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FixUI_0: -3575817048534192478
+      FixUI_1: 1537581829889291156
+      FixUI_10: -87633998805685082
+      FixUI_11: 6289350151193925425
+      FixUI_2: -2291426861364560014
+      FixUI_3: 7351262143959521447
+      FixUI_4: -4823944577893317433
+      FixUI_5: 7422218969031024340
+      FixUI_6: -1771672543216726290
+      FixUI_7: 3435721663961508944
+      FixUI_8: 3290008461453850862
+      FixUI_9: -5651783383971058279
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
