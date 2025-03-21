@@ -104,6 +104,18 @@ public class Player : MonoBehaviour
         GameObject volume = GameObject.Find("Volume");
         float presentase = volume.GetComponent<Image>().fillAmount;
         if (anxStat <= 100) presentase = anxStat / 100;
+        if (anxStat<60)
+        {
+            volume.GetComponent<Image>().color = Color.green;
+        }
+        else if (anxStat<80)
+        {
+            volume.GetComponent<Image>().color = Color.yellow;
+        }
+        else
+        {
+            volume.GetComponent<Image>().color = Color.red;
+        }
         volume.GetComponent<Image>().fillAmount = presentase;
     }
 
