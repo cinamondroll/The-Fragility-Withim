@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public float movespeed;
     Rigidbody2D rb;
     [SerializeField] private float anxStat;
-    public Animator animation;
+    public new Animator animation;
     private bool isAnimate = true;
     float t;
     private bool isSound = false;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
     }
-    async Task Start()
+    void Start()
     {
         float x = PlayerPrefs.GetFloat("x");
         float y = PlayerPrefs.GetFloat("y");

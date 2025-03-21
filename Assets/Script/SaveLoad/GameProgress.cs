@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
-using UnityEngine;
 
 public static class GameProgress {
     private static Dictionary<String, bool> chapter;

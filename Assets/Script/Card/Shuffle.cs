@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Shuffle : MonoBehaviour
@@ -30,13 +31,14 @@ public class Shuffle : MonoBehaviour
         
     }
 
-    void OnMouseDown()
+    async Task OnMouseDown()
     {
         if (isAvail)
         {
         GameObject gameManager=GameObject.Find("GameManager");
-        gameManager.GetComponent<DialogManager>().Reshuffle();    
-            
+        isAvail=false;
+        await gameManager.GetComponent<DialogManager>().Reshuffle();    
+        isAvail=true;
         }
     }
 }

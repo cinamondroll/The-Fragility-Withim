@@ -312,7 +312,7 @@ public class DialogManager : MonoBehaviour
         await Task.Yield();
     }
 
-    async void GetIn()
+    async Task GetIn()
     {
         foreach (var card in Deck)
         {
@@ -365,10 +365,10 @@ public class DialogManager : MonoBehaviour
     public async Task Reshuffle()
     {
         anxStat += 3;
+        await ShuffleCard();
         shapeVolume();
         time -= 2;
-        await ShuffleCard();
-        GetIn();
+        await GetIn();
     }
 
     public async void shapeVolume()
@@ -411,7 +411,7 @@ public class DialogManager : MonoBehaviour
         await ShuffleCard();
         Uicard.SetActive(true);
         panel.SetActive(true);
-        GetIn();
+        await GetIn();
 
     }
 
@@ -468,14 +468,6 @@ public class DialogManager : MonoBehaviour
             timer.SetText("");
         }
     }
-
-    // IEnumerator Countdown(){
-    //     float time=10;
-    //     while (time>0){
-
-    //     }
-    // }
-
     //END DIALOG
     void EndDialog()
     {
@@ -484,7 +476,6 @@ public class DialogManager : MonoBehaviour
         choicePanel.SetActive(false);
         panel.SetActive(false);
 
-        //Debug.Log("End Dialog");
     }
 
     void GameOver()
