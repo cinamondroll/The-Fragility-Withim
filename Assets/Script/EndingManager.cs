@@ -26,4 +26,9 @@ public class EndingManager : MonoBehaviour
             GoodEndingPopUp.SetActive(true);
         }
     }
+
+    public void LoadScene(string sceneToLoad)
+    {
+        SceneTransitionManager.instance.LoadSceneWithFade(sceneToLoad);
+    }
 }
