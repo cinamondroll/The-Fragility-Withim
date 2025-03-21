@@ -87,13 +87,14 @@ public class DialogManager : MonoBehaviour
 
     void DisplayCurrentLine()
     {
-        if (currentNode == null || currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
+        if (currentNode.lines.Length == currentLineIndex && currentNode.isChoiceNull())
         {
             if (currentNode.nextNode == null)
             {
                 EndDialog();
                 PlayerPrefs.SetFloat("anxStat", anxStat);
-                SceneTransitionManager.instance.LoadSceneWithFade(currentNode.nextScene);
+                if (SceneTransitionManager.instance != null) SceneTransitionManager.instance.LoadSceneWithFade(currentNode.nextScene);
+                
                 //SceneManager.LoadScene(currentNode.nextScene);
             }
             else
@@ -104,9 +105,6 @@ public class DialogManager : MonoBehaviour
             }
             return;
         }
-
-
-
         if (currentLineIndex < currentNode.lines.Length || currentNode.isChoiceNull())
         {
             DialogLine line = currentNode.lines[currentLineIndex];
@@ -254,7 +252,9 @@ public class DialogManager : MonoBehaviour
         {
             Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
             StartCoroutine(shapeVolume());
-        }else{
+        }
+        else
+        {
             anxStat -= 5;
             StartCoroutine(shapeVolume());
         }
@@ -510,7 +510,8 @@ public class DialogManager : MonoBehaviour
         //SceneManager.LoadScene("Start Screen");
     }
 
-    public void setAnxStat(float stat){
+    public void setAnxStat(float stat)
+    {
         anxStat -= stat;
     }
 }
