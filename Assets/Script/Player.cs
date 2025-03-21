@@ -118,6 +118,11 @@ public class Player : MonoBehaviour
         }
         volume.GetComponent<Image>().fillAmount = presentase;
     }
+    public void openPouse(){
+        Time.timeScale = 0;
+        GameObject pouse = GameObject.Find("JedaPanel");
+        pouse.SetActive(true);
+    }
 
 
 }
