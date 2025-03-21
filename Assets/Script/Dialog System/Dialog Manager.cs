@@ -5,10 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-using UnityEngine.Video;
-using System.Diagnostics;
 
 public class DialogManager : MonoBehaviour
 {
@@ -115,11 +111,11 @@ public class DialogManager : MonoBehaviour
         {
             DialogLine line = currentNode.lines[currentLineIndex];
             speakerNametext.text = line.speakerName;
-            if (imageBefore=="right")
+            if (imageBefore == "right")
             {
                 rightImage.color = Color.gray;
             }
-            else if(imageBefore=="left")
+            else if (imageBefore == "left")
             {
                 leftImage.color = Color.gray;
             }
@@ -235,6 +231,8 @@ public class DialogManager : MonoBehaviour
     }
     public IEnumerator HideCard(String name, float effect, int nextNodeIndex)
     {
+        Debug.Log(effect);
+        StartCoroutine(shapeVolume());
         isChosed = true;
         timer.SetText("");
         int chosedCArdIndex = 0;
@@ -251,11 +249,12 @@ public class DialogManager : MonoBehaviour
             yield return null;
         }
         nextNode = currentNode.nextNodeIndex(nextNodeIndex);
-        this.anxStat -= effect;
-        StartCoroutine(shapeVolume());
+
         if (name != "")
         {
             Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
+            StartCoroutine(shapeVolume());
+        }else{
             anxStat -= 5;
             StartCoroutine(shapeVolume());
         }
@@ -299,14 +298,13 @@ public class DialogManager : MonoBehaviour
         while (setUnik.Count < Deck.Length)
         {
             a = UnityEngine.Random.Range(0, 12);
-            if(anxStat>currentNode.condition[a])continue;
+            if (anxStat > currentNode.condition[a]) continue;
             setUnik.Add(a);
         }
 
         foreach (int i in setUnik)
         {
             Deck[counter].GetComponent<SpriteRenderer>().sprite = currentNode.AssetCard[i];
-            Deck[counter].GetComponent<CardScript>().setAnx(anxStat);
             Deck[counter].GetComponent<CardScript>().setCond(currentNode.condition[i]);
             Deck[counter].GetComponent<CardScript>().setStat(currentNode.stat[i]);
             Deck[counter].GetComponent<CardScript>().setNextNode(i);
@@ -386,8 +384,21 @@ public class DialogManager : MonoBehaviour
             float temp = Mathf.Lerp(presentase, target, time / 1f);
             volume.GetComponent<Image>().fillAmount = temp;
             time += Time.deltaTime;
+            if (anxStat < 60)
+            {
+                volume.GetComponent<Image>().color = Color.green;
+            }
+            else if (anxStat < 80)
+            {
+                volume.GetComponent<Image>().color = Color.yellow;
+            }
+            else
+            {
+                volume.GetComponent<Image>().color = Color.red;
+            }
             yield return null;
         }
+
     }
 
     //Naya
@@ -497,6 +508,10 @@ public class DialogManager : MonoBehaviour
     {
         SceneTransitionManager.instance.LoadSceneWithFade("Start Screen");
         //SceneManager.LoadScene("Start Screen");
+    }
+
+    public void setAnxStat(float stat){
+        anxStat -= stat;
     }
 }
 
