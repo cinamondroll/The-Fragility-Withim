@@ -33,7 +33,7 @@ public class Shuffle : MonoBehaviour
         
     }
 
-    async Task OnMouseDown()
+    async void  OnMouseDown()
     {
         if (isAvail)
         {isAvail=false;

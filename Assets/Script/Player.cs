@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class Player : MonoBehaviour
     public AudioClip[] audioStep;
     AudioSource audioSource;
     Coroutine walkss;
+    public GameObject pause;
+    bool isOpenPouse = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -45,10 +48,15 @@ public class Player : MonoBehaviour
         {
             isAnimate = false;
         }
+        if (Input.GetKeyDown(KeyCode.Escape) && !isOpenPouse)
+        {
+            isOpenPouse = true;
+            openPouse();
+        }
     }
 
     [System.Obsolete]
-    void FixedUpdate()
+    async void FixedUpdate()
     {
         if (Input.GetAxis("Horizontal") != 0 && !isAnimate)
         {
@@ -78,6 +86,8 @@ public class Player : MonoBehaviour
                 audioSource.Stop();
             }
         }
+
+
     }
 
     IEnumerator playStep()
@@ -104,11 +114,11 @@ public class Player : MonoBehaviour
         GameObject volume = GameObject.Find("Volume");
         float presentase = volume.GetComponent<Image>().fillAmount;
         if (anxStat <= 100) presentase = anxStat / 100;
-        if (anxStat<60)
+        if (anxStat < 60)
         {
             volume.GetComponent<Image>().color = Color.green;
         }
-        else if (anxStat<80)
+        else if (anxStat < 80)
         {
             volume.GetComponent<Image>().color = Color.yellow;
         }
@@ -118,11 +128,13 @@ public class Player : MonoBehaviour
         }
         volume.GetComponent<Image>().fillAmount = presentase;
     }
-    public void openPouse(){
+    public void openPouse()
+    {
         Time.timeScale = 0;
-        GameObject pouse = GameObject.Find("JedaPanel");
-        pouse.SetActive(true);
+        pause.SetActive(true);
+        isOpenPouse = false;
     }
+
 
 
 }
