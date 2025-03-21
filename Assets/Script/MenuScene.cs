@@ -49,7 +49,8 @@ public class MenuScene : MonoBehaviour
     {
         clickaudio.Play();
         await Task.Delay(200);
-        SceneManager.LoadScene(ChapterChoice);
+        SceneTransitionManager.instance.LoadSceneWithFade("Chapter Choice");
+        //SceneManager.LoadScene(ChapterChoice);
     }
     public void muatGame()
     {
@@ -57,7 +58,8 @@ public class MenuScene : MonoBehaviour
     }
     public void inventory()
     {
-        SceneManager.LoadScene(Inventory);
+        SceneTransitionManager.instance.LoadSceneWithFade(Inventory);
+        //SceneManager.LoadScene(Inventory);
     }
     public void exitGame()
     {
