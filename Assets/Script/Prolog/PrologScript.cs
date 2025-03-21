@@ -15,6 +15,7 @@ public class PrologScript : MonoBehaviour
     //[SerializeField] public Button progresButton;
     [Header("Setting")]
     [SerializeField] float textSpeed = 0.05f;
+    [SerializeField]  AudioSource audioType;
     DialogNode currentNode;
     int currentLineIndex = 0;
     bool isTyping = false;
@@ -81,8 +82,10 @@ public class PrologScript : MonoBehaviour
         int visibleCharCount = 0;
         for (int i = 0; i < text.Length; i++)
         {
+            if (i % 3 == 0) PlayAudio();
             if(text[i] == '<')
             {
+                
                 int closingTagIndex = text.IndexOf('>', i);
                 if (closingTagIndex != -1)
                 {
@@ -98,6 +101,16 @@ public class PrologScript : MonoBehaviour
         }
 
         isTyping = false;
+    }
+
+    void PlayAudio()
+    {
+        if (audioType.isPlaying)
+        {
+            audioType.Stop();
+        }
+        audioType.Play();
+
     }
 
     public void clicking()
