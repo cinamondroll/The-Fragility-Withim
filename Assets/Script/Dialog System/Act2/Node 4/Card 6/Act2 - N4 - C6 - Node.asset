@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75471d914c35f4d13aafe8d8ea789f08, type: 3}
+  m_Name: Act2 - N4 - C6 - Node
+  m_EditorClassIdentifier: 
+  lines:
+  - {fileID: 11400000, guid: c049eb039169342fc948a92a507bc016, type: 2}
+  - {fileID: 11400000, guid: bb200419446154ae68f8ce7c06ae9950, type: 2}
+  - {fileID: 11400000, guid: c3dc8871349d44233b33690f9a8f78eb, type: 2}
+  - {fileID: 11400000, guid: e593e50f3eb2c4da19225bff2e477804, type: 2}
+  choices: []
+  nextScene: SC Chapter 1
+  nextNode: {fileID: 0}
+  condition: []
+  stat: []
+  AssetCard: []

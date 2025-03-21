@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
+  m_Name: Act2 - N4 - C3 - Line
+  m_EditorClassIdentifier: 
+  speakerName: Adit
+  text: Hobiku main game
+  charSprite: {fileID: 8136455830139807345, guid: d97da834661b54af1801f236b9ac221a, type: 3}
+  targetImage: 0
+  spokenText: {fileID: 0}
+  moorOrEffect: {fileID: 0}
+  durasi: 1
+  animationType: 0
