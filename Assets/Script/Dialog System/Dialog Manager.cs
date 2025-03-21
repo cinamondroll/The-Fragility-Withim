@@ -56,6 +56,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] AudioClip shuffleAudio;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource audioType;
+    String imageBefore = "";
 
     void Awake()
     {
@@ -110,9 +111,16 @@ public class DialogManager : MonoBehaviour
 
         if (currentLineIndex < currentNode.lines.Length || currentNode.isChoiceNull())
         {
-            Debug.Log(currentLineIndex);
             DialogLine line = currentNode.lines[currentLineIndex];
             speakerNametext.text = line.speakerName;
+            if (imageBefore=="right")
+            {
+                rightImage.color = Color.gray;
+            }
+            else if(imageBefore=="left")
+            {
+                leftImage.color = Color.gray;
+            }
             Image targetImage = GetTargetImage(line.targetImage);
             if (targetImage != null && line.charSprite != null)
             {
@@ -134,8 +142,13 @@ public class DialogManager : MonoBehaviour
     {
         switch (targetImage)
         {
-            case DialogTarget.RightImage: return rightImage;
-            case DialogTarget.LeftImage: return leftImage;
+            case DialogTarget.RightImage:
+                imageBefore = "right";
+                return rightImage;
+
+            case DialogTarget.LeftImage:
+                imageBefore = "left";
+                return leftImage;
             //case DialogTarget.CenterImage: return centerImage;
             default: return null;
         }

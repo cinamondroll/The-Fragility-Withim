@@ -75,7 +75,6 @@ public class Player : MonoBehaviour
             if (isSound)
             {
                 isSound = false;
-                StopCoroutine(walkss);
                 audioSource.Stop();
             }
         }
