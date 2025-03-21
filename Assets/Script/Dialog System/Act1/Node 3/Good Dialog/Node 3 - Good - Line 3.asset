@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
   m_Name: Node 3 - Good - Line 3
   m_EditorClassIdentifier: 
-  speakerName: Zaldy
+  speakerName: Adit
   text: Iya, aku jurusan IPA, kalo kamu?
   charSprite: {fileID: 8986602462079563463, guid: cdb494cca56624360b4c97959def9463, type: 3}
   targetImage: 0

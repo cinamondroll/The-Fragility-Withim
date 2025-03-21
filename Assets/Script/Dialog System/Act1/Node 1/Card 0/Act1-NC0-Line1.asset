@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
   m_Name: Act1-NC0-Line1
   m_EditorClassIdentifier: 
-  speakerName: Zaldy
+  speakerName: Adit
   text: Iyaa, kok tahu?
   charSprite: {fileID: 8009163328989036174, guid: af5e33fe809cb473caa10906a5b6731e, type: 3}
   targetImage: 0

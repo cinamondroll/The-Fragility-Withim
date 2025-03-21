@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act1-Node1-Line2
   m_EditorClassIdentifier: 
   speakerName: Andre
-  text: Adit bukan??
+  text: Zaldy bukan??
   charSprite: {fileID: -3918315708070997289, guid: 29ec81ad5b94d4d659651d71ef9486e6, type: 3}
   targetImage: 1
   spokenText: {fileID: 0}

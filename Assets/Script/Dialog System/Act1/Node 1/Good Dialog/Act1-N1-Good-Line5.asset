@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
   m_Name: Act1-N1-Good-Line5
   m_EditorClassIdentifier: 
-  speakerName: Zaldy
+  speakerName: Adit
   text: Ohh pantesann aku ga inget..
   charSprite: {fileID: 8136455830139807345, guid: d97da834661b54af1801f236b9ac221a, type: 3}
   targetImage: 0
