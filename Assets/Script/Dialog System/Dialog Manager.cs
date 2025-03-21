@@ -480,6 +480,7 @@ public class DialogManager : MonoBehaviour
     {
         inChoice = false;
         GameObject.Find("chatCore").SetActive(false);
+        PlayerPrefs.SetFloat("anxStat", 49);
         dialogText.text = "";
         speakerNametext.text = "";
         await Task.Delay(1000);
