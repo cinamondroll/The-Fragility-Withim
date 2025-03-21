@@ -59,7 +59,7 @@ public class DialogManager : MonoBehaviour
     {
         anxStat = PlayerPrefs.GetFloat("anxStat");
 
-        StartCoroutine(shapeVolume());
+        shapeVolume();
     }
     void Start()
     {
@@ -94,7 +94,7 @@ public class DialogManager : MonoBehaviour
                 EndDialog();
                 PlayerPrefs.SetFloat("anxStat", anxStat);
                 if (SceneTransitionManager.instance != null) SceneTransitionManager.instance.LoadSceneWithFade(currentNode.nextScene);
-                
+
                 //SceneManager.LoadScene(currentNode.nextScene);
             }
             else
@@ -227,10 +227,9 @@ public class DialogManager : MonoBehaviour
             progresButton.interactable = false;
         }
     }
-    public IEnumerator HideCard(String name, float effect, int nextNodeIndex)
+    public async void HideCard(String name, float effect, int nextNodeIndex)
     {
-        Debug.Log(effect);
-        StartCoroutine(shapeVolume());
+        shapeVolume();
         isChosed = true;
         timer.SetText("");
         int chosedCArdIndex = 0;
@@ -243,31 +242,31 @@ public class DialogManager : MonoBehaviour
                 chosedCArdIndex = i;
                 continue;
             }
-            StartCoroutine(Fade(Deck[i].name));
-            yield return null;
+            Fade(Deck[i].name);
+            await Task.Yield();
         }
         nextNode = currentNode.nextNodeIndex(nextNodeIndex);
 
         if (name != "")
         {
             Deck[chosedCArdIndex].GetComponent<CardScript>().rePosition();
-            StartCoroutine(shapeVolume());
+            shapeVolume();
         }
         else
         {
             anxStat -= 5;
-            StartCoroutine(shapeVolume());
+            shapeVolume();
         }
     }
 
 
-    IEnumerator Fade(String name)
+    async void Fade(String name)
     {
         if (name == "")
         {
 
         }
-        else
+        else if(name != "")
         {
             float t = 0;
             while (t < 0.2f)
@@ -278,14 +277,14 @@ public class DialogManager : MonoBehaviour
                 Color fadeColor = spriteRenderer.color;
                 fadeColor.a = Mathf.Lerp(1f, 0, t / 0.2f);
                 spriteRenderer.color = fadeColor;
-                yield return null;
+                await Task.Yield();
             }
             GameObject.Find(name).SetActive(false);
         }
 
     }
 
-    public IEnumerator ShuffleCard()
+    public async Task ShuffleCard()
     {
         audioSource.clip = shuffleAudio;
         audioSource.Play();
@@ -310,10 +309,10 @@ public class DialogManager : MonoBehaviour
             Deck[counter].GetComponent<CardScript>().setNextNode(i);
             counter++;
         }
-        yield return null;
+        await Task.Yield();
     }
 
-    IEnumerator GetIn()
+    async void GetIn()
     {
         foreach (var card in Deck)
         {
@@ -321,12 +320,12 @@ public class DialogManager : MonoBehaviour
             card.SetActive(true);
             SpriteRenderer spriteRenderer = GameObject.Find(card.name).GetComponent<SpriteRenderer>();
             spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 0);
-            StartCoroutine(FadeIn(card.name));
-            yield return null;
+            FadeIn(card.name);
+            await Task.Yield();
         }
     }
 
-    IEnumerator FadeIn(String name)
+    async void FadeIn(String name)
     {
         if (name != "")
         {
@@ -339,7 +338,7 @@ public class DialogManager : MonoBehaviour
                 Color fadeColor = spriteRenderer.color;
                 fadeColor.a = Mathf.Lerp(0f, 1, t / 0.5f);
                 spriteRenderer.color = fadeColor;
-                yield return null;
+                await Task.Yield();
             }
         }
     }
@@ -363,16 +362,16 @@ public class DialogManager : MonoBehaviour
     }
 
 
-    public void Reshuffle()
+    public async Task Reshuffle()
     {
         anxStat += 3;
-        StartCoroutine(shapeVolume());
+        shapeVolume();
         time -= 2;
-        StartCoroutine(ShuffleCard());
-        StartCoroutine(GetIn());
+        await ShuffleCard();
+        GetIn();
     }
 
-    public IEnumerator shapeVolume()
+    public async void shapeVolume()
     {
         float time = 0;
         while (time < 1f)
@@ -396,7 +395,7 @@ public class DialogManager : MonoBehaviour
             {
                 volume.GetComponent<Image>().color = Color.red;
             }
-            yield return null;
+            await Task.Yield();
         }
 
     }
@@ -409,11 +408,10 @@ public class DialogManager : MonoBehaviour
         time = 10;
         inChoice = true;
         choicePanel.SetActive(true);
-        StartCoroutine(ShuffleCard());
-        await Task.Delay(100);
+        await ShuffleCard();
         Uicard.SetActive(true);
         panel.SetActive(true);
-        StartCoroutine(GetIn());
+        GetIn();
 
     }
 
@@ -427,7 +425,8 @@ public class DialogManager : MonoBehaviour
             int a = 2000;
             if (isTimeOver) a = 0;
             await Task.Delay(a);
-            StartCoroutine(Fade(cardName));
+            Debug.Log(cardName);
+            Fade(cardName);
             await Task.Delay(500);
             panel.SetActive(false);
             Uicard.SetActive(false);
@@ -443,7 +442,7 @@ public class DialogManager : MonoBehaviour
             if (time < 0)
             {
                 inChoice = false;
-                StartCoroutine(HideCard("", 0f, 12));
+                HideCard("", 0f, 12);
                 isTimeOver = true;//parameter terakhir digunakan untuk indext next node diam
             }
             time -= Time.deltaTime;

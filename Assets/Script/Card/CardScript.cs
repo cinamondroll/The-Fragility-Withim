@@ -94,7 +94,7 @@ public class CardScript : MonoBehaviour
             audioSource.Play();
             Debug.Log(stat);
             gameManager.GetComponent<DialogManager>().setAnxStat(stat);
-            StartCoroutine(gameManager.GetComponent<DialogManager>().HideCard(this.gameObject.name, 0, nextNodeIndex));
+            gameManager.GetComponent<DialogManager>().HideCard(this.gameObject.name, 0, nextNodeIndex);
             StartCoroutine(MoveCenter(ChosedCardPosition.position));
             audioSource.clip = audioChosed;
             audioSource.PlayDelayed(1.2f);
