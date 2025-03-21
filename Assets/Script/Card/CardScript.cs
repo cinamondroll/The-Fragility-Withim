@@ -156,7 +156,7 @@ public class CardScript : MonoBehaviour
 
     }
 
-    public async Task rePosition()
+    public async void rePosition()
     {
         await Task.Delay(2300);
         Onclick = false;

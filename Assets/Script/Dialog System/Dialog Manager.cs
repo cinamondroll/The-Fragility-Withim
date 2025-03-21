@@ -54,6 +54,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource audioType;
     String imageBefore = "";
+    bool isOver = false;
 
     void Awake()
     {
@@ -91,8 +92,8 @@ public class DialogManager : MonoBehaviour
         {
             if (currentNode.nextNode == null)
             {
-                EndDialog();
                 PlayerPrefs.SetFloat("anxStat", anxStat);
+                EndDialog();
                 if (SceneTransitionManager.instance != null) SceneTransitionManager.instance.LoadSceneWithFade(currentNode.nextScene);
 
                 //SceneManager.LoadScene(currentNode.nextScene);
@@ -254,7 +255,7 @@ public class DialogManager : MonoBehaviour
         }
         else
         {
-            anxStat -= 5;
+            anxStat += 5;
             shapeVolume();
         }
         Debug.Log("Hide Card Done");
@@ -270,26 +271,17 @@ public class DialogManager : MonoBehaviour
         else if (name != "")
         {
             float t = 0;
-            try
-            {
-                while (t < 0.2f)
-                {
-
-                    t += Time.deltaTime;
-                    SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
-                    spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
-                    Color fadeColor = spriteRenderer.color;
-                    fadeColor.a = Mathf.Lerp(1f, 0, t / 0.2f);
-                    spriteRenderer.color = fadeColor;
-                    await Task.Yield();
-                }
-            }
-            catch (System.Exception)
+            while (t < 0.2f)
             {
 
-                throw new System.Exception();
+                t += Time.deltaTime;
+                SpriteRenderer spriteRenderer = GameObject.Find(name).GetComponent<SpriteRenderer>();
+                spriteRenderer.color = new Color(0.4339623f, 0.4339623f, 0.4339623f, 1);
+                Color fadeColor = spriteRenderer.color;
+                fadeColor.a = Mathf.Lerp(1f, 0, t / 0.2f);
+                spriteRenderer.color = fadeColor;
+                await Task.Yield();
             }
-
             GameObject.Find(name).SetActive(false);
         }
 
@@ -361,10 +353,6 @@ public class DialogManager : MonoBehaviour
             if (anxStat < 0)
             {
                 anxStat = 0;
-            }
-            if (anxStat > 100)
-            {
-                anxStat = 100;
             }
             SceneTransitionManager.instance.LoadSceneWithFade("SC Chapter 1");
             //SceneManager.LoadScene("SC Chapter 1");
@@ -471,11 +459,11 @@ public class DialogManager : MonoBehaviour
                 audioSource.Play();
             }
         }
-        if (anxStat >= 100)
+        if (anxStat >= 100 && !isOver)
         {
-            anxStat = 1;
-            GameOver();
             timer.SetText("");
+            isOver = true;
+            GameOver();
         }
     }
     //END DIALOG
@@ -488,11 +476,12 @@ public class DialogManager : MonoBehaviour
 
     }
 
-    void GameOver()
+    async void GameOver()
     {
         GameObject.Find("chatCore").SetActive(false);
         dialogText.text = "";
         speakerNametext.text = "";
+        await Task.Delay(1000);
         choicePanel.SetActive(false);
         panel.SetActive(false);
         PopUpGameOver.SetActive(true);
