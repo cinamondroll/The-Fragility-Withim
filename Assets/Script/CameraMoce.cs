@@ -24,11 +24,11 @@ public class CameraMoce : MonoBehaviour
     void Update()
     {
         
-        if (transform.position.x < 13&& transform.position.x > -13)
+        if (transform.position.x < 20&& transform.position.x > -13)
         {
         transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
         }
-        else if (player.position.x < 13 && player.position.x > -13)
+        else if (player.position.x < 20 && player.position.x > -13)
         {
         transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
         }
