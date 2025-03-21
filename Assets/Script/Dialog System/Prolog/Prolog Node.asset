@@ -15,5 +15,22 @@ MonoBehaviour:
   lines:
   - {fileID: 11400000, guid: d7a313cde933042db99749a6a6dee739, type: 2}
   - {fileID: 11400000, guid: b8e6ba1ffe746448b8739863050f2d78, type: 2}
+  - {fileID: 11400000, guid: cdf21b4602ebe4f9f9b7b1cf5dac42eb, type: 2}
+  - {fileID: 11400000, guid: 3b9587d2956d149e5b0fcf56ef97a56f, type: 2}
+  - {fileID: 11400000, guid: bfabfb4aba5964ae1816ab8ecdf87210, type: 2}
+  - {fileID: 11400000, guid: 9309a4013cee24881928a74fb8640840, type: 2}
+  - {fileID: 11400000, guid: 4d39d594f70194df8b8511edd8e06fc6, type: 2}
+  - {fileID: 11400000, guid: cbf3ec52402804032894ef9d8c81ef62, type: 2}
+  - {fileID: 11400000, guid: 9efbfbc992c854647b79039f89c6f4a1, type: 2}
+  - {fileID: 11400000, guid: 0a30ace5b59aa422c82e445ad3ef059e, type: 2}
+  - {fileID: 11400000, guid: 7a09f89d17e7b4c55bfd6c1dc52da735, type: 2}
+  - {fileID: 11400000, guid: 04e4b27cf08a248bfa1d509504bed398, type: 2}
+  - {fileID: 11400000, guid: 9c4afbb7aa28f48d992ce5b04a7abc60, type: 2}
+  - {fileID: 11400000, guid: c9579c765e5a449c08004d61ee578b7a, type: 2}
+  - {fileID: 11400000, guid: 3159b1f33a57c4e0a81ed1803c934b44, type: 2}
   choices: []
   nextScene: Start Screen
+  nextNode: {fileID: 0}
+  condition: []
+  stat: []
+  AssetCard: []
