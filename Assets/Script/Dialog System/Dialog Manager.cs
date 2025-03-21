@@ -47,7 +47,7 @@ public class DialogManager : MonoBehaviour
     public GameObject shuffleBtn;
     float time = 10;
     bool isTimeOver = false;
-    [SerializeField] GameObject PopUpGameOver;
+    //[SerializeField] GameObject PopUpGameOver;
     [SerializeField] AudioClip audioClick;
     [SerializeField] AudioClip audioTimer;
     [SerializeField] AudioClip shuffleAudio;
@@ -478,13 +478,15 @@ public class DialogManager : MonoBehaviour
 
     async void GameOver()
     {
+        inChoice = false;
         GameObject.Find("chatCore").SetActive(false);
         dialogText.text = "";
         speakerNametext.text = "";
         await Task.Delay(1000);
         choicePanel.SetActive(false);
         panel.SetActive(false);
-        PopUpGameOver.SetActive(true);
+        //PopUpGameOver.SetActive(true);
+        SceneTransitionManager.instance.LoadSceneWithFade("Ending");
     }
     public void Restart()
     {
