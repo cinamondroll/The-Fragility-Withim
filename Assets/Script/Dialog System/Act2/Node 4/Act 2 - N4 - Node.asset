@@ -59,5 +59,29 @@ MonoBehaviour:
   - 200
   - 200
   - 200
-  stat: []
-  AssetCard: []
+  stat:
+  - 5
+  - -5
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
+  - -5
+  - -5
+  - -5
+  - -5
+  - -5
+  AssetCard:
+  - {fileID: 2955480028591009419, guid: 05bff6aed862d446e89e8d622d9362dd, type: 3}
+  - {fileID: -2364888156558832470, guid: 7676918c3a7d542a1a99eb14c314e34d, type: 3}
+  - {fileID: 6873709926976877470, guid: e3a712f54cfef4156a0a4c14530f1285, type: 3}
+  - {fileID: 6267877490403100682, guid: 1c608c86dff40439186a4680c76db6f4, type: 3}
+  - {fileID: -7778795951880550537, guid: 37be72c6a09914da2a079845438279fa, type: 3}
+  - {fileID: 2092637495489872628, guid: f6c337ade8fb2474b8fe9264f975eb23, type: 3}
+  - {fileID: -5939931195976395598, guid: ef66399046566466eb367665085e9691, type: 3}
+  - {fileID: -21404136045787802, guid: bf350a7cfdc5b45da8c807315b39ce1f, type: 3}
+  - {fileID: -6708657765670819010, guid: 415c03cb050b34933b4269092f709f81, type: 3}
+  - {fileID: 553811029284757191, guid: 0950e35767e5a49a284519af30a45222, type: 3}
+  - {fileID: 3841740175217350503, guid: 93bac0af0736f4b2ca9cfd52c31fa7cf, type: 3}
+  - {fileID: -2025284254873421996, guid: e8ff71432581f4af29c65b73bc382fce, type: 3}
