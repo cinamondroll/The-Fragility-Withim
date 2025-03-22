@@ -2738,9 +2738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f70b7f6009c4eaebf28707128762aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeImage: {fileID: 2147261747}
   fadeDuration: 1
-  canvas: {fileID: 745341954}
 --- !u!4 &1675895533
 Transform:
   m_ObjectHideFlags: 0
@@ -2927,8 +2925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.75, y: -10.97}
-  m_SizeDelta: {x: 1923.5, y: 1177.94}
+  m_AnchoredPosition: {x: 31.26, y: 25}
+  m_SizeDelta: {x: 2149.46, y: 1292.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1853658952
 MonoBehaviour:
@@ -2950,7 +2948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1075586800689080980, guid: 79ed09c126555a446b96e763e6a4a7c7, type: 3}
+  m_Sprite: {fileID: -9221610155515603621, guid: 3cc4e68ef59f64ee8b038da5b6d6ccfa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act 2 - Line 1
   m_EditorClassIdentifier: 
   speakerName: 
-  text: Dan kamu pada akhirnya memilih untuk perkenalan terakhir
+  text: Dan kamu pada akhirnya memilih untuk perkenalan terakhir)
   charSprite: {fileID: 0}
   targetImage: 0
   spokenText: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Act 2 - Line
   m_EditorClassIdentifier: 
   speakerName: 
-  text: Semua orang sibuk memperkenalkan diri....
+  text: (Semua orang sibuk memperkenalkan diri....
   charSprite: {fileID: 0}
   targetImage: 0
   spokenText: {fileID: 0}
