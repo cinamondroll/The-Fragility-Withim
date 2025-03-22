@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e847a9be7fa4761b5b8cde57e5c620, type: 3}
-  m_Name: Act 2 - N4 - Good - Line 3
+  m_Name: Act 2 - Line
   m_EditorClassIdentifier: 
-  speakerName: Adit
-  text: Yang solo player gitu deh
-  charSprite: {fileID: 8986602462079563463, guid: cdb494cca56624360b4c97959def9463, type: 3}
+  speakerName: 
+  text: Semua orang sibuk memperkenalkan diri....
+  charSprite: {fileID: 0}
   targetImage: 0
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
