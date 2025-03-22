@@ -3049,12 +3049,13 @@ MonoBehaviour:
   voiceAudioSource: {fileID: 8300000, guid: 9c1d19985c2bb4645a4ca422dfd30be8, type: 3}
   effectAudioSource: {fileID: 8300000, guid: 9c1d19985c2bb4645a4ca422dfd30be8, type: 3}
   textSpeed: 0.05
-  shuffleBtn: {fileID: 33945638}
   audioClick: {fileID: 8300000, guid: 7b6cefda00b8ac34996169d5ac7be686, type: 3}
   audioTimer: {fileID: 8300000, guid: 75529e35708f81d4cae0cddaccf7897b, type: 3}
   shuffleAudio: {fileID: 8300000, guid: 42917b19f77f41c4286f734d85b1c66c, type: 3}
   audioSource: {fileID: 1999358268}
   audioType: {fileID: 1999358269}
+  shuffleBtn: {fileID: 33945638}
+  NextScene: SC Chapter 1
 --- !u!82 &1999358268
 AudioSource:
   m_ObjectHideFlags: 0

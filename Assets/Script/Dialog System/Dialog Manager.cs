@@ -37,9 +37,15 @@ public class DialogManager : MonoBehaviour
     [Header("Audio")]
     public AudioClip voiceAudioSource;
     public AudioClip effectAudioSource;
+    [SerializeField] float textSpeed = 0.05f;
+    [SerializeField] AudioClip audioClick;
+    [SerializeField] AudioClip audioTimer;
+    [SerializeField] AudioClip shuffleAudio;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioType;
 
     [Header("Setting")]
-    [SerializeField] float textSpeed = 0.05f;
+    
     //[SerializeField] string NextSceneDialog;
     DialogNode currentNode;
     int currentLineIndex = 0;
@@ -47,12 +53,11 @@ public class DialogManager : MonoBehaviour
     public GameObject shuffleBtn;
     float time = 10;
     bool isTimeOver = false;
+    [SerializeField] private String NextScene;
     //[SerializeField] GameObject PopUpGameOver;
-    [SerializeField] AudioClip audioClick;
-    [SerializeField] AudioClip audioTimer;
-    [SerializeField] AudioClip shuffleAudio;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioSource audioType;
+
+    
+    
     String imageBefore = "";
     bool isOver = false;
 
@@ -258,7 +263,6 @@ public class DialogManager : MonoBehaviour
             anxStat += 5;
             shapeVolume();
         }
-        Debug.Log("Hide Card Done");
     }
 
 
@@ -323,7 +327,6 @@ public class DialogManager : MonoBehaviour
             FadeIn(card.name);
             await Task.Yield();
         }
-        Debug.Log("Get In Done");
     }
 
     async void FadeIn(String name)
@@ -341,24 +344,8 @@ public class DialogManager : MonoBehaviour
                 spriteRenderer.color = fadeColor;
                 await Task.Yield();
             }
-            Debug.Log("Get In Done");
         }
     }
-
-    void FixedUpdate()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            PlayerPrefs.SetFloat("anxStat", anxStat);
-            if (anxStat < 0)
-            {
-                anxStat = 0;
-            }
-            SceneTransitionManager.instance.LoadSceneWithFade("SC Chapter 1");
-            //SceneManager.LoadScene("SC Chapter 1");
-        }
-    }
-
 
     public async Task Reshuffle()
     {
@@ -423,7 +410,6 @@ public class DialogManager : MonoBehaviour
             int a = 2000;
             if (isTimeOver) a = 0;
             await Task.Delay(a);
-            Debug.Log(cardName);
             Fade(cardName);
             await Task.Delay(500);
             panel.SetActive(false);
@@ -491,10 +477,11 @@ public class DialogManager : MonoBehaviour
     }
     public void Restart()
     {
-        SceneTransitionManager.instance.LoadSceneWithFade("SC Chapter 1");
-        //SceneManager.LoadScene("SC Chapter 1");
         PlayerPrefs.SetFloat("anxStat", 80);
         PlayerPrefs.SetFloat("x", 0f);
+        PlayerPrefs.SetString("sceneBefore", "chat");
+        SceneTransitionManager.instance.LoadSceneWithFade(NextScene);
+        //SceneManager.LoadScene("SC Chapter 1");
     }
     public void Menu()
     {

@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     Coroutine walkss;
     public GameObject pause;
     bool isOpenPouse = false;
+    [SerializeField] GameObject CutScene;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -26,14 +27,18 @@ public class Player : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
+        float x = PlayerPrefs.GetFloat("x");
+        float y = PlayerPrefs.GetFloat("y");
+        string tes=PlayerPrefs.GetString("sceneBefore");
+        Debug.Log("a");
+        if(tes.Equals("Chapter Choice")) CutScene.SetActive(true);
+        transform.position = new Vector3(x, y, -5);
+        anxStat = PlayerPrefs.GetFloat("anxStat");
+        shapeVolume();
     }
     void Start()
     {
-        float x = PlayerPrefs.GetFloat("x");
-        float y = PlayerPrefs.GetFloat("y");
-        transform.position = new Vector3(x, -0.29f, -5);
-        anxStat = PlayerPrefs.GetFloat("anxStat");
-        shapeVolume();
+        
     }
 
     // Update is called once per frame
@@ -46,6 +51,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            CutScene.SetActive(false);
             isAnimate = false;
         }
         if (Input.GetKeyDown(KeyCode.Escape) && !isOpenPouse)

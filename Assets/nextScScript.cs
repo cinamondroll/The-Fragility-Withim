@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class nextScScript : MonoBehaviour
 {
     public GameObject Panel;
+    [SerializeField] private int hasChat;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,8 @@ public class nextScScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        hasChat=PlayerPrefs.GetInt("Andre");
+        if (other.gameObject.tag == "Player"&&hasChat==1)
         {
             Panel.SetActive(true);
             //SceneManager.LoadScene("Main Scene");
@@ -34,7 +36,8 @@ public class nextScScript : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D other)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        hasChat=PlayerPrefs.GetInt("Andre");
+        if (Input.GetKeyDown(KeyCode.Return)&&hasChat==1)
         {
             SceneManager.LoadScene("SC Farhan");
         }

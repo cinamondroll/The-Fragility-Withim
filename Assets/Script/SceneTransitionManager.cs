@@ -15,7 +15,6 @@ public class SceneTransitionManager : MonoBehaviour
     void Awake()
     {
         instance = this;
-        Debug.Log("Awake");
         canvas.SetActive(true);
     }
     void Start()

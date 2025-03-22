@@ -31,10 +31,13 @@ public class CCManager : MonoBehaviour
 
     public void loadCH(string gameObject)
     {
-        SceneManager.LoadScene(gameObject);
-        PlayerPrefs.SetFloat("x", 0f);
-        PlayerPrefs.SetFloat("y", -1.3f);
+        PlayerPrefs.SetFloat("x", -5.21f);
+        PlayerPrefs.SetFloat("y", -0.8514704f);
         PlayerPrefs.SetFloat("anxStat", 80);
+        PlayerPrefs.SetInt("Andre", 0);
+        PlayerPrefs.SetInt("Farhan", 0);
+        PlayerPrefs.SetString("sceneBefore", "Chapter Choice");
+        SceneTransitionManager.instance.LoadSceneWithFade(gameObject);
 
     }
 
