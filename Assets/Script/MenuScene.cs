@@ -46,6 +46,9 @@ public class MenuScene : MonoBehaviour
         if (lemariButton != null)
         {
             lemariButton.onClick.AddListener(inventory);
+        }if (mute != null)
+        {
+            mute.onClick.AddListener(Mute);
         }
 
     }
@@ -80,8 +83,16 @@ public class MenuScene : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    // void Mute(){
-    //     if(isMute)
+    void Mute(){
+        if(!isMute){
+            song.Stop();
+            isMute=true;
+            mute.GetComponent<Image>().sprite = volume2;
+        }else{
+            song.Play();
+            isMute=false;
+            mute.GetComponent<Image>().sprite = volume;
+        }
 
-    // }
+    }
 }

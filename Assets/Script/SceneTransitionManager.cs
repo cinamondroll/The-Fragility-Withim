@@ -8,14 +8,14 @@ public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager instance { get; private set; }
 
-    [SerializeField] Image fadeImage;
+    SpriteRenderer fadeImage;
     [SerializeField] float fadeDuration = 1.0f;
-    public GameObject canvas;
 
     void Awake()
     {
+        
         instance = this;
-        canvas.SetActive(true);
+        fadeImage= gameObject.GetComponent<SpriteRenderer>();
     }
     void Start()
     {

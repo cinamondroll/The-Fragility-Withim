@@ -27,8 +27,8 @@ public class Pause : MonoBehaviour
     }
 
     public void exit()
-    {
-
-        SceneManager.LoadScene("Start Screen");
+    {   
+        Time.timeScale = 1;
+        SceneTransitionManager.instance.LoadSceneWithFade("Start Screen");
     }
 }
