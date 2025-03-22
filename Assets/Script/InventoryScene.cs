@@ -2,12 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
+using System.Threading.Tasks;
 
 public class InventoryScene : MonoBehaviour
 {
     [SerializeField] Button exitButton;
     [SerializeField] Button saveButton;
-     [SerializeField] String Menu = "Start Screen";
+    [SerializeField] String Menu = "Start Screen";
+    [SerializeField] GameObject UnvailableText;
     void Start()
     {
         
@@ -16,8 +19,16 @@ public class InventoryScene : MonoBehaviour
     {
         SceneManager.LoadScene(Menu);
     }
-    public void SaveInven()
+    
+    public async void UnvButtonFun ()
     {
-
+        await Unvailable();
     }
+    
+    async Task Unvailable(){
+        UnvailableText.SetActive(true);
+        await Task.Delay(2000);
+        UnvailableText.SetActive(false);
+    }
+    
 }
