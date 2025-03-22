@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c3dc8871349d44233b33690f9a8f78eb, type: 2}
   - {fileID: 11400000, guid: e593e50f3eb2c4da19225bff2e477804, type: 2}
   choices: []
-  nextScene: SC Chapter 1
+  nextScene: SC Farhan
   nextNode: {fileID: 0}
   condition: []
   stat: []

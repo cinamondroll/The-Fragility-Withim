@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card 2 - Line 1
   m_EditorClassIdentifier: 
   speakerName: Adit
-  text: H-halo, ini kelompok tiga bukan ya?
+  text: Halo, maaf ini kelompok tiga ya?
   charSprite: {fileID: 8009163328989036174, guid: af5e33fe809cb473caa10906a5b6731e, type: 3}
   targetImage: 0
   spokenText: {fileID: 0}

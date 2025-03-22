@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7be2d601b9b84d00884df53e2bd5089, type: 2}
   - {fileID: 11400000, guid: cf3fe2c49228e4c8fba7460cab63d432, type: 2}
   choices: []
-  nextScene: SC Chapter 1
+  nextScene: SC Farhan
   nextNode: {fileID: 0}
   condition: []
   stat: []
