@@ -479,7 +479,7 @@ public class DialogManager : MonoBehaviour
     async void GameOver()
     {
         inChoice = false;
-        PlayerPrefs.SetFloat("anxStat", 49);
+        PlayerPrefs.SetFloat("anxStat", anxStat);
         GameObject.Find("chatCore").SetActive(false);
         dialogText.text = "";
         speakerNametext.text = "";

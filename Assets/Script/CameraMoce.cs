@@ -13,6 +13,11 @@ public class CameraMoce : MonoBehaviour
     private float maxZoom = 5f;
     private float velocity = 0f;
     private float smoothTime = 0.25f;
+    [SerializeField] private float maxMoveCam;
+    [SerializeField] private float minMoveCam;
+    [SerializeField] private float MaxPlayerMove;
+    [SerializeField] private float MinPlayerMove;
+
     [SerializeField] private Camera cam;
 
     void Start()
@@ -23,25 +28,24 @@ public class CameraMoce : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (transform.position.x < 20&& transform.position.x > -13)
-        {
-        transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
-        }
-        else if (player.position.x < 20 && player.position.x > -13)
-        {
-        transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
-        }
-        
-    }
 
-    void FixedUpdate()
-    {   
-        
+        if (transform.position.x < maxMoveCam && transform.position.x > minMoveCam)
+        {
+            transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
+        }
+        else if (player.position.x < MaxPlayerMove && player.position.x > MinPlayerMove)
+        {
+            transform.position = new Vector3(player.position.x, transform.position.y, transform.position.z);
+        }
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         zoom -= scroll * zoomMultiplier;
         zoom = Mathf.Clamp(zoom, minZoom, maxZoom);
         cam.orthographicSize = Mathf.SmoothDamp(cam.orthographicSize, zoom, ref velocity, smoothTime);
-        transform.position = new Vector3(transform.position.x, cam.orthographicSize*0.18f, transform.position.z);    
+        transform.position = new Vector3(transform.position.x, cam.orthographicSize * 0.18f, transform.position.z);
+
+    }
+
+    void FixedUpdate()
+    {
     }
 }
