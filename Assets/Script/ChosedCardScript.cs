@@ -9,7 +9,6 @@ public class ChosedCardScript : MonoBehaviour
         Renderer chosedCard = this.GetComponent<Renderer>();
         chosedCard.material = card.GetComponent<Renderer>().material;
         chosedCard.enabled=card.GetComponent<Renderer>().enabled;
-       
 
     }
 

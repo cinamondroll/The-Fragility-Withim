@@ -45,7 +45,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private AudioSource audioType;
 
     [Header("Setting")]
-    
+
     //[SerializeField] string NextSceneDialog;
     DialogNode currentNode;
     int currentLineIndex = 0;
@@ -56,8 +56,8 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private String NextScene;
     //[SerializeField] GameObject PopUpGameOver;
 
-    
-    
+
+
     String imageBefore = "";
     bool isOver = false;
 
@@ -99,6 +99,7 @@ public class DialogManager : MonoBehaviour
             {
                 PlayerPrefs.SetFloat("anxStat", anxStat);
                 EndDialog();
+                PlayerPrefs.SetString("sceneBefore", "chat");
                 if (SceneTransitionManager.instance != null) SceneTransitionManager.instance.LoadSceneWithFade(currentNode.nextScene);
 
                 //SceneManager.LoadScene(currentNode.nextScene);

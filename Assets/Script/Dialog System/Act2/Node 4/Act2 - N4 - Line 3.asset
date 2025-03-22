@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Adit
   text: Hobi?
   charSprite: {fileID: 8009163328989036174, guid: af5e33fe809cb473caa10906a5b6731e, type: 3}
-  targetImage: 1
+  targetImage: 0
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1

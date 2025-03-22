@@ -2,6 +2,7 @@ using System.Collections;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -20,38 +21,39 @@ public class Player : MonoBehaviour
     public GameObject pause;
     bool isOpenPouse = false;
     [SerializeField] GameObject CutScene;
+    PlayableDirector playableDirector;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Awake()
+    {    
+    }
+    void Start()
     {
+        playableDirector = CutScene.GetComponent<PlayableDirector>();
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         float x = PlayerPrefs.GetFloat("x");
         float y = PlayerPrefs.GetFloat("y");
         string tes=PlayerPrefs.GetString("sceneBefore");
-        Debug.Log("a");
-        if(tes.Equals("Chapter Choice")) CutScene.SetActive(true);
+        CutScene.SetActive(true);
+        if(tes.Equals("Chapter Choice")) playableDirector.Play();
         transform.position = new Vector3(x, y, -5);
         anxStat = PlayerPrefs.GetFloat("anxStat");
         shapeVolume();
-    }
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (t < 4.6f)
+        if (playableDirector.state == PlayState.Playing)
         {
-            t += Time.deltaTime;
+            isAnimate = true;
         }
         else
         {
             CutScene.SetActive(false);
+            playableDirector.Stop();
             isAnimate = false;
         }
         if (Input.GetKeyDown(KeyCode.Escape) && !isOpenPouse)
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour
     }
 
     [System.Obsolete]
-    async void FixedUpdate()
+    void FixedUpdate()
     {
         if (Input.GetAxis("Horizontal") != 0 && !isAnimate)
         {

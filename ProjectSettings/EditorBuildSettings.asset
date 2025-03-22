@@ -21,11 +21,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SC Chapter 1.unity
     guid: fca115796c9f2417d806577bd60cf74e
   - enabled: 1
+    path: Assets/Scenes/SC Farhan.unity
+    guid: 7ad37b73db1857c46a5458b7b2b4691a
+  - enabled: 1
     path: Assets/Scenes/chat.unity
     guid: bf1c5b310622042039790488b8bc9a6b
   - enabled: 1
     path: Assets/Scenes/chat 1.unity
-    guid: 7039c10799bcc4e69823deaed06b690d
+    guid: 8d3fa9c21ca53df48bb66fc93f82569e
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 50c460ac2e7954b78a094d3d496dbcc3

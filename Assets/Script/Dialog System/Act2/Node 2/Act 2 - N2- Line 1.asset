@@ -15,7 +15,7 @@ MonoBehaviour:
   speakerName: Farhan
   text: Okee, tinggal kamu doang nih. Ayo perkenalkan dirimu.
   charSprite: {fileID: -1270073006212057085, guid: 2a88a2ac81ab9458a9c45231f328c700, type: 3}
-  targetImage: 0
+  targetImage: 1
   spokenText: {fileID: 0}
   moorOrEffect: {fileID: 0}
   durasi: 1

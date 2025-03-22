@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 522434061327111212, guid: a352b2893c411b94395362ae00baef23, type: 3}
+  m_Sprite: {fileID: 1075586800689080980, guid: 79ed09c126555a446b96e763e6a4a7c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3016,7 +3016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1999358267}
-  startNode: {fileID: 11400000, guid: 72628a78cf3ae445d9d6bbcad3c7038d, type: 2}
+  startNode: {fileID: 11400000, guid: e51e94c184a454d36bb731c71790de41, type: 2}
 --- !u!114 &1999358267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3055,7 +3055,7 @@ MonoBehaviour:
   audioSource: {fileID: 1999358268}
   audioType: {fileID: 1999358269}
   shuffleBtn: {fileID: 33945638}
-  NextScene: SC Chapter 1
+  NextScene: SC Farhan
 --- !u!82 &1999358268
 AudioSource:
   m_ObjectHideFlags: 0
