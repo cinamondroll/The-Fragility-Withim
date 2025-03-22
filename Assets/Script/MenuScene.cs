@@ -19,6 +19,11 @@ public class MenuScene : MonoBehaviour
     public GameObject PopUpExit;
     public GameObject PopUpTentang;
     private AudioSource clickaudio;
+    public Button mute;
+    public Sprite volume;
+    public Sprite volume2;
+    public AudioSource song;
+    bool isMute=false;
 
     void Awake()
     {
@@ -75,5 +80,8 @@ public class MenuScene : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    // void Mute(){
+    //     if(isMute)
 
+    // }
 }
