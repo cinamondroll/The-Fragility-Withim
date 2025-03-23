@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card 8 - Node
   m_EditorClassIdentifier: 
   lines:
-  - {fileID: 11400000, guid: 5acdf75ecec0a45edb4165f39cf4bbe6, type: 2}
+  - {fileID: 11400000, guid: b26a100ed2f5d4b789447cf9b19900ef, type: 2}
   - {fileID: 11400000, guid: c25f8f150a7114824ba23d6ae58b2d52, type: 2}
   choices: []
   nextScene: 

@@ -37,7 +37,7 @@ public class nextScScript : MonoBehaviour
         hasChat=PlayerPrefs.GetInt("Andre");
         if (Input.GetKeyDown(KeyCode.Return)&&hasChat==1)
         {
-            SceneTransitionManager.instance.LoadSceneWithFade("Main Scene");
+            SceneTransitionManager.instance.LoadSceneWithFade("SC Farhan");
         }
     }
 
