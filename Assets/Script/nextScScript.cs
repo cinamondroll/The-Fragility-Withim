@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class nextScScript : MonoBehaviour
 {
@@ -38,7 +37,7 @@ public class nextScScript : MonoBehaviour
         hasChat=PlayerPrefs.GetInt("Andre");
         if (Input.GetKeyDown(KeyCode.Return)&&hasChat==1)
         {
-            SceneManager.LoadScene("SC Farhan");
+            SceneTransitionManager.instance.LoadSceneWithFade("Main Scene");
         }
     }
 

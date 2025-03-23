@@ -15,6 +15,7 @@ public class EndingManager : MonoBehaviour
     {
         if (PlayerPrefs.GetFloat("anxStat") >= 100)
         {
+            PlayerPrefs.SetFloat("anxStat", 80);
             GameOverPopUp.SetActive(true);
         }
         else if (PlayerPrefs.GetFloat("anxStat") < 100 && PlayerPrefs.GetFloat("anxStat") > 50)

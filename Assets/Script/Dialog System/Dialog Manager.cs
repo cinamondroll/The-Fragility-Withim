@@ -54,6 +54,7 @@ public class DialogManager : MonoBehaviour
     float time = 10;
     bool isTimeOver = false;
     [SerializeField] private String NextScene;
+    [SerializeField] private String chatWith;
     //[SerializeField] GameObject PopUpGameOver;
 
 
@@ -474,13 +475,16 @@ public class DialogManager : MonoBehaviour
         choicePanel.SetActive(false);
         panel.SetActive(false);
         //PopUpGameOver.SetActive(true);
+        PlayerPrefs.SetInt(chatWith, 0);
         SceneTransitionManager.instance.LoadSceneWithFade("Ending");
     }
     public void Restart()
     {
         PlayerPrefs.SetFloat("anxStat", 80);
-        PlayerPrefs.SetFloat("x", 0f);
-        PlayerPrefs.SetString("sceneBefore", "chat");
+        PlayerPrefs.DeleteKey("x");
+        PlayerPrefs.DeleteKey("y");
+        PlayerPrefs.SetInt(chatWith, 0);
+
         SceneTransitionManager.instance.LoadSceneWithFade(NextScene);
         //SceneManager.LoadScene("SC Chapter 1");
     }

@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
@@ -49,6 +47,8 @@ public class Player : MonoBehaviour
         if (playableDirector.state == PlayState.Playing)
         {
             isAnimate = true;
+            GameObject.Find("Main Camera").transform.position = new Vector3(-5.21f, 0.9f, -5);
+            transform.position = new Vector3(-5.21f, transform.position.y, -5);
         }
         else
         {

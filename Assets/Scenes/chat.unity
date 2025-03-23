@@ -2963,6 +2963,7 @@ MonoBehaviour:
   audioType: {fileID: 1999358269}
   shuffleBtn: {fileID: 33945638}
   NextScene: SC Chapter 1
+  chatWith: Andre
 --- !u!82 &1999358268
 AudioSource:
   m_ObjectHideFlags: 0

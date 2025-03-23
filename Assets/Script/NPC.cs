@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+
 
 public class NPC : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class NPC : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        isTalked = PlayerPrefs.GetInt(gameObject.name);
+        
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class NPC : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        isTalked = PlayerPrefs.GetInt(gameObject.name);
         if (isTalked == 0)
         {
         Chat.SetActive(true);
