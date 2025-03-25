@@ -71,7 +71,6 @@ public class MenuScene : MonoBehaviour
     }
     public void exitGame()
     {
-        Application.Quit();
     }
 
     public void Open_Popup(GameObject gameObject)
